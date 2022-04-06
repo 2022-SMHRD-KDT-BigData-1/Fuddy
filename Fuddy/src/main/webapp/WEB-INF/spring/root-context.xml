@@ -12,9 +12,9 @@
 			value="com.mysql.jdbc.Driver">
 		</property>
 		<property name="jdbcUrl"
-			value="jdbc:mysql://localhost:3306/mysql"></property>
-		<property name="username" value="root"></property>
-		<property name="password" value="12345"></property>
+			value="jdbc:mysql://project-db-stu.ddns.net:3307/smhrd_3847"></property>
+		<property name="username" value="smhrd_3847"></property>
+		<property name="password" value="3847"></property>
 	</bean>
 
 	<!-- 히카리 CP 설정 -->
