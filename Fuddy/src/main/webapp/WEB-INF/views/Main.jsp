@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,63 +57,88 @@ a.list {
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<!-- 로그인 안했을 때-->
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="Login.do">로그인</a></li>
-				<!-- 로그인 화면으로 주소 바꾸세요 -->
+				<c:choose>
+					<c:when test="${empty info and empty d_info}">
+						<li class="nav-item"><a class="nav-link" aria-current="page"
+							href="Login.do">로그인</a></li>
+						<!-- 로그인 화면으로 주소 바꾸세요 -->
 
-				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="Join.do">회원가입</a></li>
-				<!-- 회원가입 화면으로 주소 바꾸세요 -->
+						<li class="nav-item"><a class="nav-link" aria-current="page"
+							href="Join.do">회원가입</a></li>
+						<!-- 회원가입 화면으로 주소 바꾸세요 -->
+					</c:when>
 
-				<!-- 로그인 했을 때 -->
-				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="#">로그아웃</a></li>
-				<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+					<c:otherwise>
+						<c:choose>
+							<c:when test="${!empty info }">
 
-				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="#">회원관리</a></li>
-				<!-- 회원관리화면으로 주소 바꾸세요 -->
+								<!-- 로그인 했을 때 -->
+								<li class="nav-item"><a class="nav-link"
+									aria-current="page" href="logout.do">로그아웃</a></li>
+								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+								<li class="nav-item"><a class="nav-link"
+									aria-current="page" href="#">마이페이지</a></li>
+								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+								<li class="nav-item"><a class="nav-link"
+									aria-current="page" href="Table.do">문의 게시판</a></li>
+								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+								<li class="nav-item"><a class="nav-link"
+									aria-current="page" href="#">방제 신청</a></li>
+								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+							</c:when>
+							<c:otherwise>
+								<!-- 로그인 했을 때 -->
+								<li class="nav-item"><a class="nav-link"
+									aria-current="page" href="logout.do">로그아웃</a></li>
+								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+								<li class="nav-item"><a class="nav-link"
+									aria-current="page" href="#">회원관리</a></li>
+								<!-- 회원관리화면으로 주소 바꾸세요 -->
 
-				<li class="nav-item"><a class="nav-link" aria-current="page"
-					href="Table.do">문의게시판</a></li>
-				<!-- 문의게시판으로 주소 바꾸세요 -->
+								<li class="nav-item"><a class="nav-link"
+									aria-current="page" href="Table.do">문의게시판</a></li>
+								<!-- 문의게시판으로 주소 바꾸세요 -->
 
-				<!-- 드롭다운 복붙해서 쓰면 됨 -->
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						제원관리 </a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-					</ul></li>
-				<!-- 드롭다운 여기까지 -->
+								<!-- 드롭다운 복붙해서 쓰면 됨 -->
+								<li class="nav-item dropdown"><a
+									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+									role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										제원관리 </a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a class="dropdown-item" href="#">Action</a></li>
+										<li><a class="dropdown-item" href="#">Another action</a></li>
+									</ul></li>
+								<!-- 드롭다운 여기까지 -->
 
-				<!-- 드롭다운 복붙해서 쓰면 됨 -->
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						방제내역관리 </a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-					</ul></li>
-				<!-- 드롭다운 여기까지 -->
+								<!-- 드롭다운 복붙해서 쓰면 됨 -->
+								<li class="nav-item dropdown"><a
+									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+									role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										방제내역관리 </a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a class="dropdown-item" href="#">Action</a></li>
+										<li><a class="dropdown-item" href="#">Another action</a></li>
+									</ul></li>
+								<!-- 드롭다운 여기까지 -->
 
 
-				<!-- 드롭다운 복붙해서 쓰면 됨 -->
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Dropdown </a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-					</ul></li>
-				<!-- 드롭다운 여기까지 -->
+								<!-- 드롭다운 복붙해서 쓰면 됨 -->
+								<li class="nav-item dropdown"><a
+									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+									role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										Dropdown </a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a class="dropdown-item" href="#">Action</a></li>
+										<li><a class="dropdown-item" href="#">Another action</a></li>
+									</ul></li>
+								<!-- 드롭다운 여기까지 -->
+							</c:otherwise>
+						</c:choose>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 		</div>
-		</div>
+
 	</nav>
 	<!-- 네비바 끝 -->
 
@@ -132,13 +157,16 @@ a.list {
 				data-bs-ride="carousel">
 				<div class="carousel-inner">
 					<div class="carousel-item active" data-bs-interval="10000">
-						<img src="resources/image/img01.jpg" class="d-block w-100" alt="...">
+						<img src="resources/image/img01.jpg" class="d-block w-100"
+							alt="...">
 					</div>
 					<div class="carousel-item" data-bs-interval="2000">
-						<img src="resources/image/img02.jpg" class="d-block w-100" alt="...">
+						<img src="resources/image/img02.jpg" class="d-block w-100"
+							alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="resources/image/img03.jpg" class="d-block w-100" alt="...">
+						<img src="resources/image/img03.jpg" class="d-block w-100"
+							alt="...">
 					</div>
 				</div>
 				<button class="carousel-control-prev" type="button"

@@ -1,5 +1,11 @@
 package kr.smhrd.pojo;
 
-public class D_MemberMapper {
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
+public interface D_MemberMapper {
+
+	D_MemberVO dlogin(D_MemberVO vo);
+
+	
 }

@@ -181,7 +181,7 @@
                 글작성
               </button>
             </a>
-            <form class="d-flex">
+            <form  class="d-flex">
               <select
                 class="form-select"
                 style="height: 40px; width: 100px"

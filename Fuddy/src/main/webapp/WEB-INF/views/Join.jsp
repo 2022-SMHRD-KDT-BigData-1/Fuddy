@@ -152,32 +152,23 @@
       <!-- 회원가입 내용 -->
       <h5 style="text-align: center">회원가입</h5>
       <hr />
-      <form action="#" class="was-validated">
+      <form action="joinInsert.do" method="post" class="was-validated">
         <!-- 회원가입 컨트롤로 이동 -->
 
         <div class="form-group">
-          <label for="id_f">아이디 </label>
-          <input
-            type="text"
-            class="form-control"
-            id="id_f"
-            placeholder="ID를 입력해주세요"
-            name="id_f"
-            _mstplaceholder="22045387"
-            required
-          />
+          <label for="u_id">아이디 </label><input type="text" class="form-control" id="u_id" placeholder="ID를 입력해주세요" name="u_id"_mstplaceholder="22045387" required/>
           <div class="valid-feedback id">유효한 아이디입니다.</div>
           <div class="invalid-feedback id">사용할 수 없는 아이디입니다.</div>
         </div>
         <br />
         <div class="form-group">
-          <label for="pw_f">비밀번호 </label>
+          <label for="u_id">비밀번호 </label>
           <input
             type="password"
             class="form-control"
-            id="pw_f"
+            id="u_pw"
             placeholder="비밀번호를 입력해주세요"
-            name="pw_f"
+            name="u_pw"
             required
           />
           <div class="valid-feedback">유효한 비밀번호입니다.</div>
@@ -187,11 +178,11 @@
         <div class="form-group">
           <label for="name">이름 </label>
           <input
-            type="name"
+            type="text"
             class="form-control"
-            id="name"
+            id="u_name"
             placeholder="이름을 입력해주세요"
-            name="name"
+            name="u_name"
             required
           />
           <div class="valid-feedback name">유효한 이름입니다.</div>
@@ -204,8 +195,8 @@
           <input
             class="form-check-input"
             type="radio"
-            name="sex_f"
-            id="sex_f"
+            name="u_gender"
+            id="u_gender"
             value="male"
             checked
           />
@@ -214,8 +205,8 @@
           <input
             class="form-check-input"
             type="radio"
-            name="sex_f"
-            id="sex_f"
+            name="u_gender"
+            id="u_gender"
             value="female"
           />
           <label class="form-check-label" for="female"> 여성 </label>
@@ -229,9 +220,9 @@
             type="tel"
             class="form-control"
             data-format="ddd-dddd-dddd"
-            id="tel"
+            id="u_phone"
             placeholder="번호을 입력해주세요"
-            name="tel"
+            name="u_phone"
             required
           />
           <div class="valid-feedback">유효한 번호입니다.</div>
@@ -246,9 +237,9 @@
             type="text"
             class="form-control"
             data-format="ddd-dddd-dddd"
-            id="address"
+            id="u_addr"
             placeholder="주소을 입력해주세요"
-            name="address_f"
+            name="u_addr"
             required
           />
           <div class="valid-feedback">유효한 주소입니다.</div>
@@ -262,9 +253,9 @@
             type="text"
             class="form-control"
             data-format="ddd-dddd-dddd"
-            id="address"
+            id="u_email"
             placeholder="주소을 입력해주세요"
-            name="address_f"
+            name="u_email"
             required
           />
           <div class="valid-feedback">유효한 주소입니다.</div>

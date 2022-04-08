@@ -164,7 +164,7 @@
           <div class="tab-content" id="pills-tabContent">
             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
       <!-- 회원로그인 내용 -->
-      <form action="#" class="was-validated">
+      <form action="loginSelect.do" class="was-validated">
             <!-- 회원로그인 컨트롤로 이동 -->
         <h5 style="text-align: center;">회원로그인</h5>
         <hr>
@@ -174,9 +174,9 @@
         <input
           type="text"
           class="form-control"
-          id="id_f"
+          id="u_id"
           placeholder="ID를 입력해주세요"
-          name="id_f"
+          name="u_id"
           required
         />
         <div class="valid-feedback">유효한 ID입니다.</div>
@@ -188,9 +188,9 @@
         <input
           type="password"
           class="form-control"
-          id="pw_f"
+          id="u_pw"
           placeholder="비밀번호를 입력해주세요"
-          name="pw_f"
+          name="u_pw"
           required
         />
         <div class="valid-feedback">유효한 비밀번호입니다.</div>
@@ -198,13 +198,13 @@
       </div>
       <div class="form-group form-check"></div>
       <div style="text-align: center">
-      <button type="submit" style="text-align: center;" class="btn btn-outline-success"">로그인</button>
+      <button type="submit" style="text-align: center;" class="btn btn-outline-success">로그인</button>
   </div>
   </form>
             </div>
             <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
       <!-- 직원로그인 내용 -->
-      <form action="#" class="was-validated">
+      <form action="dlogin.do" class="was-validated">
                 <!-- 직원로그인 컨트롤로 이동 -->
         <h5 style="text-align: center;">직원로그인</h5>
         <hr>
@@ -214,9 +214,9 @@
           <input
             type="text"
             class="form-control"
-            id="id_d"
+            id="admin_id"
             placeholder="ID를 입력해주세요"
-            name="id_d"
+            name="admin_id"
             required
           />
           <div class="valid-feedback">유효한 ID입니다.</div>
@@ -228,9 +228,9 @@
           <input
             type="password"
             class="form-control"
-            id="pw_d"
+            id="admin_pw"
             placeholder="비밀번호를 입력해주세요"
-            name="pw_d"
+            name="admin_pw"
             required
           />
           <div class="valid-feedback">유효한 비밀번호입니다.</div>
@@ -238,7 +238,7 @@
         </div>
         <div class="form-group form-check"></div>
         <div style="text-align: center">
-        <button type="submit" class="btn btn-outline-success"">로그인</button>
+        <button type="submit" class="btn btn-outline-success">로그인</button>
     </div>
     </form>              
             </div>

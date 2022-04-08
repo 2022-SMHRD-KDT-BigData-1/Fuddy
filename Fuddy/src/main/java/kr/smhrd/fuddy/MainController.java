@@ -26,5 +26,6 @@ public class MainController {
 	public void Insert() {
 		System.out.println("글작성 이동 동작");
 	}
+	
 	}
 	

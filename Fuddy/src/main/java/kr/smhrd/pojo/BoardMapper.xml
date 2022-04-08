@@ -1,3 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="kr.smhrd.pojo.BoardMapper"></mapper>
+<mapper namespace="kr.smhrd.pojo.BoardMapper">
+
+	<insert id="boardInsert" parameterType="kr.smhrd.pojo.BoardVO">
+		insert into t_qna(q_title,q_content)
+		values(#{q_title},#{q_content}) <!-- #{가져올 매개변수이름} -->
+	</insert> 
+    
+</mapper>
