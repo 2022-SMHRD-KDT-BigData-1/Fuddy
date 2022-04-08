@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -160,7 +161,11 @@
           </tr>
         </thead>
         <tbody>
+        
           <!-- 게시판 반복문 시작해야 할 곳 -->
+          <c:set var = "i" value = "1" />
+          
+          <c:forEach var="board" items="${ }">
           <tr>
             <td>1</td>
             <td>
@@ -171,7 +176,10 @@
             </td>
             <td>jms</td>
           </tr>
+           </c:forEach>
         </tbody>
+        
+       
       </table>
       <div class="container-fluid">
         <nav class="navbar navbar-light">

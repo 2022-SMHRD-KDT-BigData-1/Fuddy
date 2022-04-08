@@ -16,6 +16,12 @@ public class BoardController {
 
 	@RequestMapping("/boardInsert.do")
 	public String boardInsert(BoardVO vo) {
+		System.out.println("글작성 기능 동작");
+		System.out.println(vo.getU_id());
+		System.out.println(vo.getQ_title());
+		System.out.println(vo.getQ_content());
+		
+		
 		mapper.boardInsert(vo);
 
 		return "redirect:/Table.do";

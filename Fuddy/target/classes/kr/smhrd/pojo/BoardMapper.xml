@@ -3,8 +3,8 @@
 <mapper namespace="kr.smhrd.pojo.BoardMapper">
 
 	<insert id="boardInsert" parameterType="kr.smhrd.pojo.BoardVO">
-		insert into t_qna(q_title,q_content)
-		values(#{q_title},#{q_content}) <!-- #{가져올 매개변수이름} -->
+		insert into t_qna(u_id,q_title,q_content,q_date)
+		values(#{u_id},#{q_title},#{q_content},now()) <!-- #{가져올 매개변수이름} -->
 	</insert> 
     
 </mapper>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix ="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,10 +132,11 @@ a.list {
 						<td>
 							<div>
 								<input type="text" readonly class="form-control" name="u_id"
-									id="u_id" value="작성자" style="width: 200px;" />
+									id="u_id" value="${info.u_id }" style="width: 200px;" />
+									
 								<td class="table-active">작성날짜</td>
 
-								<td><div id="current_date"></div></td>
+								<td><div id="current_date" ></div></td>
 
 							</div>
 						</td>
@@ -142,12 +144,13 @@ a.list {
 					<tr>
 						<td class="table-active"><label for="title"
 							class="form-label">제목</label></td>
-						<td><div>
-
-								<input type="text" readonly class="form-control" name="q_title"
-									id="q_title" value="제목을 입력하시오" style="width: 200px;" />
-							</div></td>
+						<td colspan="3">
+							<div>
+								<input type="text" class="form-control" name="q_title" id="q_title"
+									 style="width: 200px;" />
+							</div>
 						</td>
+
 					</tr>
 					<tr>
 						<td class="table-active"><label for="exampleInputPassword1"

@@ -1,6 +1,7 @@
 package kr.smhrd.fuddy;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -19,7 +20,9 @@ public class MainController {
 		System.out.println("회원가입 이동 동작");
 	}
 	@RequestMapping("/Table.do")
-	public void Table() {
+	public void Table(Model model) {
+		List<Board> list = model.Table();
+		mo
 		System.out.println("문의 게시판 이동 동작");
 	}
 	@RequestMapping("/Insert.do")
