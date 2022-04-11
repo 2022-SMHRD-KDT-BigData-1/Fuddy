@@ -7,12 +7,13 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FUDDY - INSERT</title>
+<title>FUDDY - lookup</title>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <style>
 * {
 	font-family: "NanumSquareRound";
 }
+
 /* Make the image fully responsive */
 .carousel-inner img {
 	width: 100%;
@@ -118,64 +119,69 @@ a.list {
 	</div>
 	<!-- 게시판 시작 -->
 	<div class="container p-3 my-3 border">
-		<div style="text-align: center">
-			<h3>게시글 작성</h3>
-		</div>
+		<h3 style="text-align: center">문의 게시판</h3>
 		<hr />
-		<form action="boardInsert.do" method="post">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<td>번호</td>
+					<td>제목</td>
+					<td>아이디</td>
+				</tr>
+			</thead>
 
-			<table class="table" style="text-align: center;">
-				<tbody>
+			<tbody>
+				<!-- 게시판 반복문 시작해야 할 곳 -->
+				<c:set var="i" value="1" />
+				<c:forEach var="board" items="${requestScope.list}" varStatus="i">
+
 					<tr>
-
-						<td class="table-active"><label for="id_f"
-							class="form-label ">작성자</label></td>
-						<td>
-							<div>
-								<input type="text" readonly class="form-control" name="u_id"
-									id="u_id" value="${info.u_id }" style="width: 200px;" />
-
-								<td class="table-active">작성날짜</td>
-
-								<td><div id="current_date"></div></td>
-
-							</div>
-						</td>
+						<td>${i.count}</td>
+						<td><a href="d_Select.do?q_num=${board.q_num }">${board.q_title}</a></td>
+						<td>${board.u_id }</td>
 					</tr>
-					<tr>
-						<td class="table-active"><label for="title"
-							class="form-label">제목</label></td>
-						<td colspan="3">
-							<div>
-								<input type="text" class="form-control" name="q_title"
-									id="q_title" style="width: 200px;" />
-							</div>
-						</td>
+				</c:forEach>
+			</tbody>
 
-					</tr>
-					<tr>
-						<td class="table-active"><label for="exampleInputPassword1"
-							class="form-label">내용</label></td>
-						<td colspan="3"><div>
-
-								<textarea class="form-control" id="exampleFormControlTextarea1"
-									name="q_content" rows="3"></textarea>
-							</div></td>
-					</tr>
-				</tbody>
-			</table>
-			<div style="text-align: center">
-				<button type="submit" class="btn btn-outline-success">글작성</button>
-			</div>
-		</form>
-	</div>
-	<script>
-		date = new Date();
-		year = date.getFullYear();
-		month = date.getMonth() + 1;
-		day = date.getDate();
-		document.getElementById("current_date").innerHTML = year + "-" + month
-				+ "-" + day;
+		</table>
+		<div class="container-fluid">
+			<nav class="navbar navbar-light">
+				<div class="container-fluid">
+						<button type="button" class="btn btn-outline-success" style="visibility:hidden ">
+							글작성</button>
+					<form class="d-flex">
+						<select class="form-select" style="height: 40px; width: 100px"
+							aria-label="Default select example">
+							<option selected></option>
+							<option value="title">제목</option>
+							<option value="id_f">아이디</option>
+							<option value="content">내용</option>
+						</select> <input class="form-control me-2" type="search" placeholder="검색"
+							aria-label="Search" />
+						<button style="width: 80px" class="btn btn-outline-success"
+							type="submit">검색</button>
+					</form>
+				</div>
+			</nav>
+		</div>
+	<!-- 페이징 구간 -->
+	<nav aria-label="Page navigation example">
+		<ul style="justify-content: center" class="pagination">
+			<li class="page-item"><a class="page-link" href="#"
+				aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+			</a></li>
+			<li class="page-item"><a class="page-link" href="Table.do?page=">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#"
+				aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+			</a></li>
+		</ul>
+	</nav>
+	
+	<script type="text/javascript">
+	
+	
 	</script>
 </body>
 </html>

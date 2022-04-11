@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>FUDDY -SELECT</title>
-<link href="bootstrap.min.css" rel="stylesheet" />
+<link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <style>
 * {
 	font-family: "NanumSquareRound";
@@ -44,8 +45,8 @@ a.list {
 		<div class="container-fluid">
 			<!-- 푸띠 로고 -->
 			<div class="nav-item">
-				<a class="nav-link" href="main.html"> <img class="logo"
-					src="FUDDY-logo.png" />
+				<a class="nav-link" href="Main.do"> <img class="logo"
+					src="resources/image/FUDDY-logo.png" />
 				</a>
 			</div>
 			<button class="navbar-toggler" type="button"
@@ -117,7 +118,7 @@ a.list {
 	</nav>
 	<!-- 네비바 끝 -->
 	<div class="container mt-3">
-		<img src="tree2_logo.png" style="width: 100%" />
+		<img src="resources/image/tree2_logo.png" style="width: 100%" />
 	</div>
 	<!-- 게시판 시작 -->
 	<div class="container p-3 my-3 border">
@@ -133,22 +134,22 @@ a.list {
 					<td class="table-active"><label for="id_f" class="form-label ">작성자</label></td>
 					<td>
 						<div>
-							<div class="t_left">name_f</div>
+							<div class="u_name">${vo.u_id }</div>
 						</div>
 					</td>
 					<td class="table-active">작성날짜</td>
 					<td>
-						<div class="t_left">2022-04-06</div>
+						<div class="q_date">${vo.q_date }</div>
 					</td>
 				</tr>
 				<tr>
 					<td class="table-active"><label for="title" class="form-label">제목</label></td>
-					<td><div class="t_left">title</div></td>
+					<td><div class="q_title">${vo.q_title }</div></td>
 				</tr>
 				<tr>
 					<td class="table-active"><label for="content"
 						class="form-label">내용</label></td>
-					<td colspan="3"><div class="t_left">content</div></td>
+					<td colspan="3"><div class="q_content">${vo.q_content }</div></td>
 				</tr>
 			</tbody>
 		</table>
@@ -161,16 +162,34 @@ a.list {
 				<h5>댓글</h5>
 				<hr>
 			</div>
-			<table>
-
+			<table class="table">
+				<thead>
+					<tr>
+						<td>작성자</td>
+						<td>내용</td>
+						<td>작성날짜</td>
+					</tr>
+					
+					<c:forEach var="i" items="${comment_list }">
+						<tr>
+							<td>${i.admin_id}</td>
+							<td>${i.cmt_content}</td>
+							<td>${i.cmt_date}</td>
+						</tr>
+					</c:forEach>
+				</thead>
 			</table>
+			<c:choose>
+			<c:when test="${empty info }">
 			<div class="input-group">
-				<span class="input-group-text">id_d</span>
+				<span class="input-group-text">${vo.u_id}</span>
 				<textarea class="form-control" aria-label="With textarea"></textarea>
 			</div>
+			</c:when>
+		</c:choose>
 		</div>
 		<div style="text-align: center">
-			<a href="main.html">
+			<a href="Table.do">
 				<button type="button" class="btn btn-outline-success">목록</button>
 			</a>
 		</div>

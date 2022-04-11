@@ -18,11 +18,12 @@ public class D_MemberController {
 	private String dlogin(D_MemberVO vo, HttpSession session) {
       System.out.println("드론기사 로그인 기능");
 		D_MemberVO d_info = mapper.dlogin(vo);
-		
+		System.out.println(d_info);
 		
 		//로그인 성공시에만 세션에 넣기
 		if(d_info != null) {
 			session.setAttribute("d_info", d_info);	
+			
 		}
 		return "redirect:/Main.do";
 	}

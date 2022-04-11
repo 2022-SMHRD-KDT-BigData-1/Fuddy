@@ -1,3 +1,7 @@
+<%@page import="org.springframework.ui.Model"%>
+<%@page import="kr.smhrd.pojo.BoardVO"%>
+<%@page import="kr.smhrd.pojo.D_MemberVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,7 +11,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FUDDY - INSERT</title>
+<title>FUDDY -SELECT</title>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <style>
 * {
@@ -30,9 +34,20 @@ div#nav.nav-item {
 a.list {
 	padding-top: 20px;
 }
+
+.t_left {
+	text-align: left;
+}
 </style>
 </head>
 <body>
+	<%
+	D_MemberVO vo = new D_MemberVO();
+	D_MemberVO d_member = (D_MemberVO) session.getAttribute("d_info");
+	String Admin_id = d_member.getAdmin_id();
+	
+	%>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -119,63 +134,121 @@ a.list {
 	<!-- 게시판 시작 -->
 	<div class="container p-3 my-3 border">
 		<div style="text-align: center">
-			<h3>게시글 작성</h3>
+			<h3>게시글 조회</h3>
 		</div>
 		<hr />
-		<form action="boardInsert.do" method="post">
 
-			<table class="table" style="text-align: center;">
-				<tbody>
-					<tr>
+		<table class="table" style="text-align: center;">
+			<tbody>
+				<tr>
 
-						<td class="table-active"><label for="id_f"
-							class="form-label ">작성자</label></td>
-						<td>
-							<div>
-								<input type="text" readonly class="form-control" name="u_id"
-									id="u_id" value="${info.u_id }" style="width: 200px;" />
+					<td class="table-active"><label for="id_f" class="form-label ">작성자</label></td>
+					<td>
+						<div>
+							<div class="u_name">${vo.u_id }</div>
+						</div>
+					</td>
+					<td class="table-active">작성날짜</td>
+					<td>
+						<div class="q_date">${vo.q_date }</div>
+					</td>
+				</tr>
+				<tr>
+					<td class="table-active"><label for="title" class="form-label">제목</label></td>
+					<td><div class="q_title">${vo.q_title }</div></td>
+				</tr>
+				<tr>
+					<td class="table-active"><label for="content"
+						class="form-label">내용</label></td>
+					<td colspan="3"><div class="q_content">${vo.q_content }</div></td>
+				</tr>
+			</tbody>
+		</table>
 
-								<td class="table-active">작성날짜</td>
 
-								<td><div id="current_date"></div></td>
 
-							</div>
-						</td>
-					</tr>
-					<tr>
-						<td class="table-active"><label for="title"
-							class="form-label">제목</label></td>
-						<td colspan="3">
-							<div>
-								<input type="text" class="form-control" name="q_title"
-									id="q_title" style="width: 200px;" />
-							</div>
-						</td>
 
-					</tr>
-					<tr>
-						<td class="table-active"><label for="exampleInputPassword1"
-							class="form-label">내용</label></td>
-						<td colspan="3"><div>
-
-								<textarea class="form-control" id="exampleFormControlTextarea1"
-									name="q_content" rows="3"></textarea>
-							</div></td>
-					</tr>
-				</tbody>
-			</table>
+		<div class="container p-3 my-3 border">
 			<div style="text-align: center">
-				<button type="submit" class="btn btn-outline-success">글작성</button>
+				<h5>댓글</h5>
+				<hr>
 			</div>
-		</form>
+			<table class="table">
+				<thead>
+				<tr>
+					<td>작성자</td>
+					<td>내용</td>
+					<td>작성날짜</td>
+				</tr>
+				<c:forEach var="j" items="${d_comment_list }">
+				<div class="q_num" style="visibility:hidden" value="${j.q_num}"></div>
+					<tr>
+						<td>${j.admin_id}</td>
+						<td>${j.cmt_content}</td>
+						<td>${j.cmt_date}</td>
+					</tr>
+					
+				</c:forEach>
+			</thead>
+
+			</table>
+			
+			<div class="input-group">
+				<span class="input-group-text">${d_info.admin_id}</span>
+				<textarea class="form-control cmt_comment"
+					aria-label="With textarea" name="cmt_comment"></textarea>
+			</div>
+		</div>
+		<div style="text-align: center">
+		
+			<button type="button" class="btn btn-outline-success" id="comment" >보내기</button>
+
+			<a href="Table.do">
+				<button type="button" class="btn btn-outline-success">목록</button>
+			</a>
+		</div>
 	</div>
-	<script>
-		date = new Date();
-		year = date.getFullYear();
-		month = date.getMonth() + 1;
-		day = date.getDate();
-		document.getElementById("current_date").innerHTML = year + "-" + month
-				+ "-" + day;
+
+
+	<script src="resources/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript">
+	
+		var admin_id = '<%=Admin_id%>';
+		
+		
+		$("#comment").on("click", function() {
+			var cmt_comment = $(".cmt_comment").val();
+			var q_num = $(".q_num").attr("value");
+			/* var q_num = $(".q_num").val(); */
+
+			console.log(cmt_comment);
+			console.log(admin_id);
+			console.log(q_num);
+
+			$.ajax({
+				url : "Comment.do",
+				type : "post",
+				data : {
+					"cmt_comment" : cmt_comment,
+					"admin_id" : admin_id,
+					"q_num" : q_num
+				},
+				dataType : "JSON",
+				success : function(result) {
+					if (result == undefined) {
+						console.log("작동성공");
+
+					} else {
+						console.log("작동실패");
+
+					}
+
+				},
+				error : function(e) {
+					alert("서버요청실패 id")
+				}
+			})
+		});
 	</script>
 </body>
 </html>

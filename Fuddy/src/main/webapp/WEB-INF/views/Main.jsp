@@ -96,7 +96,7 @@ a.list {
 								<!-- 회원관리화면으로 주소 바꾸세요 -->
 
 								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="Table.do">문의게시판</a></li>
+									aria-current="page" href="d_Table.do">문의게시판</a></li>
 								<!-- 문의게시판으로 주소 바꾸세요 -->
 
 								<!-- 드롭다운 복붙해서 쓰면 됨 -->

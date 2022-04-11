@@ -4,7 +4,38 @@
 
 	<insert id="boardInsert" parameterType="kr.smhrd.pojo.BoardVO">
 		insert into t_qna(u_id,q_title,q_content,q_date)
-		values(#{u_id},#{q_title},#{q_content},now()) <!-- #{가져올 매개변수이름} -->
-	</insert> 
-    
+		values(#{u_id},#{q_title},#{q_content},now()) 
+	</insert>
+
+	<select id="Table" parameterType="kr.smhrd.pojo.BoardVO"
+		resultType="kr.smhrd.pojo.BoardVO">
+		select * from t_qna order by q_date desc
+	</select>
+	
+	<select id="d_Table" parameterType="kr.smhrd.pojo.BoardVO"
+		resultType="kr.smhrd.pojo.BoardVO">
+		select * from t_qna order by q_date desc
+	</select>
+	
+	<select id="Select" resultType="kr.smhrd.pojo.BoardVO">
+		select * from t_qna where q_num = #{q_num}
+	</select>
+	
+	<select id="d_Select" resultType="kr.smhrd.pojo.BoardVO">
+		select * from t_qna where q_num = #{q_num}
+	</select>
+	
+	<insert id="Comment" parameterType="kr.smhrd.pojo.CommentVO" >
+	    insert into t_comment(q_num,cmt_content,admin_id,cmt_date)
+		values(#{q_num},#{cmt_content},#{admin_id},now()) 
+	</insert>
+	
+	<select id="Select_Comment" resultType="kr.smhrd.pojo.CommentVO">
+	    select * from t_comment where q_num = #{q_num}
+	</select>
+	
+	<select id="d_Select_Comment" resultType="kr.smhrd.pojo.CommentVO">
+	    select * from t_comment where q_num = #{q_num}
+	</select>
+
 </mapper>

@@ -30,7 +30,7 @@ public class MemberController {
 		MemberVO info = mapper.loginSelect(vo);
 		if (info != null) {
 			session.setAttribute("info", info);
-			
+
 		}
 		return "redirect:/Main.do";
 	}

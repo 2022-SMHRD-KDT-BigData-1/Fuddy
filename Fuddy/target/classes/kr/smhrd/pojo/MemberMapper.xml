@@ -11,4 +11,7 @@
 		select * from t_member where u_id = #{u_id} and u_pw = #{u_pw}
 	</select>
 
+	<select id="idCheck" parameterType="kr.smhrd.pojo.MemberVO" resultType="kr.smhrd.pojo.MemberVO">
+	    select * from t_member where u_id = #{u_id}
+	</select>
 </mapper>
