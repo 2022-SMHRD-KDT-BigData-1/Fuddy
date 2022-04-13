@@ -1,3 +1,4 @@
+<%@page import="kr.smhrd.pojo.CommentVO"%>
 <%@page import="org.springframework.ui.Model"%>
 <%@page import="kr.smhrd.pojo.BoardVO"%>
 <%@page import="kr.smhrd.pojo.D_MemberVO"%>
@@ -175,34 +176,37 @@ a.list {
 			</div>
 			<table class="table">
 				<thead>
-				<tr>
-					<td>작성자</td>
-					<td>내용</td>
-					<td>작성날짜</td>
-				</tr>
-				<c:forEach var="j" items="${d_comment_list }">
-				<div class="q_num" style="visibility:hidden" value="${j.q_num}"></div>
 					<tr>
-						<td>${j.admin_id}</td>
-						<td>${j.cmt_content}</td>
-						<td>${j.cmt_date}</td>
+						<td>작성자</td>
+						<td>내용</td>
+						<td>작성날짜</td>
 					</tr>
-					
-				</c:forEach>
-			</thead>
+					<c:forEach var="j" items="${d_comment_list }">
+						<tr>
+							<td>${j.admin_id}</td>
+							<td>${j.cmt_content}</td>
+							<td>${j.cmt_date}</td>
+						</tr>
+						<input type="hidden" name="q_num" value="${j.q_num}">
+					</c:forEach>
+				</thead>
 
 			</table>
 			
-			<div class="input-group">
-				<span class="input-group-text">${d_info.admin_id}</span>
-				<textarea class="form-control cmt_comment"
-					aria-label="With textarea" name="cmt_comment"></textarea>
-			</div>
+			<form action="Comment.do" method="post">
+				<div class="input-group">
+					<span class="input-group-text">${d_info.admin_id}</span>
+					 <textarea class="form-control cmt_content"
+						aria-label="With textarea" name="cmt_content"></textarea>
+						 <input type="hidden" name="admin_id" value="${d_info.admin_id}">
+						 <input type="hidden" name="q_num" value="${vo.q_num }">
+					<button type="submit" class="btn btn-outline-success" id="comment">보내기</button>
+				</div>
+			</form>
 		</div>
-		<div style="text-align: center">
 		
-			<button type="button" class="btn btn-outline-success" id="comment" >보내기</button>
 
+		<div style="text-align: center">
 			<a href="Table.do">
 				<button type="button" class="btn btn-outline-success">목록</button>
 			</a>
@@ -210,45 +214,39 @@ a.list {
 	</div>
 
 
-	<script src="resources/jquery-3.6.0.min.js"></script>
+	<%-- <script src="resources/jquery-3.6.0.min.js"></script>
 	<script type="text/javascript">
 	
 		var admin_id = '<%=Admin_id%>';
-		
-		
+
 		$("#comment").on("click", function() {
-			var cmt_comment = $(".cmt_comment").val();
+			var cmt_content = $(".cmt_content").val();
 			var q_num = $(".q_num").attr("value");
 			/* var q_num = $(".q_num").val(); */
-
-			console.log(cmt_comment);
-			console.log(admin_id);
+			
 			console.log(q_num);
+			console.log(cmt_content);
+			console.log(admin_id);
 
 			$.ajax({
 				url : "Comment.do",
 				type : "post",
 				data : {
-					"cmt_comment" : cmt_comment,
+					"cmt_num" : 12,
+					"cmt_content" : cmt_content,
 					"admin_id" : admin_id,
-					"q_num" : q_num
+					"q_num" : q_num,
+					"cmt_date" : "0"
 				},
-				dataType : "JSON",
 				success : function(result) {
-					if (result == undefined) {
-						console.log("작동성공");
-
-					} else {
-						console.log("작동실패");
-
-					}
-
+					console.log(result)
+					console.log("작동성공");
 				},
 				error : function(e) {
 					alert("서버요청실패 id")
 				}
 			})
 		});
-	</script>
+	</script> --%>
 </body>
 </html>

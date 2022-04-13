@@ -3,11 +3,12 @@ package kr.smhrd.pojo;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 @Mapper
 public interface BoardMapper {
 
-	List<BoardVO> Table();
+	List<BoardVO> Table(int postStart);
 
 	BoardVO Select(int q_num);
 
@@ -17,11 +18,14 @@ public interface BoardMapper {
 
 	BoardVO d_Select(int q_num);
 
-	void Comment(int q_num, String admin_id, String cmt_comment, CommentVO vo);
-
 	List<CommentVO> Select_Comment(int q_num);
 
 	List<CommentVO> d_Select_Comment(int q_num);
+
+	void Comment(CommentVO vo);
+
+	int boardAmount();
+
 
 
 

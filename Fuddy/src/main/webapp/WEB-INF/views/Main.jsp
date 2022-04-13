@@ -80,7 +80,7 @@ a.list {
 									aria-current="page" href="#">마이페이지</a></li>
 								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
 								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="Table.do">문의 게시판</a></li>
+									aria-current="page" href="Table2.do?pageNum=1">문의 게시판</a></li>
 								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
 								<li class="nav-item"><a class="nav-link"
 									aria-current="page" href="#">방제 신청</a></li>

@@ -1,3 +1,6 @@
+<%@page import="kr.smhrd.pojo.BoardVO"%>
+<%@page import="java.util.List"%>
+<%@page import="org.springframework.web.context.annotation.RequestScope"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,7 +10,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FUDDY - lookup</title>
+<title>FUDDY - BOARD</title>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <style>
 * {
@@ -34,6 +37,8 @@ a.list {
 </style>
 </head>
 <body>
+
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -132,14 +137,18 @@ a.list {
 
 			<tbody>
 				<!-- 게시판 반복문 시작해야 할 곳 -->
-				<c:set var="i" value="1" />
-				<c:forEach var="board" items="${requestScope.list}" varStatus="i">
 
+				
+				<c:set var = "p" value ="${postStart}"/>
+				<c:set var = "plus" value = "1"/>
+				<c:forEach var="board" items="${requestScope.list}">
 					<tr>
-						<td>${i.count}</td>
+						<td>${p+plus }</td>
 						<td><a href="Select.do?q_num=${board.q_num }">${board.q_title}</a></td>
 						<td>${board.u_id }</td>
 					</tr>
+					<c:set var = "plus" value = "${plus +1}"/>
+					
 				</c:forEach>
 			</tbody>
 
@@ -166,24 +175,32 @@ a.list {
 				</div>
 			</nav>
 		</div>
-	<!-- 페이징 구간 -->
-	<nav aria-label="Page navigation example">
-		<ul style="justify-content: center" class="pagination">
-			<li class="page-item"><a class="page-link" href="#"
-				aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-			</a></li>
-			<li class="page-item"><a class="page-link" href="Table.do?page=">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#"
-				aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-			</a></li>
-		</ul>
-	</nav>
-	
-	<script type="text/javascript">
-	
-	
-	</script>
+		<!-- 페이징 구간 -->
+		<nav aria-label="Page navigation example">
+			<ul style="justify-content: center" class="pagination">
+				<li class="page-item"><a class="page-link" href="#"
+					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+				</a></li>
+				<c:forEach begin="1" end="${endPageNum}" var="i">
+					<c:choose>
+						<c:when test="${postEnd eq 10 }">
+							<li class="page-item"><a class="page-link"
+								href="Table2.do?pageNum=${i}">${i}</a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="page-item"><a class="page-link"
+								href="Table2.do?pageNum=${i}">${i}</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<li class="page-item"><a class="page-link" href="#"
+					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				</a></li>
+			</ul>
+		</nav>
+
+		<script type="text/javascript">
+			
+		</script>
 </body>
 </html>

@@ -14,4 +14,7 @@ public class BoardVO {
 	private String q_content;
 	private String u_id;
 	private String q_date;
+
+	
+	
 }

@@ -10,3 +10,6 @@ create table test(
 
 
 select * from tmember
+
+select * from t_qna
+select count(*) from t_qna

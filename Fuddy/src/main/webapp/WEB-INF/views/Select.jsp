@@ -189,7 +189,7 @@ a.list {
 		</c:choose>
 		</div>
 		<div style="text-align: center">
-			<a href="Table.do">
+			<a href="Table2.do?pageNum=1">
 				<button type="button" class="btn btn-outline-success">목록</button>
 			</a>
 		</div>
