@@ -17,7 +17,12 @@ import kr.smhrd.pojo.BoardVO;
 public class MainController {
 	@Inject // autowired 보다 보안성이 좋다
 	private BoardMapper mapper; // 의존성주입(DI)!
-
+	
+	@RequestMapping("/schedule.do")
+	public void schedule() {
+		System.out.println("스케줄 이동 동작");
+	}
+	
 	@RequestMapping("/Main.do")
 	public void Main() {
 		System.out.println("메인 이동 동작");

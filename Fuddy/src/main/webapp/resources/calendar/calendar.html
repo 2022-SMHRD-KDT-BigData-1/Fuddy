@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+
+    <!-- Font Awesome icons (free version)-->
+    <script
+      src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google fonts-->
+    <link
+      href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Google Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="packages copy/core/main.css" rel="stylesheet" />
+    <link href="packages copy/daygrid/main.css" rel="stylesheet" />
+    <script src="packages copy/core/main.js"></script>
+    <script src="packages copy/interaction/main.js"></script>
+    <script src="packages copy/daygrid/main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var calendarEl = document.getElementById("calendar");
+
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          plugins: ["interaction", "dayGrid"],
+          defaultDate: "2020-02-12",
+          editable: true,
+          eventLimit: true, // allow "more" link when too many events
+          events: [
+            {
+              title: "All Day Event",
+              start: "2020-02-01",
+            },
+            {
+              title: "Long Event",
+              start: "2020-02-07",
+              end: "2020-02-10",
+            },
+            {
+              groupId: 999,
+              title: "Repeating Event",
+              start: "2020-02-09T16:00:00",
+            },
+            {
+              groupId: 999,
+              title: "Repeating Event",
+              start: "2020-02-16T16:00:00",
+            },
+            {
+              title: "Conference",
+              start: "2020-02-11",
+              end: "2020-02-13",
+            },
+            {
+              title: "Meeting",
+              start: "2020-02-12T10:30:00",
+              end: "2020-02-12T12:30:00",
+            },
+            {
+              title: "Lunch",
+              start: "2020-02-12T12:00:00",
+            },
+            {
+              title: "Meeting",
+              start: "2020-02-12T14:30:00",
+            },
+            {
+              title: "Happy Hour",
+              start: "2020-02-12T17:30:00",
+            },
+            {
+              title: "Dinner",
+              start: "2020-02-12T20:00:00",
+            },
+            {
+              title: "Birthday Party",
+              start: "2020-02-13T07:00:00",
+            },
+            {
+              title: "Click for Google",
+              url: "http://google.com/",
+              start: "2020-02-28",
+            },
+          ],
+        });
+
+        calendar.render();
+      });
+    </script>
+    <style>
+      body {
+        font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+        font-size: 14px;
+      }
+
+      #calendar {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="navbar navbar-expand navbar-dark bg-dark bd-navbar fixed-top"
+    >
+      <a class="navbar-brand" href="#">P+</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">사이트 소개</a>
+          </li>
+          <div class="dropdown nav-item active">
+            <a class="nav-link dropdown-toggle" href="/스케줄입력.html"
+              >학습플래너</a
+            >
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li>
+                <a class="dropdown-item" href="/스케줄입력.html">스케줄 등록</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/스케줄목록.html">스케줄 목록</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/목록들/에디터 목록.html"
+                  >에디터 목록</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" href="/목록들/일기 목록.html"
+                  >일기 목록</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <li class="nav-item active">
+            <a class="nav-link" href="#">위시리스트</a>
+          </li>
+
+          <div class="dropdown nav-item active">
+            <a class="nav-link dropdown-toggle" href="#">마이페이지</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li>
+                <a class="dropdown-item" href="#">회원정보 수정/탈퇴</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#">전체 학습상황 조회</a>
+              </li>
+            </ul>
+          </div>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">로그아웃</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <div class="container-fluid">
+      <div class="row flex-nowrap">
+        <div class="col-3 bd-sidebar fixed-top">
+          <div class="dropdown">
+            <div class="col-lg-3 sidebar fixed-top">
+              <br /><br /><br /><br />
+              <div class="botom-border pb-3">
+                <img
+                  src="/assets/img/user.png"
+                  alt=""
+                  width="50"
+                  class="rounded-circle mr-3"
+                />
+
+                <a href="#" class="text-white">닉네임</a>
+              </div>
+
+              <!-- 달력 -->
+              <nav id="navbar" class="navbar">
+                <ul>
+                  <li class="dropdown">
+                    <div>
+                      <a
+                        href="calendar.html"
+                        class="nav-link text-white p-3 mb-2 sidebar-link justify-content-center"
+                        role="button"
+                        id="dropdownMenuLink"
+                        aria-expanded="false"
+                      >
+                        <i
+                          class="fas fa-regular fa-calendar-check text-white fa-lg mr-3"
+                        ></i>
+                        달력
+                      </a>
+                    </div>
+
+                    <!-- 에디터 -->
+                    <div class="dropdown">
+                      <a
+                        href="../에디터/에디터작성.html"
+                        class="btn btn-none dropdown-toggle nav-link text-white p-3 mb-2 sidebar-link"
+                        role="button"
+                        id="dropdownMenuLink"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i
+                          class="fas fa-solid fa-file-code text-white fa-lg mr-3"
+                        ></i>
+                        에디터
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuLink"
+                      >
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="../에디터/에디터작성.html"
+                            >작성</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="../에디터/에디터목록.html"
+                            >목록</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- 일기 -->
+                    <div class="dropdown">
+                      <a
+                        href="../에디터/일기작성.html"
+                        class="btn btn-none dropdown-toggle nav-link text-white p-3 mb-2 sidebar-link"
+                        role="button"
+                        id="dropdownMenuLink"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i
+                          class="fas fa-solid fa-book text-white fa-lg mr-3"
+                        ></i>
+                        일기
+                      </a>
+                      <ul
+                        class="dropdown-menu"
+                        aria-labelledby="dropdownMenuLink"
+                      >
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="../에디터/일기작성.html"
+                            >작성</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item"
+                            href="../에디터/일기목록.html"
+                            >목록</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- 학습진행상황 -->
+                    <div>
+                      <a
+                        href="#"
+                        class="nav-link text-white p-3 mb-2 sidebar-link"
+                        role="button"
+                        id="dropdownMenuLink"
+                        aria-expanded="false"
+                      >
+                        <i
+                          class="fas fa-solid fa-chalkboard text-white fa-lg mr-3"
+                        ></i>
+                        학습진행상황
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10">
+          <br /><br />
+          <div class="container col-md-6 p-3">
+            <div class="row">
+              <h1>달력</h1>
+            </div>
+          </div>
+          <br />
+          <div id="calendar"></div>
+        </div>
+
+        <!-- 사이드바&상단바 끝나는 부분 내용은 위의 /div 태그 안에 넣을것 -->
+      </div>
+    </div>
+  </body>
+</html>
