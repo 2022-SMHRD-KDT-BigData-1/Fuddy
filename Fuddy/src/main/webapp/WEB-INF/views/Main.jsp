@@ -75,15 +75,21 @@ a.list {
 								<!-- 로그인 했을 때 -->
 								<li class="nav-item"><a class="nav-link"
 									aria-current="page" href="logout.do">로그아웃</a></li>
-								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="#">마이페이지</a></li>
-								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+									
+								<li class="nav-item dropdown"><a
+									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+									role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										마이페이지 </a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a class="dropdown-item" href="#">회원 정보</a></li>
+										<li><a class="dropdown-item" href="#">방제 신청 현황</a></li>
+									</ul></li>
+									
 								<li class="nav-item"><a class="nav-link"
 									aria-current="page" href="Table2.do?pageNum=1">문의 게시판</a></li>
 								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
 								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="#">방제 신청</a></li>
+									aria-current="page" href="Prevention.do">방제 신청</a></li>
 								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
 							</c:when>
 							<c:otherwise>

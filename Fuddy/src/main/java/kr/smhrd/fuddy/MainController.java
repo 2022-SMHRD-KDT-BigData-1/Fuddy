@@ -35,13 +35,9 @@ public class MainController {
 
 	@RequestMapping("/Table2.do")
 	public String Table(@RequestParam("pageNum") int pageNum, Model model, BoardVO page) {
-		
 		System.out.println("게시물 수" + pageNum );
-		
 		//시작 게시물
 		int postStart = 0;
-		
-				
 		if (pageNum >= 1) {
 			postStart = (pageNum - 1) * 10 ;
 		}
@@ -52,8 +48,6 @@ public class MainController {
 		int endPageNum = (amount - 1) / 10 + 1;
 		int postStart1 = postStart;
 		System.out.println(postStart);
-
-
 		List<BoardVO> list = mapper.Table(postStart);
 		System.out.println("문의 게시판 이동 동작");
 		model.addAttribute("endPageNum", endPageNum);
@@ -97,8 +91,9 @@ public class MainController {
 		System.out.println("글작성 이동 동작");
 	}
 
-	@RequestMapping("/boardPaging.do")
-	public void boardPaging() {
-		System.out.println("이동 동작");
+	@RequestMapping("/Prevention.do")
+	public void Prevention() {
+		System.out.println("방제신청 이동 동작");
 	}
+	
 }
