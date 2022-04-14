@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +17,18 @@ public class MainController {
 	@Inject // autowired 보다 보안성이 좋다
 	private BoardMapper mapper; // 의존성주입(DI)!
 	
+	@RequestMapping("/ImgInput.do")
+	public void ImgInput() {
+		System.out.println("이미지 업로드 이동 동작");
+	}
+	@RequestMapping("/ImgCheck.do")
+	public void ImgCheck() {
+		System.out.println("이미지 확인 이동 동작");
+	}
+	@RequestMapping("/ImgCom.do")
+	public void ImgCom() {
+		System.out.println("이미지 결과 확인 이동 동작");
+	}
 	@RequestMapping("/schedule.do")
 	public void schedule() {
 		System.out.println("스케줄 이동 동작");

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.smhrd.pojo.PreventionMapper">
-    
-    <insert id="PreventionMapper" parameterType="kr.smhrd.pojo.PreventionVO">
-        insert into 
-    </insert>
-    
+
+	<insert id="PreventionInsert"
+		parameterType="kr.smhrd.pojo.PreventionVO">
+		insert into t_prevention (u_id, pv_addr, pv_area, pv_date, pv_st_dt, pv_ed_dt, pv_price, pv_note)
+		value(#{u_id}, #{pv_addr}, #{pv_area}, now(), #{pv_st_dt}, #{pv_ed_dt},#{pv_price}, #{pv_note})
+	</insert>
+
 </mapper>

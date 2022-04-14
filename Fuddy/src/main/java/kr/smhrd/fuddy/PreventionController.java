@@ -17,6 +17,7 @@ public class PreventionController {
 	public String PreventionInsert(PreventionVO vo) {
 		System.out.println("방제 신청 기능 동작");
 		mapper.PreventionInsert(vo);
-		return "Main.do" ; //나중에 수정
+		System.out.println(vo);
+		return "redirect:/Main.do" ; //나중에 수정
 	}
 }
