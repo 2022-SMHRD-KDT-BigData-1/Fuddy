@@ -119,7 +119,7 @@ a.list {
 	</div>
 
 	<div class="container p-3 my-3 border">
-
+		<!-- 플라스크 이동 폼 -->
 		<form action = "http://127.0.0.1:9000/asd" method = "post">
 			<div style="text-align: center">
 				<h3>병해충 사진 확인</h3>

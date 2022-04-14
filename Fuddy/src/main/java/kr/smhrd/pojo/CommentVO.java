@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor // 기본생성자
 public class CommentVO {
 
-	private int cmt_num;
-	private int q_num;
-	private String cmt_content;
-	private String admin_id;
-	private String cmt_date;
-	
-	
+   private int cmt_num;
+   private int q_num;
+   private String cmt_content;
+   private String admin_id;
+   private String cmt_date;
+   
+   
 }

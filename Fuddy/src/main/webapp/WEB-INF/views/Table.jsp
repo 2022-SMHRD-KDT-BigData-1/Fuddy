@@ -4,7 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -183,10 +183,10 @@ a.list {
 				<c:set var="back" value="${postStart/10}" />
 				<li class="page-item"><a class="page-link"
 					href="Table2.do?pageNum=
-					
 					<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back }" />"
 					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
+
 				<c:forEach begin="1" end="${endPageNum}" var="i">
 					<c:choose>
 						<c:when test="${postEnd eq 10 }">
@@ -199,17 +199,16 @@ a.list {
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
-				
-				<li class="page-item">
-				<a class="page-link" href="Table2.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />" aria-label="Next"> 
-				<span aria-hidden="true">&raquo;</span></a>
-				</li>
+
+
+				<li class="page-item"><a class="page-link"
+					href="Table2.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />"
+					aria-label="Next"> <span aria-hidden="true">&raquo;</span></a></li>
 			</ul>
 		</nav>
 
 		<script type="text/javascript">
-		
-		
+			
 		</script>
 </body>
 </html>
