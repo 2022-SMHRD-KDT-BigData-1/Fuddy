@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -165,19 +166,35 @@ a.list {
 			</nav>
 		</div>
 	<!-- 페이징 구간 -->
-	<nav aria-label="Page navigation example">
-		<ul style="justify-content: center" class="pagination">
-			<li class="page-item"><a class="page-link" href="#"
-				aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-			</a></li>
-			<li class="page-item"><a class="page-link" href="Table.do?page=">1</a></li>
-			<li class="page-item"><a class="page-link" href="#">2</a></li>
-			<li class="page-item"><a class="page-link" href="#">3</a></li>
-			<li class="page-item"><a class="page-link" href="#"
-				aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-			</a></li>
-		</ul>
-	</nav>
+		<nav aria-label="Page navigation example">
+
+			<ul style="justify-content: center" class="pagination">
+				<c:set var="back" value="${postStart/10}" />
+				<li class="page-item"><a class="page-link"
+					href="d_Table2.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back }" />"aria-label="Previous"> 
+					<span aria-hidden="true">&laquo;</span>
+				</a></li>
+				
+				<c:forEach begin="1" end="${endPageNum}" var="i">
+					<c:choose>
+						<c:when test="${postEnd eq 10 }">
+							<li class="page-item"><a class="page-link"
+								href="d_Table2.do?pageNum=${i}">${i}</a></li>
+						</c:when>
+						<c:otherwise>
+							<li class="page-item"><a class="page-link"
+								href="d_Table2.do?pageNum=${i}">${i}</a></li>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+
+				
+				<li class="page-item">
+				<a class="page-link" href="d_Table2.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />"aria-label="Next">
+					 <span aria-hidden="true">&raquo;</span>
+				</a></li>
+			</ul>
+		</nav>
 	
 	<script type="text/javascript">
 	

@@ -14,7 +14,7 @@ public interface BoardMapper {
 
 	void boardInsert(BoardVO vo);
 
-	List<BoardVO> d_Table();
+	List<BoardVO> d_Table(int postStart);
 
 	BoardVO d_Select(int q_num);
 

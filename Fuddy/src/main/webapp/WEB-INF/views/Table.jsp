@@ -4,6 +4,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -138,17 +139,17 @@ a.list {
 			<tbody>
 				<!-- 게시판 반복문 시작해야 할 곳 -->
 
-				
-				<c:set var = "p" value ="${postStart}"/>
-				<c:set var = "plus" value = "1"/>
+
+				<c:set var="p" value="${postStart}" />
+				<c:set var="plus" value="1" />
 				<c:forEach var="board" items="${requestScope.list}">
 					<tr>
 						<td>${p+plus }</td>
 						<td><a href="Select.do?q_num=${board.q_num }">${board.q_title}</a></td>
 						<td>${board.u_id }</td>
 					</tr>
-					<c:set var = "plus" value = "${plus +1}"/>
-					
+					<c:set var="plus" value="${plus +1}" />
+
 				</c:forEach>
 			</tbody>
 
@@ -164,9 +165,9 @@ a.list {
 						<select class="form-select" style="height: 40px; width: 100px"
 							aria-label="Default select example">
 							<option selected></option>
-							<option value="title">제목</option>
-							<option value="id_f">아이디</option>
-							<option value="content">내용</option>
+							<option value="q_title">제목</option>
+							<option value="u_id">아이디</option>
+							<option value="q_content">내용</option>
 						</select> <input class="form-control me-2" type="search" placeholder="검색"
 							aria-label="Search" />
 						<button style="width: 80px" class="btn btn-outline-success"
@@ -177,8 +178,13 @@ a.list {
 		</div>
 		<!-- 페이징 구간 -->
 		<nav aria-label="Page navigation example">
+
 			<ul style="justify-content: center" class="pagination">
-				<li class="page-item"><a class="page-link" href="#"
+				<c:set var="back" value="${postStart/10}" />
+				<li class="page-item"><a class="page-link"
+					href="Table2.do?pageNum=
+					
+					<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back }" />"
 					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
 				<c:forEach begin="1" end="${endPageNum}" var="i">
@@ -193,8 +199,9 @@ a.list {
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
-				<li class="page-item"><a class="page-link" href="#"
-					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+
+				<li class="page-item"><a class="page-link"
+					href="Table2.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</ul>
 		</nav>

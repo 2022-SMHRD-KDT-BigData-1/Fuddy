@@ -15,7 +15,7 @@
 	
 	<select id="d_Table" parameterType="kr.smhrd.pojo.BoardVO"
 		resultType="kr.smhrd.pojo.BoardVO">
-		select * from t_qna order by q_date desc
+		 select * from t_qna order by q_date desc Limit 10 Offset #{postStart}
 	</select>
 	
 	<select id="Select" resultType="kr.smhrd.pojo.BoardVO">
