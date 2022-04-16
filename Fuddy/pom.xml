@@ -179,7 +179,7 @@
 	</dependencies>
 	<build>
 
-		<finalName> FUDDY </finalName>
+		<finalName> Fuddy </finalName>
 		<pluginManagement>
 			<plugins>
 				<!-- 서버 배포 셋팅 -->
