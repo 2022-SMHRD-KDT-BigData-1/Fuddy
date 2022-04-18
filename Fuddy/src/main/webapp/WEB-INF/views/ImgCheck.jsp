@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -120,27 +123,26 @@ a.list {
 
 	<div class="container p-3 my-3 border">
 		<!-- 플라스크 이동 폼 -->
-		<form action = "http://127.0.0.1:9000/asd" method = "post">
+		<form action="http://127.0.0.1:9000/asd" method="post">
 			<div style="text-align: center">
 				<h3>병해충 사진 확인</h3>
 			</div>
 			<hr />
 			<table class="table table-bordered">
 				<tr>
-					<td><a href="#"><img
-							class="rounded float-start d-block w-100" src="resources/image/leaf01.jpg"></a></td>
-					<td><a href="#"><img
-							class="rounded mx-auto  d-block w-100" src="resources/image/leaf02.jpg"></a></td>
-					<td><a href="#"><img
-							class="rounded float-end d-block w-100" src="resources/image/leaf03.jpg"></a></td>
-				</tr>
-				<tr>
-					<td><a href="#"><img
-							class="rounded float-start d-block w-100" src="resources/image/leaf01.jpg"></a></td>
-					<td><a href="#"><img
-							class="rounded mx-auto d-block d-block w-100" src="resources/image/leaf02.jpg"></a></td>
-					<td><a href="#"><img
-							class="rounded float-end d-block w-100" src="resources/image/leaf03.jpg"></a></td>
+					<c:forEach var="saveFile" items="${saveFile }">
+
+						<td><a href="#"><img
+								class="rounded float-start d-block w-100"
+								src="<c:url value='${saveFile}'/>"></a></td>
+						<!-- 	<td><a href="#"><img
+								class="rounded mx-auto d-block d-block w-100"
+								src="resources/image/leaf02.jpg"></a></td>
+						<td><a href="#"><img
+								class="rounded float-end d-block w-100"
+								src="resources/image/leaf03.jpg"></a></td> -->
+
+					</c:forEach>
 				</tr>
 			</table>
 			<div class="mt-3" style="text-align: center;">

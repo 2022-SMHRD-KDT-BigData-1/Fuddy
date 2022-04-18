@@ -11,6 +11,7 @@ public class PreventionVO {
 
 	private int pv_num; //방제 신청번호
 	private String u_id; //회원 아이디
+	private String p_num; //사진 번호
 	private String pv_addr; //지번
 	private String pv_area; //방제면적
 	private String pv_crop; //작물명

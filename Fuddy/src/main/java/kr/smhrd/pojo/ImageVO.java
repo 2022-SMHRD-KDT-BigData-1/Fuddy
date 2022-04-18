@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ImageVO {
 
-	private int p_num; 
-	private String u_id; 
-	private String p_name; 
-	private String p_path; 
-	private String p_date; 
+	private int p_num; //사진번호
+	private String u_id; //회원 아이디
+	private String p_name; //사진 이름
+	private String p_path; //사진 경로
+	private String p_date; //등록 날짜
 }

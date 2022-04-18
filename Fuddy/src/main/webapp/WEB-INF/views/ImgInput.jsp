@@ -126,10 +126,9 @@ a.list {
 		<div class="input-group">
 
 			<form action="saveFile.do" method="post" class="form-control" enctype = "multipart/form-data">
-				<input type="file" class="form-control"
+				<input type="file" class="form-control" accept="image/*"
 					id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
-					aria-label="Upload" name = "uploadFile" multiple>
-
+					aria-label="Upload" name = "upload" multiple>
 				<figure class="text-end">
 					<blockquote class="blockquote">
 						<p style="color: #f0932b;">※ 사진에 작물의 크기가 너무 작을 시 확인이 안될 수

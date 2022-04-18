@@ -7,5 +7,18 @@
 		insert into t_prevention (u_id, pv_addr, pv_area, pv_date, pv_st_dt, pv_ed_dt, pv_price, pv_note)
 		value(#{u_id}, #{pv_addr}, #{pv_area}, now(), #{pv_st_dt}, #{pv_ed_dt},#{pv_price}, #{pv_note})
 	</insert>
-
+	
+	<insert id="image" parameterType="kr.smhrd.pojo.ImageVO">
+	    insert into t_image (u_id, p_name, p_path, p_date)
+	    value(#{u_id}, #{p_name}, #{p_path}, now())
+	</insert>
+	<select id="p_num" resultType="int">
+	    select p_num from t_image ORDER BY p_date DESC LIMIT 1
+	</select>
+	
+	<select id="imageSelect" resultType="kr.smhrd.pojo.ImageVO">
+	    select * from t_image where p_num = #{p_num}
+	    
+	</select>
+	
 </mapper>
