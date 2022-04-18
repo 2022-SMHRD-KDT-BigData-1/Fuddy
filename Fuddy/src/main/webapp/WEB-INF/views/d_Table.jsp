@@ -11,7 +11,7 @@
 <title>FUDDY - lookup</title>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <style>
-* {
+* { 
 	font-family: "NanumSquareRound";
 }
 
