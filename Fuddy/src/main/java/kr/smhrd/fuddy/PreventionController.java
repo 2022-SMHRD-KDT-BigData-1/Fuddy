@@ -38,7 +38,7 @@ public class PreventionController {
 
 	@RequestMapping("/saveFile.do")
 
-	public String saveFile(MultipartFile[] upload, Model model,HttpSession session) {
+	public String saveFile(MultipartFile[] upload, Model model, HttpSession session) {
 
 		MemberVO info = (MemberVO) session.getAttribute("info");
 
@@ -51,16 +51,11 @@ public class PreventionController {
 
 		String path = "C://Users/smhrd/git/Fuddy/Fuddy/src/main/webapp/resources/files/" + u_id + "_" + now; // 폴더 경로
 		File Folder = new File(path);
-		
 
 		String p_name = Folder.getName();
 		System.out.println(p_name);
 		String p_path = Folder.getPath();
 		System.out.println(p_path);
-	
-	
-		
-		
 
 		// 디렉토리 생성
 		if (!Folder.exists()) {
@@ -87,11 +82,12 @@ public class PreventionController {
 			 * multipartFile.getOriginalFilename()); log.info("Upload File Size : " +
 			 * multipartFile.getSize());
 			 */
-			
+
 			File saveFile = new File(folder, multipartFile.getOriginalFilename());
 			System.out.println(saveFile);
+
 			folderlist.add(multipartFile.getOriginalFilename());
-			model.addAttribute("saveFile", saveFile);
+			
 			try {
 				multipartFile.transferTo(saveFile);
 			} catch (Exception e) {
@@ -99,28 +95,33 @@ public class PreventionController {
 			}
 
 		}
+		
+		File Foldername = new File("resources/files/" + p_name + "/");
+		System.out.println(folderlist);
+		model.addAttribute("Foldername", Foldername);
+		System.out.println("폴더이름" + Foldername);
+		model.addAttribute("folderlist", folderlist);
+		System.out.println("폴더리스트" + folderlist);
+		
 		// 다중 파라미터 사용 하기 위해
 		HashMap<String, String> img = new HashMap<String, String>();
 		img.put("u_id", u_id);
 		img.put("p_path", p_path);
 		img.put("p_name", p_name);
-		System.out.println(folderlist);
 		// 딥러닝 전 이미지 파일 경로 및 이름 DB 저장
 		mapper.image(img);
 		int p_num = mapper.p_num(); // p_num의 값을 받기 위함
 		System.out.println(p_num);
-		
+
 		List<ImageVO> imageSelect = mapper.imageSelect(p_num);
 		model.addAttribute("imageSelect", imageSelect);
-		
-		
-//		File Foldername = new File("resources/files/"+p_name+"/"); //폴더안에 이름
+
 //		File[] files = Foldername.listFiles();
 //		for(int i= 0; i<files.length; i++) {
 //			folderlist.addAll(i);
 //		}
-	//return "redirect:/imageSelect.do"; // check.do
-	return "redirect:/ImgCheck.do"; // 나중에 수정 }
+//		return "redirect:/imageSelect.do"; // check.do
+		return "redirect:/ImgCheck.do"; // 나중에 수정 }
 	}
 
 //	@RequestMapping("/imageSelect.do")
@@ -128,11 +129,10 @@ public class PreventionController {
 //
 //		int p_num = mapper.p_num(); // p_num의 값을 받기 위함
 //		System.out.println(p_num);
-//		
+//
 //		List<ImageVO> imageSelect = mapper.imageSelect(p_num);
 //		model.addAttribute("imageSelect", imageSelect);
 //		System.out.println(imageSelect.size());
-//
-//		
+//		return "redirect:/ImgCheck.do"; // 나중에 수정 }
 //	}
 }

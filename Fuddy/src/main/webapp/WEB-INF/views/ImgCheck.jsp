@@ -130,29 +130,38 @@ a.list {
 			<hr />
 			<table class="table table-bordered">
 				<tr>
-					<c:forEach var="saveFile" items="${saveFile }">
-	
+					<c:out value = "${Foldername}"/>
+					<c:out value = "Foldername"/>
+					<c:forEach var="list" items="${folderlist }">
+						<td>
+							<button type="button" class="btn btn-link" data-bs-toggle="modal"
+								data-bs-target="#exampleModal">
+								<img class="rounded float-start d-block w-100"
+									src="${Foldername+list}">
+									<c:out value = "list"/>
 						
-						                   <td>
-                    <button type="button" class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <img class="rounded float-start d-block w-100" src="${saveFile }">
-                      </button></td>
-                      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-fullscreen">
-                          <div class="modal-content">
-                            <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">${saveFile }</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <img id="img" class="rounded float-start d-block w-100" src="resources/image/leaf01.jpg">
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+							</button>
+						</td>
+						<div class="modal fade" id="exampleModal" tabindex="-1"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-fullscreen">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">${Foldername+list }</h5>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<img id="img" class="rounded float-start d-block w-100"
+											src="resources/image/leaf01.jpg">
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">닫기</button>
+									</div>
+								</div>
+							</div>
+						</div>
 
 						<!--  <td><a href="#"><img
 								class="rounded float-start d-block w-100"
