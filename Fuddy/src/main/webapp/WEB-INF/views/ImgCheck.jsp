@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@page isELIgnored="false"%>
 
 <head>
 <meta charset="UTF-8" />
@@ -113,7 +114,7 @@ a.list {
 				<!-- 드롭다운 여기까지 -->
 			</ul>
 		</div>
-		</div>
+		
 	</nav>
 	<!-- 네비바 끝 -->
 
@@ -123,57 +124,32 @@ a.list {
 
 	<div class="container p-3 my-3 border">
 		<!-- 플라스크 이동 폼 -->
+
+
 		<form action="http://127.0.0.1:9000/asd" method="post">
+			<input type="hidden" value="${info.u_id }">
 			<div style="text-align: center">
 				<h3>병해충 사진 확인</h3>
 			</div>
 			<hr />
+
 			<table class="table table-bordered">
 				<tr>
-					<c:out value = "${Foldername}"/>
-					<c:out value = "Foldername"/>
-					<c:forEach var="list" items="${folderlist }">
-						<td>
-							<button type="button" class="btn btn-link" data-bs-toggle="modal"
-								data-bs-target="#exampleModal">
-								<img class="rounded float-start d-block w-100"
-									src="${Foldername+list}">
-									<c:out value = "list"/>
-						
-							</button>
-						</td>
-						<div class="modal fade" id="exampleModal" tabindex="-1"
-							aria-labelledby="exampleModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-fullscreen">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">${Foldername+list }</h5>
-										<button type="button" class="btn-close"
-											data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<div class="modal-body">
-										<img id="img" class="rounded float-start d-block w-100"
-											src="resources/image/leaf01.jpg">
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-bs-dismiss="modal">닫기</button>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<!--  <td><a href="#"><img
-								class="rounded float-start d-block w-100"
-								src="<c:url value='${saveFile}'/>"></a></td>-->
-						<!-- 	<td><a href="#"><img
-								class="rounded mx-auto d-block d-block w-100"
-								src="resources/image/leaf02.jpg"></a></td>
-						<td><a href="#"><img
-								class="rounded float-end d-block w-100"
-								src="resources/image/leaf03.jpg"></a></td> -->
-
-					</c:forEach>
+					<td>1</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					
+					<c:set var = "p_name" value = "${ImageList[0].p_name }"/>
+					<c:set var = "p_list" value = "${ImageList[0].p_list }"/>
+					<td><c:out value = "${p_name}"/></td>
+					<td><c:out value = "${p_list }"/></td>
+					<c:set var = "path" value = "resources/files/"/>
+					<c:set var= "p_name2" value = "qo1515_2022-04-18_14"/>
+					<c:set var= "p_list2" value = "image.jfif"/>
+					<td><img src="${path }${p_name2}/${p_list2 }">
+					<td><img src="${path }${p_name}/${p_list }">
 				</tr>
 			</table>
 			<div class="mt-3" style="text-align: center;">

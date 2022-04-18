@@ -4,21 +4,27 @@
 
 	<insert id="PreventionInsert"
 		parameterType="kr.smhrd.pojo.PreventionVO">
-		insert into t_prevention (u_id, pv_addr, pv_area, pv_date, pv_st_dt, pv_ed_dt, pv_price, pv_note)
-		value(#{u_id}, #{pv_addr}, #{pv_area}, now(), #{pv_st_dt}, #{pv_ed_dt},#{pv_price}, #{pv_note})
+		insert into t_prevention (u_id, pv_addr, pv_area,
+		pv_date, pv_st_dt, pv_ed_dt, pv_price, pv_note)
+		value(#{u_id},
+		#{pv_addr}, #{pv_area}, now(), #{pv_st_dt}, #{pv_ed_dt},#{pv_price},
+		#{pv_note})
 	</insert>
-	
-	<insert id="image" parameterType="kr.smhrd.pojo.ImageVO">
-	    insert into t_image (u_id, p_name, p_path, p_date)
-	    value(#{u_id}, #{p_name}, #{p_path}, now())
+
+	<insert id="imageInsert" parameterType="kr.smhrd.pojo.ImageVO">
+		insert into t_image (u_id, p_name, p_path,p_list, p_date)
+		value(#{u_id}, #{p_name}, #{p_path},#{p_list},now())
 	</insert>
 	<select id="p_num" resultType="int">
-	    select p_num from t_image ORDER BY p_date DESC LIMIT 1
+		select p_num from t_image ORDER BY p_date DESC LIMIT 1
 	</select>
-	
+
 	<select id="imageSelect" resultType="kr.smhrd.pojo.ImageVO">
-	    select * from t_image where p_num = #{p_num}
-	    
+		select  from t_image where u_id = #{u_id} and p_name = #{p_name} ORDER BY p_date desc
+
+		<!--select * from(select * from t_image where (p_name=#{p_name}, p_date=#{p_date})
+		 in (select p_name, max(p_date) as date_time from t_image group by p_name  
+		 ) order by date_time desc  -->
 	</select>
-	
+
 </mapper>

@@ -38,6 +38,11 @@ public class MainController {
 	public void Main() {
 		System.out.println("메인 이동 동작");
 	}
+	
+	@RequestMapping("/test.do")
+	public void test() {
+		System.out.println("test 이동 동작");
+	}
 
 	@RequestMapping("/Login.do")
 	public void Login() {

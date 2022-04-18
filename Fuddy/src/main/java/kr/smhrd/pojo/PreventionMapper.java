@@ -10,12 +10,10 @@ public interface PreventionMapper {
 
 	void PreventionInsert(PreventionVO vo);
 
-	void image(HashMap<String, String> img);
+	void imageInsert(HashMap<String, String> img);
 
 	int p_num();
 
-	List<ImageVO> imageSelect(int p_num);
-
-
+	List<ImageVO> imageSelect(HashMap<String, String> select);
 
 }

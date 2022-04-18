@@ -3,8 +3,11 @@ package kr.smhrd.fuddy;
 import java.io.File;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -49,33 +52,43 @@ public class PreventionController {
 		System.out.println(u_id);
 		LocalDate now = LocalDate.now(); // 현재 날짜 구하기 = 신청 날짜
 
-		String path = "C://Users/smhrd/git/Fuddy/Fuddy/src/main/webapp/resources/files/" + u_id + "_" + now; // 폴더 경로
+		String path = "C://Users/smhrd/git/Fuddy/Fuddy/src/main/webapp/resources/files/" + u_id + "_" + now+"_"; // 폴더 경로
+		System.out.println("path : "+path);
 		File Folder = new File(path);
-
-		String p_name = Folder.getName();
-		System.out.println(p_name);
+		
+		//String p_name = Folder.getName();
+		//System.out.println("p_name : "+p_name);
 		String p_path = Folder.getPath();
-		System.out.println(p_path);
-
+		System.out.println("p_path : "+p_path);
+		int cnt =0;
 		// 디렉토리 생성
-		if (!Folder.exists()) {
-			try {
-				Folder.mkdir(); // 폴더 생성
-				System.out.println("폴더 생성");
-			} catch (Exception e) {
-				e.getStackTrace();
+		for (cnt = 1; cnt < 100; cnt++){
+			
+			if (!Folder.exists()) {
+				try {
+					Folder.mkdir(); // 폴더 생성
+					System.out.println("폴더 생성");
+					break;
+				} catch (Exception e) {
+					e.getStackTrace();
+				}
+			} else {
+				Folder = new File(path+cnt);
+				System.out.println("이미 폴더가 존재합니다.");
 			}
-		} else {
-			System.out.println("이미 폴더가 존재합니다.");
-		}
-
-		System.out.println(path);
+		} 
+		path=path+(cnt-1);
+		
+		System.out.println("path : "+path);
 
 		// 파일 서버 컴퓨터에 저장 시작 ( resource/files/id_date 에 저장 )
 		String folder = path; // 생성된 폴더로 경로 설정
 		System.out.println(upload.length);
-		ArrayList<String> folderlist = new ArrayList<String>();
+	//	ArrayList<String> folderlist = new ArrayList<String>();
+		// 다중 파라미터 사용 하기 위해
+		String p_name = Folder.getName();
 		for (MultipartFile multipartFile : upload) {
+			HashMap<String, String> img = new HashMap<String, String>();
 			System.out.println("for문 내부");
 			/*
 			 * log.info("---------"); log.info("Upload File Name : " +
@@ -84,9 +97,22 @@ public class PreventionController {
 			 */
 
 			File saveFile = new File(folder, multipartFile.getOriginalFilename());
-			System.out.println(saveFile);
 
-			folderlist.add(multipartFile.getOriginalFilename());
+			String p_list = multipartFile.getOriginalFilename();
+			
+			// img.put( 사용자이름, 패스, 폴더이름, 이미지 파일 이름 )
+			img.put("u_id", u_id);
+			System.out.println("p_path : "+path);
+			img.put("p_path", path);
+			System.out.println("p_name : "+p_name);
+			img.put("p_name", p_name);
+			// folderlist0 이라는 이름으로 폴더리스트의 0번째를 저장하겠다.
+			System.out.println("p_list : "+p_list);
+			img.put("p_list", p_list);
+			System.out.println("리스트"+p_list);
+			// DB접근 후 저장 (mapper)
+			mapper.imageInsert(img);
+			// 해쉬맵인 img clear ( 비우기 ) 
 			
 			try {
 				multipartFile.transferTo(saveFile);
@@ -95,26 +121,30 @@ public class PreventionController {
 			}
 
 		}
-		
+
 		File Foldername = new File("resources/files/" + p_name + "/");
-		System.out.println(folderlist);
 		model.addAttribute("Foldername", Foldername);
-		System.out.println("폴더이름" + Foldername);
-		model.addAttribute("folderlist", folderlist);
-		System.out.println("폴더리스트" + folderlist);
+		System.out.println("폴더이름 : " + Foldername);
+		//model.addAttribute("folderlist", folderlist);
+		//System.out.println("폴더리스트" + folderlist);
+
+	
 		
-		// 다중 파라미터 사용 하기 위해
-		HashMap<String, String> img = new HashMap<String, String>();
-		img.put("u_id", u_id);
-		img.put("p_path", p_path);
-		img.put("p_name", p_name);
-		// 딥러닝 전 이미지 파일 경로 및 이름 DB 저장
-		mapper.image(img);
 		int p_num = mapper.p_num(); // p_num의 값을 받기 위함
 		System.out.println(p_num);
-
-		List<ImageVO> imageSelect = mapper.imageSelect(p_num);
-		model.addAttribute("imageSelect", imageSelect);
+		HashMap<String, String> select = new HashMap<String, String>();
+		select.put("u_id", u_id);
+		select.put("p_name", p_name);
+		List<ImageVO> ImageVO = mapper.imageSelect(select);
+		//ArrayList<ImageVO> imageSelect2 = new ArrayList<>(); 
+		//ImageVO vo = new ImageVO(165456,"f","f","f","f");
+		// imageSelect2.add(vo);	
+		
+		System.out.println(ImageVO);
+		
+		session.setAttribute("ImageList", ImageVO);
+		// model.addAttribute("ImageVO", ImageVO);
+	
 
 //		File[] files = Foldername.listFiles();
 //		for(int i= 0; i<files.length; i++) {
@@ -123,6 +153,8 @@ public class PreventionController {
 //		return "redirect:/imageSelect.do"; // check.do
 		return "redirect:/ImgCheck.do"; // 나중에 수정 }
 	}
+	
+	
 
 //	@RequestMapping("/imageSelect.do")
 //	public String imageSelect(Model model) {
