@@ -126,9 +126,9 @@ a.list {
 		<!-- 플라스크 이동 폼 -->
 
 
-		<form action="http://localhost:9000/asd" method="post">
+		<form action="http://localhost:5000/asd" method="POST">
 
-			<div style="text-align: center">
+		 <div style="text-align: center">
 				<h3>병해충 사진 확인</h3>
 			</div>
 			<hr />
@@ -164,7 +164,7 @@ a.list {
 			</table>
 			<input type="hidden" value="${info.u_id }" name="u_id"> 
 			<input type="hidden" value="${date }" name="p_date">
-			<input type="hidden" value="${folder }" name="p_folder">
+			<input type="hidden" value="${folder }" name="p_folder"> 
 
 			<%-- <c:set var="p_name" value="${ImageList[0].p_name }" />
 					<c:set var="p_list" value="${ImageList[0].p_list }" />
