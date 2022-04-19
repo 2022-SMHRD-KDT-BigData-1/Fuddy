@@ -210,7 +210,7 @@
         <hr>
 
         <div class="form-group">
-          <label for="id_d">ID : </label>
+          <label for="id_d">ID  </label>
           <input
             type="text"
             class="form-control"
@@ -224,7 +224,7 @@
           <br>
         </div>
         <div class="form-group">
-          <label for="pw_d">비밀번호 : </label>
+          <label for="pw_d">비밀번호  </label>
           <input
             type="password"
             class="form-control"
