@@ -75,16 +75,16 @@ a.list {
 								<!-- 로그인 했을 때 -->
 								<li class="nav-item"><a class="nav-link"
 									aria-current="page" href="logout.do">로그아웃</a></li>
-									
+
 								<li class="nav-item dropdown"><a
 									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 									role="button" data-bs-toggle="dropdown" aria-expanded="false">
 										마이페이지 </a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 										<li><a class="dropdown-item" href="#">회원 정보</a></li>
-										<li><a class="dropdown-item" href="#">방제 신청 현황</a></li>
+										<li><a class="dropdown-item" href="Lookup.do?pv_num=2">방제 신청 현황</a></li>
 									</ul></li>
-									
+
 								<li class="nav-item"><a class="nav-link"
 									aria-current="page" href="Table2.do?pageNum=1">문의 게시판</a></li>
 								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
@@ -97,8 +97,15 @@ a.list {
 								<li class="nav-item"><a class="nav-link"
 									aria-current="page" href="logout.do">로그아웃</a></li>
 								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="#">회원관리</a></li>
+								<li class="nav-item dropdown"><a
+									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+									role="button" data-bs-toggle="dropdown" aria-expanded="false">
+										직원 관리 </a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a class="dropdown-item" href="schedule.do">스케줄</a></li>
+										<li><a class="dropdown-item" href="#">드론기사 등록</a></li>
+										<li><a class="dropdown-item" href="#">방제 신청 현항</a></li>
+									</ul></li>
 								<!-- 회원관리화면으로 주소 바꾸세요 -->
 
 								<li class="nav-item"><a class="nav-link"
@@ -117,14 +124,7 @@ a.list {
 								<!-- 드롭다운 여기까지 -->
 
 								<!-- 드롭다운 복붙해서 쓰면 됨 -->
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										방제내역관리 </a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="#">Action</a></li>
-										<li><a class="dropdown-item" href="#">Another action</a></li>
-									</ul></li>
+
 								<!-- 드롭다운 여기까지 -->
 
 

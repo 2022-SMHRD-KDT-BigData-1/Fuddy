@@ -114,7 +114,7 @@ a.list {
 				<!-- 드롭다운 여기까지 -->
 			</ul>
 		</div>
-		
+
 	</nav>
 	<!-- 네비바 끝 -->
 
@@ -126,8 +126,8 @@ a.list {
 		<!-- 플라스크 이동 폼 -->
 
 
-		<form action="http://127.0.0.1:9000/asd" method="post">
-			<input type="hidden" value="${info.u_id }">
+		<form action="http://localhost:9000/asd" method="post">
+
 			<div style="text-align: center">
 				<h3>병해충 사진 확인</h3>
 			</div>
@@ -139,19 +139,43 @@ a.list {
 					<td>2</td>
 					<td>3</td>
 				</tr>
-				<tr>
-					
-					<c:set var = "p_name" value = "${ImageList[0].p_name }"/>
-					<c:set var = "p_list" value = "${ImageList[0].p_list }"/>
-					<td><c:out value = "${p_name}"/></td>
-					<td><c:out value = "${p_list }"/></td>
-					<c:set var = "path" value = "resources/files/"/>
-					<c:set var= "p_name2" value = "qo1515_2022-04-18_14"/>
-					<c:set var= "p_list2" value = "image.jfif"/>
-					<td><img src="${path }${p_name2}/${p_list2 }">
-					<td><img src="${path }${p_name}/${p_list }">
-				</tr>
+
+				<c:set var="path" value="resources/files/" />
+				<c:forEach var="i" items="${ImageList }" varStatus="j">
+					<c:set var = "date" value = "${i.p_date }" />
+					<c:set var = "folder" value = "${i.p_folder }" />
+
+					<c:set var="number" value="${j.count }" />
+					<c:set var="nextRow" value="${number % 3}" />
+					<c:choose>
+						<c:when test="${nextRow eq 1}">
+							<tr>
+								<td><img src="${path}${i.p_folder}/${i.p_name}"
+									style="height: 100px; width: 100px;" /></td>
+						</c:when>
+						<c:otherwise>
+							<td><img src="${path}${i.p_folder}/${i.p_name}"
+								style="height: 100px; width: 100px;" /></td>
+
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+
 			</table>
+			<input type="hidden" value="${info.u_id }" name="u_id"> 
+			<input type="hidden" value="${date }" name="p_date">
+			<input type="hidden" value="${folder }" name="p_folder">
+
+			<%-- <c:set var="p_name" value="${ImageList[0].p_name }" />
+					<c:set var="p_list" value="${ImageList[0].p_list }" />
+					<td><c:out value="${p_name}" /></td>
+					<td><c:out value="${p_list }" /></td>
+					<c:set var="path" value="resources/files/" />
+					<c:set var="p_name2" value="qo1515_2022-04-18_14" />
+					<c:set var="p_list2" value="image.jfif" />
+					<td><img src="${path }${p_name2}/${p_list2 }">
+					<td><img src="${path }${p_name}/${p_list }"> --%>
+
 			<div class="mt-3" style="text-align: center;">
 				<button class="btn btn-outline-success" type="submit"
 					id="inputGroupFileAddon04">제출</button>

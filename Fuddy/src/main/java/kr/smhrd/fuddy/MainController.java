@@ -11,37 +11,49 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.pojo.BoardMapper;
 import kr.smhrd.pojo.BoardVO;
+import kr.smhrd.pojo.PreventionMapper;
+import kr.smhrd.pojo.PreventionVO;
 
 @Controller
 public class MainController {
 	@Inject // autowired 보다 보안성이 좋다
 	private BoardMapper mapper; // 의존성주입(DI)!
-	
+	private PreventionMapper p_mapper; // 의존성주입(DI)!
+
 	@RequestMapping("/ImgInput.do")
 	public void ImgInput() {
 		System.out.println("이미지 업로드 이동 동작");
 	}
+
 	@RequestMapping("/ImgCheck.do")
 	public void ImgCheck() {
 		System.out.println("이미지 확인 이동 동작");
 	}
+
 	@RequestMapping("/ImgCom.do")
 	public void ImgCom() {
 		System.out.println("이미지 결과 확인 이동 동작");
 	}
+
 	@RequestMapping("/schedule.do")
 	public void schedule() {
 		System.out.println("스케줄 이동 동작");
 	}
-	
-	@RequestMapping("/Main.do")
-	public void Main() {
-		System.out.println("메인 이동 동작");
+
+	@RequestMapping("/Lookup.do")
+	public void Lookup(@RequestParam("pv_num") int pv_num, Model model) {
+		PreventionVO lookup = p_mapper.LookupSelect(pv_num);
+		model.addAttribute("lookup", lookup);
+		System.out.println("방제 현황 이동 동작");
 	}
-	
-	@RequestMapping("/test.do")
-	public void test() {
-		System.out.println("test 이동 동작");
+
+	@RequestMapping("/Main.do")
+	public void Main(Model model) {
+		/*
+		 * List<PreventionVO> PreventionList = p_mapper.pv_num();
+		 * model.addAttribute("PreventionList", PreventionList);
+		 */
+		System.out.println("메인 이동 동작");
 	}
 
 	@RequestMapping("/Login.do")
@@ -56,11 +68,11 @@ public class MainController {
 
 	@RequestMapping("/Table2.do")
 	public String Table(@RequestParam("pageNum") int pageNum, Model model, BoardVO page) {
-		System.out.println("게시물 수" + pageNum );
-		//시작 게시물
+		System.out.println("게시물 수" + pageNum);
+		// 시작 게시물
 		int postStart = 0;
 		if (pageNum >= 1) {
-			postStart = (pageNum - 1) * 10 ;
+			postStart = (pageNum - 1) * 10;
 		}
 		// 전체 게시글 수
 		int amount = mapper.boardAmount();
@@ -80,14 +92,13 @@ public class MainController {
 
 	@RequestMapping("/d_Table2.do")
 	public String d_Table(@RequestParam("pageNum") int pageNum, Model model, BoardVO page) {
-	System.out.println("게시물 수" + pageNum );
-		
-		//시작 게시물
+		System.out.println("게시물 수" + pageNum);
+
+		// 시작 게시물
 		int postStart = 0;
-		
-				
+
 		if (pageNum >= 1) {
-			postStart = (pageNum - 1) * 10 ;
+			postStart = (pageNum - 1) * 10;
 		}
 		// 전체 게시글 수
 		int amount = mapper.boardAmount();
@@ -96,7 +107,6 @@ public class MainController {
 		int endPageNum = (amount - 1) / 10 + 1;
 		int postStart1 = postStart;
 		System.out.println(postStart);
-
 
 		List<BoardVO> list = mapper.Table(postStart);
 		System.out.println("문의 게시판 이동 동작");
@@ -116,5 +126,5 @@ public class MainController {
 	public void Prevention() {
 		System.out.println("방제신청 이동 동작");
 	}
-	
+
 }

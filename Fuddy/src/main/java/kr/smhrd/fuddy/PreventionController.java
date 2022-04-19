@@ -52,18 +52,15 @@ public class PreventionController {
 		System.out.println(u_id);
 		LocalDate now = LocalDate.now(); // 현재 날짜 구하기 = 신청 날짜
 
-		String path = "C://Users/smhrd/git/Fuddy/Fuddy/src/main/webapp/resources/files/" + u_id + "_" + now+"_"; // 폴더 경로
-		System.out.println("path : "+path);
+		String path = session.getServletContext().getRealPath("resources/files/") + u_id + "_" + now + "_"; // 폴더 경로
 		File Folder = new File(path);
-		
-		//String p_name = Folder.getName();
-		//System.out.println("p_name : "+p_name);
+
 		String p_path = Folder.getPath();
-		System.out.println("p_path : "+p_path);
-		int cnt =0;
+		System.out.println("p_path : " + p_path);
+		int cnt = 0;
 		// 디렉토리 생성
-		for (cnt = 1; cnt < 100; cnt++){
-			
+		for (cnt = 1; cnt < 100; cnt++) {
+
 			if (!Folder.exists()) {
 				try {
 					Folder.mkdir(); // 폴더 생성
@@ -73,20 +70,20 @@ public class PreventionController {
 					e.getStackTrace();
 				}
 			} else {
-				Folder = new File(path+cnt);
+				Folder = new File(path + cnt);
 				System.out.println("이미 폴더가 존재합니다.");
 			}
-		} 
-		path=path+(cnt-1);
-		
-		System.out.println("path : "+path);
+		}
+		path = path + (cnt - 1);
+
+		System.out.println("path : " + path);
 
 		// 파일 서버 컴퓨터에 저장 시작 ( resource/files/id_date 에 저장 )
 		String folder = path; // 생성된 폴더로 경로 설정
 		System.out.println(upload.length);
-	//	ArrayList<String> folderlist = new ArrayList<String>();
+		// ArrayList<String> folderlist = new ArrayList<String>();
 		// 다중 파라미터 사용 하기 위해
-		String p_name = Folder.getName();
+		String p_folder = Folder.getName();
 		for (MultipartFile multipartFile : upload) {
 			HashMap<String, String> img = new HashMap<String, String>();
 			System.out.println("for문 내부");
@@ -98,22 +95,20 @@ public class PreventionController {
 
 			File saveFile = new File(folder, multipartFile.getOriginalFilename());
 
-			String p_list = multipartFile.getOriginalFilename();
-			
+			String p_name = multipartFile.getOriginalFilename();
+
 			// img.put( 사용자이름, 패스, 폴더이름, 이미지 파일 이름 )
 			img.put("u_id", u_id);
-			System.out.println("p_path : "+path);
 			img.put("p_path", path);
-			System.out.println("p_name : "+p_name);
-			img.put("p_name", p_name);
+			img.put("p_folder", p_folder);
+			System.out.println(p_folder);
 			// folderlist0 이라는 이름으로 폴더리스트의 0번째를 저장하겠다.
-			System.out.println("p_list : "+p_list);
-			img.put("p_list", p_list);
-			System.out.println("리스트"+p_list);
+			img.put("p_name", p_name);
+			System.out.println(p_name);
 			// DB접근 후 저장 (mapper)
 			mapper.imageInsert(img);
-			// 해쉬맵인 img clear ( 비우기 ) 
-			
+			// 해쉬맵인 img clear ( 비우기 )
+
 			try {
 				multipartFile.transferTo(saveFile);
 			} catch (Exception e) {
@@ -121,50 +116,13 @@ public class PreventionController {
 			}
 
 		}
-
-		File Foldername = new File("resources/files/" + p_name + "/");
-		model.addAttribute("Foldername", Foldername);
-		System.out.println("폴더이름 : " + Foldername);
-		//model.addAttribute("folderlist", folderlist);
-		//System.out.println("폴더리스트" + folderlist);
-
-	
-		
-		int p_num = mapper.p_num(); // p_num의 값을 받기 위함
-		System.out.println(p_num);
 		HashMap<String, String> select = new HashMap<String, String>();
 		select.put("u_id", u_id);
-		select.put("p_name", p_name);
+		select.put("p_folder", p_folder);
 		List<ImageVO> ImageVO = mapper.imageSelect(select);
-		//ArrayList<ImageVO> imageSelect2 = new ArrayList<>(); 
-		//ImageVO vo = new ImageVO(165456,"f","f","f","f");
-		// imageSelect2.add(vo);	
-		
 		System.out.println(ImageVO);
-		
 		session.setAttribute("ImageList", ImageVO);
-		// model.addAttribute("ImageVO", ImageVO);
-	
-
-//		File[] files = Foldername.listFiles();
-//		for(int i= 0; i<files.length; i++) {
-//			folderlist.addAll(i);
-//		}
-//		return "redirect:/imageSelect.do"; // check.do
 		return "redirect:/ImgCheck.do"; // 나중에 수정 }
 	}
-	
-	
 
-//	@RequestMapping("/imageSelect.do")
-//	public String imageSelect(Model model) {
-//
-//		int p_num = mapper.p_num(); // p_num의 값을 받기 위함
-//		System.out.println(p_num);
-//
-//		List<ImageVO> imageSelect = mapper.imageSelect(p_num);
-//		model.addAttribute("imageSelect", imageSelect);
-//		System.out.println(imageSelect.size());
-//		return "redirect:/ImgCheck.do"; // 나중에 수정 }
-//	}
 }

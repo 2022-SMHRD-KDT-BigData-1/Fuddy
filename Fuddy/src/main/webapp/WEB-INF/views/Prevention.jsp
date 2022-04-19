@@ -200,6 +200,7 @@ a.list {
 							</table>
 						</td>
 					</tr>
+					<tr>
 					<td class="table-active">방제 가격</td>
 					<td><input type="text" readonly class="form-control"
 						name="pv_price" id="pv_price" value="" style="width: 200px;" /></td>
@@ -222,7 +223,6 @@ a.list {
 				<button type="submit" class="btn btn-outline-success">방제신청
 				</button>
 			</div>
-			</table>
 		</form>
 
 	</div>

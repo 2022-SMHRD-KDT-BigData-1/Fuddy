@@ -69,8 +69,8 @@
       <div class="container-fluid">
         <!-- 푸띠 로고 -->
         <div class="nav-item">
-          <a class="nav-link" href="main.html">
-            <img class="logo" src="FUDDY-logo.png" />
+          <a class="nav-link" href="Main.do">
+            <img class="logo" src="resources/image/FUDDY-logo.png" />
           </a>
         </div>
         <button
@@ -176,7 +176,7 @@
     </nav>
     <!-- 네비바 끝 -->
     <div class="container mt-3">
-      <img src="tree2_logo.png" style="width: 100%" />
+      <img src="resources/image/tree2_logo.png" style="width: 100%" />
     </div>
     <!-- 컨텐츠 시작 -->
     <div class="container p-3 my-3 border">
