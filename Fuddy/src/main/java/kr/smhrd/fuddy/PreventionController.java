@@ -52,6 +52,7 @@ public class PreventionController {
 		System.out.println(u_id);
 		LocalDate now = LocalDate.now(); // 현재 날짜 구하기 = 신청 날짜
 
+		String path_check = session.getServletContext().getRealPath("");
 		String path = session.getServletContext().getRealPath("resources/files/") + u_id + "_" + now + "_"; // 폴더 경로
 		File Folder = new File(path);
 

@@ -140,7 +140,7 @@ a.list {
 					<td>3</td>
 				</tr>
 
-				<c:set var="path" value="resources/files/" />
+				<c:set var="path" value="/home/ubuntu/web/apache-tomcat-8.5.78/webapps/Fuddy/resources/files/" />
 				<c:forEach var="i" items="${ImageList }" varStatus="j">
 					<c:set var = "date" value = "${i.p_date }" />
 					<c:set var = "folder" value = "${i.p_folder }" />
