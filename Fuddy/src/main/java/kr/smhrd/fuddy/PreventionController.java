@@ -36,12 +36,10 @@ public class PreventionController {
 	public String PreventionInsert(PreventionVO vo) {
 		System.out.println("방제 신청 기능 동작");
 		mapper.PreventionInsert(vo);
-		System.out.println(vo);
 		return "redirect:/Main.do"; // 나중에 수정
 	}
 
 	@RequestMapping("/saveFile.do")
-
 	public String saveFile(MultipartFile[] upload, Model model, HttpSession session) {
 
 		MemberVO info = (MemberVO) session.getAttribute("info");
@@ -109,7 +107,8 @@ public class PreventionController {
 			System.out.println(p_folder);
 			// folderlist0 이라는 이름으로 폴더리스트의 0번째를 저장하겠다.
 			img.put("p_name", p_name);
-			System.out.println(p_name);
+			System.out.println("p_name : "+p_name);
+			System.out.println("img : "+img);
 			// DB접근 후 저장 (mapper)
 			mapper.imageInsert(img);
 			// 해쉬맵인 img clear ( 비우기 )
@@ -119,18 +118,16 @@ public class PreventionController {
 			} catch (Exception e) {
 				// log.error(e.getMessage());
 			}
-
 		}
 		HashMap<String, String> select = new HashMap<String, String>();
 		select.put("u_id", u_id);
 		select.put("p_folder", p_folder);
-		select.put("dee_folder", p_folder);
+		// select.put("deep_folder", p_folder);
 		List<ImageVO> ImageVO = mapper.imageSelect(select);
-		
-		List<DeepVO> DeepVO = mapper.deepSelect(select);
+
 		System.out.println(ImageVO);
 		session.setAttribute("ImageList", ImageVO);
-		session.setAttribute("deepList", DeepVO);
+
 		return "redirect:/ImgCheck.do"; // 나중에 수정 }
 	}
 
