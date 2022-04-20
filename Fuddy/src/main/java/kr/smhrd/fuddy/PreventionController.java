@@ -16,9 +16,11 @@ import javax.servlet.http.HttpSession;
 import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartRequest;
 
 import kr.smhrd.pojo.CommentVO;
 import kr.smhrd.pojo.DeepVO;
@@ -41,7 +43,10 @@ public class PreventionController {
 
 	@RequestMapping("/saveFile.do")
 	public String saveFile(MultipartFile[] upload, Model model, HttpSession session) {
+		
+		// MultipartRequest mreQuest = new MultipartRequest() {
 
+		
 		MemberVO info = (MemberVO) session.getAttribute("info");
 
 
