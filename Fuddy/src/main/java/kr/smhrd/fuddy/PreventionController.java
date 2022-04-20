@@ -55,10 +55,11 @@ public class PreventionController {
 
 		// String path = session.getServletContext().getRealPath("resources/files/") + u_id + "_" + now + "_"; // 폴더 경로
 		String path = "/home/ubuntu/web/file/" + u_id + "_" + now + "_"; // 폴더 경로
+		//String path = "C:\\Users\\smhrd\\Desktop\\file\\" + u_id + "_" + now + "_"; // 폴더 경로
 		File Folder = new File(path);
 
 		String p_path = Folder.getPath();
-		System.out.println("p_path : " + p_path);
+		System.out.println("p_path file내에 폴더 생성 : " + p_path);
 		int cnt = 0;
 		// 디렉토리 생성
 		for (cnt = 1; cnt < 100; cnt++) {
@@ -78,7 +79,7 @@ public class PreventionController {
 		}
 		path = path + (cnt - 1);
 
-		System.out.println("path : " + path);
+		System.out.println("path 이미지 저장 경로 : " + path);
 
 		// 파일 서버 컴퓨터에 저장 시작 ( resource/files/id_date 에 저장 )
 		String folder = path; // 생성된 폴더로 경로 설정

@@ -139,14 +139,13 @@ a.list {
 					<td>2</td>
 					<td>3</td>
 				</tr>
-
-				<c:set var="path" value="http://3.88.177.155:8080/Fuddy/file"/>
+				<c:set var="path" value="http://3.88.177.155:8080/file/"/>
 				<c:forEach var="i" items="${ImageList }" varStatus="j">
 					<c:set var = "date" value = "${i.p_date }" />
 					<c:set var = "folder" value = "${i.p_folder }" />
-
 					<c:set var="number" value="${j.count }" />
 					<c:set var="nextRow" value="${number % 3}" />
+					<c:out value="${path}${i.p_folder}/${i.p_name}"/>
 					<c:choose>
 						<c:when test="${nextRow eq 1}">
 							<tr>
