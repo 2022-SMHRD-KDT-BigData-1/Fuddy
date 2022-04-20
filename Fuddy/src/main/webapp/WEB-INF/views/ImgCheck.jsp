@@ -140,7 +140,7 @@ a.list {
 					<td>3</td>
 				</tr>
 
-				<c:set var="path" value="resources/files/"/>
+				<c:set var="path" value="http://3.88.177.155:8080/Fuddy/file"/>
 				<c:forEach var="i" items="${ImageList }" varStatus="j">
 					<c:set var = "date" value = "${i.p_date }" />
 					<c:set var = "folder" value = "${i.p_folder }" />
