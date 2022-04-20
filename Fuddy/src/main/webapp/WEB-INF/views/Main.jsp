@@ -118,8 +118,8 @@ a.list {
 									role="button" data-bs-toggle="dropdown" aria-expanded="false">
 										제원관리 </a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="#">Action</a></li>
-										<li><a class="dropdown-item" href="#">Another action</a></li>
+										<li><a class="dropdown-item" href="Spec_Drone.do">드론 관리</a></li>
+										<li><a class="dropdown-item" href="Spec_Drug.do">방제약 관리</a></li>
 									</ul></li>
 								<!-- 드롭다운 여기까지 -->
 
