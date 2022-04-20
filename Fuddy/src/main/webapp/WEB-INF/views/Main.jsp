@@ -151,6 +151,7 @@ a.list {
 	<!--캐러셀 시작-->
 	
 	    <!--캐러셀 시작-->
+	    <div class="container mt-3">
     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -222,6 +223,7 @@ a.list {
 
         </div>
       </div>
+    </div>
     </div>
 	
 	
