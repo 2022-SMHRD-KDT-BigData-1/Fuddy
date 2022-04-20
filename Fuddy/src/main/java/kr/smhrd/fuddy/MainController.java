@@ -65,6 +65,10 @@ public class MainController {
 	public void Join() {
 		System.out.println("회원가입 이동 동작");
 	}
+	@RequestMapping("/AdminJoin.do")
+	public void AdminJoin() {
+		System.out.println("관리자 회원가입 이동 동작");
+	}
 
 	@RequestMapping("/Table2.do")
 	public String Table(@RequestParam("pageNum") int pageNum, Model model, BoardVO page) {

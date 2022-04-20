@@ -27,7 +27,19 @@
           backgroundColor: color,
           borderColor: color,
         };
+        var color = "#" + Math.round(Math.random() * 0xffffff).toString(16);
+        var schedule2 = {
+                title: "드론기사 2번",
+                // t_admin
+                start: "2022-04-01",
+                // pv_st_dt
+                end: "2022-04-31",
+                // pv_ed_dt
+                backgroundColor: color,
+                borderColor: color,
+              };
         schedule_list.push(schedule);
+        schedule_list.push(schedule2);
         var calendarEl = document.getElementById("calendar");
         var calendar = new FullCalendar.Calendar(calendarEl, {
           plugins: ["interaction", "dayGrid"],

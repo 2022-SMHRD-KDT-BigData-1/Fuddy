@@ -102,8 +102,8 @@ a.list {
 									role="button" data-bs-toggle="dropdown" aria-expanded="false">
 										직원 관리 </a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="schedule.do">스케줄</a></li>
-										<li><a class="dropdown-item" href="#">드론기사 등록</a></li>
+										<li><a class="dropdown-item" href="schedule.do">드론기사 일정</a></li>
+										<li><a class="dropdown-item" href="AdminJoin.do">드론기사 등록</a></li>
 										<li><a class="dropdown-item" href="#">방제 신청 현항</a></li>
 									</ul></li>
 								<!-- 회원관리화면으로 주소 바꾸세요 -->
