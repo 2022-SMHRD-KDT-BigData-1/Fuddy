@@ -21,6 +21,11 @@
 		select * from t_image where u_id = #{u_id} and p_folder = #{p_folder} ORDER BY p_date desc
 
 	</select>
+	
+	<select id="deepSelect" resultType="kr.smhrd.pojo.DeepVO">
+		select * from t_deep where u_id = #{u_id} and deep_folder = #{deep_folder} ORDER BY p_date desc
+
+	</select>
 
 	<select id="LookupSelect" resultType="kr.smhrd.pojo.PreventionVO">
 		<!--select * from t_qna order by q_date desc -->

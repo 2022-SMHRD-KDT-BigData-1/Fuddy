@@ -134,17 +134,32 @@ a.list {
 
 		</figure>
 		<table class="table table-bordered">
-		<%-- 	<c:forEach var="i" items="${deepList }"> --%>
-			
-			<tr>
-				<td><a href="#"><img
-						class="rounded float-start d-block w-100" src="resources/results/jongin_2022-04-13/V006_79_1_15_07_03_13_2_3248bb_20201120_13.jpg"></a></td>
-				<td><a href="#"><img class="rounded mx-auto  d-block w-100"
-						src="resources/results/jongin_2022-04-13/V006_79_1_15_07_03_13_2_3248bb_20201120_49.jpg"></a></td>
-				<td><a href="#"><img
-						class="rounded float-end d-block w-100" src="resources/results/jongin_2022-04-13/V006_79_1_15_07_03_13_2_3248bb_20201120_67.jpg"></a></td>
-			</tr>
-			<!-- <tr>
+
+			<c:set var="path" value="resources/results/" />
+			<c:forEach var="i" items="${deepList }">
+
+				<c:set var="number" value="${j.count }" />
+				<c:set var="nextRow" value="${number % 3}" />
+				<c:choose>
+					<c:when test="${nextRow eq 1}">
+						<tr>
+							<td><a href="#"> <img
+									class="rounded float-start d-block w-100"
+									src="${path}${i.deep_folder}/${i.deep_name}"></a></td>
+					</c:when>
+					<c:otherwise>
+						<td><a href="#"> <img
+									class="rounded float-start d-block w-100"
+									src="${path}${i.deep_folder}/${i.deep_name}"></a></td>
+
+					</c:otherwise>
+				</c:choose>
+
+
+
+
+
+				<!-- <tr>
 				<td><a href="#"><img
 						class="rounded float-start d-block w-100" src="pest01.jpg"></a></td>
 				<td><a href="#"><img
@@ -152,8 +167,8 @@ a.list {
 				<td><a href="#"><img
 						class="rounded float-end d-block w-100" src="pest03.jpg"></a></td>
 			</tr> -->
-			
-			<%-- </c:forEach> --%>
+
+			</c:forEach>
 		</table>
 
 
@@ -170,9 +185,9 @@ a.list {
 		</figure>
 		<figure class="text-center">
 			<blockquote class="blockquote">
-				<span>방제를 신청하시겠습니까? &ensp;</span>
-					 <a href="Prevention.do"><button class="btn btn-outline-success">예</button></a> 
-					<a href="Main.do"><button class="btn btn-outline-success">아니오</button></a>
+				<span>방제를 신청하시겠습니까? &ensp;</span> <a href="Prevention.do"><button
+						class="btn btn-outline-success">예</button></a> <a href="Main.do"><button
+						class="btn btn-outline-success">아니오</button></a>
 			</blockquote>
 		</figure>
 

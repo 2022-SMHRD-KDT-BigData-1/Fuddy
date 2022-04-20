@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import kr.smhrd.pojo.CommentVO;
+import kr.smhrd.pojo.DeepVO;
 import kr.smhrd.pojo.ImageVO;
 import kr.smhrd.pojo.MemberVO;
 import kr.smhrd.pojo.PreventionMapper;
@@ -120,9 +121,13 @@ public class PreventionController {
 		HashMap<String, String> select = new HashMap<String, String>();
 		select.put("u_id", u_id);
 		select.put("p_folder", p_folder);
+		select.put("dee_folder", p_folder);
 		List<ImageVO> ImageVO = mapper.imageSelect(select);
+		
+		List<DeepVO> DeepVO = mapper.deepSelect(select);
 		System.out.println(ImageVO);
 		session.setAttribute("ImageList", ImageVO);
+		session.setAttribute("deepList", DeepVO);
 		return "redirect:/ImgCheck.do"; // 나중에 수정 }
 	}
 

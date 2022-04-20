@@ -15,9 +15,11 @@ public interface PreventionMapper {
 	int p_num();
 
 	List<ImageVO> imageSelect(HashMap<String, String> select);
-
+	
 	PreventionVO LookupSelect(int pv_num);
 
 	List<PreventionVO> pv_num();
+
+	List<DeepVO> deepSelect(HashMap<String, String> select);
 
 }
