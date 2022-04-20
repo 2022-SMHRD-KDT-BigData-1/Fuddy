@@ -128,44 +128,60 @@ a.list {
 
 		<form action="http://localhost:5000/asd" method="POST">
 
-		 <div style="text-align: center">
+			<div style="text-align: center">
 				<h3>병해충 사진 확인</h3>
 			</div>
 			<hr />
 
 			<table class="table table-bordered">
-				<tr>
-					<td>1</td>
-					<td>2</td>
-					<td>3</td>
-				</tr>
+				<thead>
+					<tr>
+						<td>1</td>
+						<td>2</td>
+						<td>3</td>
+					</tr>
+				</thead>
 				<!-- aws주소 -->
 				<!-- <c:set var="path" value="http://3.88.177.155:8080/file/"/> -->
-				<c:set var="path" value="resource/file"/>
+				<c:set var="path" value="resources/files/" />
+				<tbody>
 				<c:forEach var="i" items="${ImageList }" varStatus="j">
-					<c:set var = "date" value = "${i.p_date }" />
-					<c:set var = "folder" value = "${i.p_folder }" />
+					<c:set var="date" value="${i.p_date }" />
+					<c:set var="folder" value="${i.p_folder }" />
 					<c:set var="number" value="${j.count }" />
 					<c:set var="nextRow" value="${number % 3}" />
-					<c:out value="${path}${i.p_folder}/${i.p_name}"/>
+					<!--<c:out value="${path}${i.p_folder}/${i.p_name}"/>-->
+					
 					<c:choose>
 						<c:when test="${nextRow eq 1}">
 							<tr>
 								<td><img src="${path}${i.p_folder}/${i.p_name}"
 									style="height: 100px; width: 100px;" /></td>
+									
 						</c:when>
 						<c:otherwise>
-							<td><img src="${path}${i.p_folder}/${i.p_name}"
-								style="height: 100px; width: 100px;" /></td>
+							<c:choose>
+								<c:when test="${nextRow eq 2}">
+									<td><img src="${path}${i.p_folder}/${i.p_name}"
+										style="height: 100px; width: 100px;" /></td>
+								</c:when>
+								<c:otherwise>
+									<td><img src="${path}${i.p_folder}/${i.p_name}"
+										style="height: 100px; width: 100px;" /></td>
+									</tr>
+								</c:otherwise>
+							</c:choose>
+
+
 
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
-
+				</tbody>
 			</table>
-			<input type="hidden" value="${info.u_id }" name="u_id"> 
-			<input type="hidden" value="${date }" name="p_date">
-			<input type="hidden" value="${folder }" name="p_folder"> 
+			<input type="hidden" value="${info.u_id }" name="u_id"> <input
+				type="hidden" value="${date }" name="p_date"> <input
+				type="hidden" value="${folder }" name="p_folder">
 
 			<%-- <c:set var="p_name" value="${ImageList[0].p_name }" />
 					<c:set var="p_list" value="${ImageList[0].p_list }" />

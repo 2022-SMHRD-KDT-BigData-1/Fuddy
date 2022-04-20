@@ -15,4 +15,13 @@ public class ImageVO {
 	private String p_folder; //폴더 이름
 	private String p_name; //사진 이름
 	private String p_date; //등록 날짜
+	
+	public ImageVO(String u_id, String p_folder) {
+		super();
+		this.u_id = u_id;
+		this.p_folder = p_folder;
+	}
+
+	
+	
 }

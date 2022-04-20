@@ -9,12 +9,12 @@ import org.apache.ibatis.annotations.Mapper;
 public interface PreventionMapper {
 
 	void PreventionInsert(PreventionVO vo);
-
-	void imageInsert(HashMap<String, String> img);
+	
+	void imageInsert(ImageVO img);
 
 	int p_num();
 
-	List<ImageVO> imageSelect(HashMap<String, String> select);
+	List<ImageVO> imageSelect(ImageVO img);
 	
 	PreventionVO LookupSelect(int pv_num);
 

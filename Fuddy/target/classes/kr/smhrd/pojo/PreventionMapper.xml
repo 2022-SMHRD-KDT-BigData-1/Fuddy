@@ -9,9 +9,10 @@
 	</insert>
 
 	<insert id="imageInsert" parameterType="kr.smhrd.pojo.ImageVO">
-		insert into t_image (u_id, p_name, p_path,p_folder, p_date)
+		insert into t_image (u_id, p_name, p_path, p_folder, p_date)
 		value(#{u_id}, #{p_name},#{p_path},#{p_folder},now())
 	</insert>
+	
 	<select id="p_num" resultType="int">
 		select p_num from t_image ORDER BY
 		p_date DESC LIMIT 1

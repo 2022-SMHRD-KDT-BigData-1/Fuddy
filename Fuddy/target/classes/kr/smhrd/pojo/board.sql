@@ -41,5 +41,9 @@ ALTER TABLE t_deep
     ADD CONSTRAINT FK_t_deep_u_id_t_member_u_id FOREIGN KEY (u_id)
         REFERENCES t_member (u_id) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
-select * from t_image where u_id = "qo1515" and p_folder = "qo1515_2022-04-20_5"
+select * from t_image where u_id = "qo1515" and p_folder = "qo1515_2022-04-20_18"
 select * from t_image
+
+insert into t_image (u_id, p_name, p_path, p_folder, p_date)
+	value("qo1515", "123", "1", "1",now())
+
