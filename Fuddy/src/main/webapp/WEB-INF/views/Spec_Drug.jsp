@@ -228,7 +228,7 @@ a.list {
 		         $('#plus').on('mouseup',function(){
 		             clearInterval(inter)
 		         })
-		     })
+		     });
 		     
 		 buttonElement.addEventListener('click', function minus(){ {
 		     count -= 1;
@@ -243,7 +243,7 @@ a.list {
 		         $('#minus').on('mouseup',function(){
 		             clearInterval(inter)
 		         })
-		     })
+		     });
 	</script>
 </body>
 </html>
