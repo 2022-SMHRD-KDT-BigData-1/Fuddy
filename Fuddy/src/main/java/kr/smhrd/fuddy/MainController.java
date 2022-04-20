@@ -48,11 +48,8 @@ public class MainController {
 	}
 
 	@RequestMapping("/Main.do")
-	public void Main(Model model) {
-		/*
-		 * List<PreventionVO> PreventionList = p_mapper.pv_num();
-		 * model.addAttribute("PreventionList", PreventionList);
-		 */
+	public void Main() {
+		
 		System.out.println("메인 이동 동작");
 	}
 
