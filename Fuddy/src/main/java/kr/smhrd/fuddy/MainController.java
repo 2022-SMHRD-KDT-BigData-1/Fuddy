@@ -127,5 +127,13 @@ public class MainController {
 	public void Prevention() {
 		System.out.println("방제신청 이동 동작");
 	}
+	@RequestMapping("/Spec_Drone.do")
+	public void Spec_Drone() {
+		System.out.println("드론 관리 이동 동작");
+	}
+	@RequestMapping("/Spec_Drug.do")
+	public void Spec_Drug() {
+		System.out.println("방제약 관리 이동 동작");
+	}
 
 }
