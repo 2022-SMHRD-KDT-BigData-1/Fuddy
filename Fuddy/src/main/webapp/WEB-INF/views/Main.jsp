@@ -100,26 +100,28 @@ a.list {
 								<li class="nav-item dropdown"><a
 									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										직원 관리 </a>
+										관리 페이지 </a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="schedule.do">드론기사 일정</a></li>
-										<li><a class="dropdown-item" href="AdminJoin.do">드론기사 등록</a></li>
-										<li><a class="dropdown-item" href="#">방제 신청 현항</a></li>
+										<li><a class="dropdown-item" href="schedule.do">드론기사</a></li>
+										<li><a class="dropdown-item" href="AdminJoin.do">제원 관리</a></li>
+										<li><a class="dropdown-item" href="#">회원 관리</a></li>
 									</ul></li>
 								<!-- 회원관리화면으로 주소 바꾸세요 -->
 
 								<li class="nav-item"><a class="nav-link"
 									aria-current="page" href="d_Table2.do?pageNum=1">문의게시판</a></li>
 								<!-- 문의게시판으로 주소 바꾸세요 -->
+								
 
 								<!-- 드롭다운 복붙해서 쓰면 됨 -->
 								<li class="nav-item dropdown"><a
 									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										제원관리 </a>
+										방제신청내역 </a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="Spec_Drone.do">드론 관리</a></li>
-										<li><a class="dropdown-item" href="Spec_Drug.do">방제약 관리</a></li>
+										<li><a class="dropdown-item" href="Spec_Drone.do">기본 정보</a></li>
+										<li><a class="dropdown-item" href="Spec_Drug.do">내역 수정</a></li>
+										<li><a class="dropdown-item" href="Spec_Drug.do">사진</a></li>
 									</ul></li>
 								<!-- 드롭다운 여기까지 -->
 
@@ -129,14 +131,14 @@ a.list {
 
 
 								<!-- 드롭다운 복붙해서 쓰면 됨 -->
-								<li class="nav-item dropdown"><a
+							<!--  	<li class="nav-item dropdown"><a
 									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 									role="button" data-bs-toggle="dropdown" aria-expanded="false">
 										Dropdown </a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 										<li><a class="dropdown-item" href="#">Action</a></li>
 										<li><a class="dropdown-item" href="#">Another action</a></li>
-									</ul></li>
+									</ul></li>-->
 								<!-- 드롭다운 여기까지 -->
 							</c:otherwise>
 						</c:choose>

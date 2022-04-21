@@ -210,6 +210,9 @@ a.list {
 			<a href="d_Table2.do?pageNum=1">
 				<button type="button" class="btn btn-outline-success">목록</button>
 			</a>
+			<a href="d_Table2.do?pageNum=1">
+				<button type="button" class="btn btn-outline-success">삭제</button>
+			</a>
 		</div>
 	</div>
 

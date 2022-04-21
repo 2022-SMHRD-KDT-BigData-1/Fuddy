@@ -181,8 +181,8 @@ a.list {
 				<label for="tel">이메일 </label> <input type="text"
 					class="form-control" data-format="ddd-dddd-dddd" id="u_email"
 					placeholder="주소을 입력해주세요" name="u_email" required />
-				<div class="valid-feedback">유효한 주소입니다.</div>
-				<div class="invalid-feedback">주소 칸을 채워주세요.</div>
+				<div class="valid-feedback">유효한 이메일입니다.</div>
+				<div class="invalid-feedback">이메일 칸을 채워주세요.</div>
 			</div>
 
 			<div class="form-group form-check"></div>
