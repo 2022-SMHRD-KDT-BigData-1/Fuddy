@@ -166,8 +166,7 @@ a.list {
 					<button type="button" class="btn btn-link" data-bs-toggle="modal"
 						data-bs-target="#exampleModal">
 						<img class="rounded float-start d-block w-100"
-							src="${path}${folder}/${i.deep_name}"
-							style="height: 100px; width: 100px;" />
+							src="${path}${folder}/${i.deep_name}" />
 					</button>
 
 					<div class="modal fade" id="exampleModal" tabindex="-1"
@@ -204,7 +203,7 @@ a.list {
 				<td><a href="#"><img
 						class="rounded float-end d-block w-100" src="pest03.jpg"></a></td>
 			</tr> -->
-			</table>
+
 
 
 			<figure class="text-start">
@@ -228,7 +227,5 @@ a.list {
 							class="btn btn-outline-success">아니오</button></a>
 				</blockquote>
 			</figure>
-
-
-
 		</div>
+	</div>

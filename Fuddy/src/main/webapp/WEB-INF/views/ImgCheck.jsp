@@ -150,7 +150,7 @@ a.list {
 							data-bs-target="#exampleModal">
 							<img class="rounded float-start d-block w-100"
 								src="${path}${i.p_folder}/${i.p_name}"
-								style="height: 100px; width: 100px;" />
+								 />
 						</button>
 
 						<div class="modal fade" id="exampleModal" tabindex="-1"
