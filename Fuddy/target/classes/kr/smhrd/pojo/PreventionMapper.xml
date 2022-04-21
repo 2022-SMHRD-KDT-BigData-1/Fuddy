@@ -41,6 +41,7 @@
 		select count(*) from t_admin
 	</select>
 	<select id="AdminSelect" resultType="kr.smhrd.pojo.D_MemberVO">
-		select * from t_admin where admin_id= #{admin_id}
+		select * from t_admin where
+		admin_id= #{admin_id}
 	</select>
 </mapper>
