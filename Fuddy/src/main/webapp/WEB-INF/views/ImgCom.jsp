@@ -229,3 +229,4 @@ a.list {
 			</figure>
 		</div>
 	</div>
+</body>

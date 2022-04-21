@@ -149,8 +149,7 @@ a.list {
 						<button type="button" class="btn btn-link" data-bs-toggle="modal"
 							data-bs-target="#exampleModal">
 							<img class="rounded float-start d-block w-100"
-								src="${path}${i.p_folder}/${i.p_name}"
-								 />
+								src="${path}${i.p_folder}/${i.p_name}" />
 						</button>
 
 						<div class="modal fade" id="exampleModal" tabindex="-1"
@@ -163,7 +162,7 @@ a.list {
 										<button type="button" class="btn-close"
 											data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
-									<div class="modal-body">
+									<div class="modal-body container">
 										<img id="img" class="rounded float-start d-block w-100"
 											src="${path}${i.p_folder}/${i.p_name}">
 									</div>
@@ -200,3 +199,4 @@ a.list {
 		</form>
 
 	</div>
+</body>
