@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FUDDY - MEMBER</title>
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <style>
+      * {
+        font-family: "NanumSquareRound";
+      }
+      /* Make the image fully responsive */
+      .carousel-inner img {
+        width: 100%;
+        height: 100%;
+      }
+      .logo {
+        width: 150px;
+      }
+
+      div#nav.nav-item {
+        align-items: center;
+      }
+      a.list {
+        padding-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 네비바 시작 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <!-- 푸띠 로고 -->
+        <div class="nav-item">
+          <a class="nav-link" href="main.html">
+            <img class="logo" src="FUDDY-logo.png" />
+          </a>
+        </div>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- 로그인 안했을 때-->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">로그인</a>
+            </li>
+            <!-- 로그인 화면으로 주소 바꾸세요 -->
+
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="#">회원가입</a>
+            </li>
+            <!-- 회원가입 화면으로 주소 바꾸세요 -->
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- 네비바 끝 -->
+    <div class="container p-3 my-3 " style ="width: 380px;">
+        <a href" ="main.html">
+          <img class="logo" style ="width: 350px;" src="FUDDY-logo.png" />
+        </a>
+      </div>
+    <div class="container p-3 my-3 border" style="width: 350px">
+      <!-- 회원수정 내용 -->
+      <h5 style="text-align: center">회원조회 및 수정</h5>
+      <hr />
+      <form action="#" class="was-validated">
+        <!-- 회원 수정 및 탈퇴 컨트롤로 이동 -->
+
+        <div class="form-group">
+          <label for="id_f">아이디 </label>
+          <input
+            type="text"
+            class="form-control"
+            id="u_id"
+            placeholder="u_id"
+            name="u_id"
+            readonly
+          />
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="pw_f">비밀번호 </label>
+          <input
+            type="password"
+            class="form-control"
+            id="u_pw"
+            placeholder="새로운 비밀번호를 입력해주세요."
+            name="u_pw"
+            required
+          />
+          <div class="valid-feedback">유효한 비밀번호입니다.</div>
+          <div class="invalid-feedback">비밀번호 칸을 바꿔주세요.</div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="name">이름 </label>
+          <input
+            type="name"
+            class="form-control"
+            id="u_name"
+            placeholder="u_name"
+            name="u_name"
+            readonly
+          />
+          
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="name">성별 </label>
+
+          <input
+            class="form-check-input"
+            type="radio"
+            name="u_gender"
+            id="u_gender"
+            value="male"
+            checked
+          />
+          <label class="form-check-label" for="male"> 남성 </label>
+
+          <input
+            class="form-check-input"
+            type="radio"
+            name="u_gender"
+            id="u_gender"
+            value="female"
+          />
+          <label class="form-check-label" for="female"> 여성 </label>
+        </div>
+        <br />
+
+        <div class="form-group">
+          <label for="tel">번호 </label>
+
+          <input
+            type="tel"
+            class="form-control"
+            data-format="ddd-dddd-dddd"
+            id="u_tel"
+            placeholder="u_tel"
+            name="u_tel"
+            required
+          />
+          <div class="valid-feedback">유효한 번호입니다.</div>
+          <div class="invalid-feedback">번호 칸을 바꿔주세요.</div>
+        </div>
+        <br />
+
+        <div class="form-group">
+          <label for="tel">주소 </label>
+
+          <input
+            type="text"
+            class="form-control"
+            data-format="ddd-dddd-dddd"
+            id="u_address"
+            placeholder="u_address"
+            name="u_address"
+            required
+          />
+          <div class="valid-feedback">유효한 주소입니다.</div>
+          <div class="invalid-feedback">주소 칸을 바꿔주세요.</div>
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="tel">이메일 </label>
+
+          <input
+            type="text"
+            class="form-control"
+            data-format="ddd-dddd-dddd"
+            id="u_email"
+            placeholder="u_email"
+            name="u_email"
+            required
+          />
+          <div class="valid-feedback">유효한 이메일 입니다.</div>
+          <div class="invalid-feedback">이메일 칸을 바꿔주세요.</div>
+        </div>
+
+        <div class="form-group form-check"></div>
+        <div style="text-align: center">
+          <button type="submit" class="btn btn-outline-success">
+            수정
+          </button>
+          <button type="button" class="btn btn-outline-success">
+            회원탈퇴<a href="#" class=""></a>
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
