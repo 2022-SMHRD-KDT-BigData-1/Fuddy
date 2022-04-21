@@ -133,61 +133,52 @@ a.list {
 			</div>
 			<hr />
 
-			<table class="table table-borderless">
+			<div class="row row-cols-3">
 
 				<!-- aws주소 -->
 				<!-- <c:set var="path" value="http://3.88.177.155:8080/file/"/> -->
 				<c:set var="path" value="resources/files/" />
-				<tbody>
-					<c:forEach var="i" items="${ImageList }" varStatus="j">
-						<c:set var="date" value="${i.p_date }" />
-						<c:set var="folder" value="${i.p_folder }" />
-						<c:set var="number" value="${j.count }" />
-						<c:set var="nextRow" value="${number % 3}" />
-						<!--<c:out value="${path}${i.p_folder}/${i.p_name}"/>-->
 
-						<c:choose>
-							<c:when test="${nextRow eq 1}">
-								<tr>
-									<td>
-										<button type="button" class="btn btn-link"
-											data-bs-toggle="modal" data-bs-target="#exampleModal">
-											<img class="rounded float-start d-block w-100"
-												src="${path}${i.p_folder}/${i.p_name}"
-												style="height: 100px; width: 100px;" />
-										</button>
-									</td>
-									<div class="modal fade" id="exampleModal" tabindex="-1"
-										aria-labelledby="exampleModalLabel" aria-hidden="true">
-										<div class="modal-dialog modal-fullscreen">
-											<div class="modal-content">
-												<div class="modal-header">
-													<h5 class="modal-title" id="exampleModalLabel">${i.p_name}
-														</h5>
-													<button type="button" class="btn-close"
-														data-bs-dismiss="modal" aria-label="Close"></button>
-												</div>
-												<div class="modal-body">
-													<img id="img" class="rounded float-start d-block w-100"
-														src="${path}${i.p_folder}/${i.p_name}">
-												</div>
-												<div class="modal-footer">
-													<button type="button" class="btn btn-secondary"
-														data-bs-dismiss="modal">닫기</button>
-												</div>
-											</div>
-										</div>
+				<c:forEach var="i" items="${ImageList }" varStatus="j">
+					<c:set var="date" value="${i.p_date }" />
+					<c:set var="folder" value="${i.p_folder }" />
+
+					<!--<c:out value="${path}${i.p_folder}/${i.p_name}"/>-->
+					<div class="col">
+
+						<button type="button" class="btn btn-link" data-bs-toggle="modal"
+							data-bs-target="#exampleModal">
+							<img class="rounded float-start d-block w-100"
+								src="${path}${i.p_folder}/${i.p_name}"
+								style="height: 100px; width: 100px;" />
+						</button>
+
+						<div class="modal fade" id="exampleModal" tabindex="-1"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-fullscreen">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">${i.p_name}
+										</h5>
+										<button type="button" class="btn-close"
+											data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
-							</c:when>
-							<c:otherwise>
-								<td><img src="${path}${i.p_folder}/${i.p_name}"
-									style="height: 100px; width: 100px;" /></td>
+									<div class="modal-body">
+										<img id="img" class="rounded float-start d-block w-100"
+											src="${path}${i.p_folder}/${i.p_name}">
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-secondary"
+											data-bs-dismiss="modal">닫기</button>
+									</div>
+								</div>
+							</div>
+						</div>
 
-							</c:otherwise>
-						</c:choose>
-					</c:forEach>
-				</tbody>
-			</table>
+					</div>
+				</c:forEach>
+
+			</div>
 			<input type="hidden" value="${info.u_id }" name="u_id"> <input
 				type="hidden" value="${date }" name="p_date"> <input
 				type="hidden" value="${folder }" name="p_folder">

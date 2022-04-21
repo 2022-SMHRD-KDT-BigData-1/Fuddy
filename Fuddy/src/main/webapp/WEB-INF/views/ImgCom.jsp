@@ -111,7 +111,7 @@ a.list {
 				<!-- 드롭다운 여기까지 -->
 			</ul>
 		</div>
-		</div>
+
 	</nav>
 	<!-- 네비바 끝 -->
 
@@ -133,7 +133,7 @@ a.list {
 			</blockquote>
 
 		</figure>
-		<table class="table table-bordered">
+		<div class="row row-cols-3">
 
 			<%-- <c:set var="path" value="resources/results/" />
 			<c:forEach var="i" items="${deepList }">
@@ -156,57 +156,47 @@ a.list {
 				</c:choose>
  --%>
 			<c:set var="path" value="resources/results/" />
-			<tbody>
-				<c:forEach var="i" items="${deeplist }" varStatus="j">
-					<c:set var="date" value="${i.deep_date }" />
-					<c:set var="folder" value="${i.deep_folder }" />
-					<c:set var="number" value="${j.count }" />
-					<c:set var="nextRow" value="${number % 3}" />
 
-					<c:choose>
-						<c:when test="${nextRow eq 1}">
-							<tr>
-								<td>
-									<button type="button" class="btn btn-link"
-										data-bs-toggle="modal" data-bs-target="#exampleModal">
-										<img class="rounded float-start d-block w-100"
-											src="${path}${folder}/${i.deep_name}"
-											style="height: 100px; width: 100px;" />
-									</button>
-								</td>
-								<div class="modal fade" id="exampleModal" tabindex="-1"
-									aria-labelledby="exampleModalLabel" aria-hidden="true">
-									<div class="modal-dialog modal-fullscreen">
-										<div class="modal-content">
-											<div class="modal-header">
-												<h5 class="modal-title" id="exampleModalLabel">${i.deep_name}
-												</h5>
-												<button type="button" class="btn-close"
-													data-bs-dismiss="modal" aria-label="Close"></button>
-											</div>
-											<div class="modal-body">
-												<img id="img" class="rounded float-start d-block w-100"
-													src="${path}${folder}/${i.deep_name}">
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-secondary"
-													data-bs-dismiss="modal">닫기</button>
-											</div>
-										</div>
-									</div>
+			<c:forEach var="i" items="${deeplist }" varStatus="j">
+				<c:set var="date" value="${i.deep_date }" />
+				<c:set var="folder" value="${i.deep_folder }" />
+				<div class="col">
+
+
+					<button type="button" class="btn btn-link" data-bs-toggle="modal"
+						data-bs-target="#exampleModal">
+						<img class="rounded float-start d-block w-100"
+							src="${path}${folder}/${i.deep_name}"
+							style="height: 100px; width: 100px;" />
+					</button>
+
+					<div class="modal fade" id="exampleModal" tabindex="-1"
+						aria-labelledby="exampleModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-fullscreen">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title" id="exampleModalLabel">${i.deep_name}
+									</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
 								</div>
-						</c:when>
-						<c:otherwise>
-							<td><img src="${path}${folder}/${i.deep_name}"
-								style="height: 100px; width: 100px;" /></td>
+								<div class="modal-body">
+									<img id="img" class="rounded float-start d-block w-100"
+										src="${path}${folder}/${i.deep_name}">
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-secondary"
+										data-bs-dismiss="modal">닫기</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</c:forEach>
 
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
 
 
-
-				<!-- <tr>
+			<!-- <tr>
 				<td><a href="#"><img
 						class="rounded float-start d-block w-100" src="pest01.jpg"></a></td>
 				<td><a href="#"><img
@@ -214,31 +204,31 @@ a.list {
 				<td><a href="#"><img
 						class="rounded float-end d-block w-100" src="pest03.jpg"></a></td>
 			</tr> -->
-		</table>
+			</table>
 
 
-		<figure class="text-start">
-			<blockquote class="blockquote">
-			<!--  <span class="badge bg-primary">쾌적</span><span> : 농작물의 상태가 굉장히
-					좋습니다.</span> <br> -->	
-			<!--		<span class="badge bg-success">안정</span><span>
-					: 농작물의 상태가 안정적입니다.</span> <br> -->	
-					<span class="badge bg-danger">경고</span><span>
-					: 농작물에게 예비방제를 요합니다.</span> <br> 
-			<!--		<span class="badge bg-warning">위험</span><span>
-					: 농작물에게 지금 당장 방제해야 합니다.</span>-->	
-				<hr>
+			<figure class="text-start">
+				<blockquote class="blockquote">
+					<!--  <span class="badge bg-primary">쾌적</span><span> : 농작물의 상태가 굉장히
+					좋습니다.</span> <br> -->
+					<!--		<span class="badge bg-success">안정</span><span>
+					: 농작물의 상태가 안정적입니다.</span> <br> -->
+					<span class="badge bg-danger">경고</span><span> : 농작물에게 예비방제를
+						요합니다.</span> <br>
+					<!--		<span class="badge bg-warning">위험</span><span>
+					: 농작물에게 지금 당장 방제해야 합니다.</span>-->
+					<hr>
 
-			</blockquote>
-		</figure>
-		<figure class="text-center">
-			<blockquote class="blockquote">
-				<span>방제를 신청하시겠습니까? &ensp;</span> <a href="Prevention.do"><button
-						class="btn btn-outline-success">예</button></a> <a href="Main.do"><button
-						class="btn btn-outline-success">아니오</button></a>
-			</blockquote>
-		</figure>
+				</blockquote>
+			</figure>
+			<figure class="text-center">
+				<blockquote class="blockquote">
+					<span>방제를 신청하시겠습니까? &ensp;</span> <a href="Prevention.do"><button
+							class="btn btn-outline-success">예</button></a> <a href="Main.do"><button
+							class="btn btn-outline-success">아니오</button></a>
+				</blockquote>
+			</figure>
 
 
 
-	</div>
+		</div>
