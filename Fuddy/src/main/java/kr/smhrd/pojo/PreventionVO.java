@@ -11,6 +11,7 @@ public class PreventionVO {
 
 	private int pv_num; //방제 신청번호
 	private String u_id; //회원 아이디
+	private String admin_id; //관리자 아이디
 	private String p_num; //사진 번호
 	private String pv_addr; //지번
 	private String pv_area; //방제면적
@@ -23,4 +24,8 @@ public class PreventionVO {
 	private String pv_drug; //방제 약
 	private String pv_note; //특이사항
 
+//	public PreventionVO(String admin_id) {
+//		super();
+//		this.admin_id = admin_id;
+//	}
 }

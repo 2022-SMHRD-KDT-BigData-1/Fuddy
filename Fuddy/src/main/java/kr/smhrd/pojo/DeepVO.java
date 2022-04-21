@@ -18,4 +18,11 @@ public class DeepVO {
 	private String deep_result1;
 	private String deep_result0;
 	private String deep_date;
+	
+	public DeepVO(String u_id, String deep_folder) {
+		super();
+		this.u_id = u_id;
+		this.deep_folder = deep_folder;
+	}
+
 }

@@ -1,6 +1,5 @@
 package kr.smhrd.pojo;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -8,11 +7,9 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface PreventionMapper {
 
-	void PreventionInsert(PreventionVO vo);
+	List<DeepVO> PreventionInsert(PreventionVO vo);
 	
 	void imageInsert(ImageVO img);
-
-	int p_num();
 
 	List<ImageVO> imageSelect(ImageVO img);
 	
@@ -20,6 +17,13 @@ public interface PreventionMapper {
 
 	List<PreventionVO> pv_num();
 
-	List<DeepVO> deepSelect(HashMap<String, String> select);
+	List<DeepVO> deepSelect(DeepVO deepCheck);
+
+	int AdminAmount();
+
+	D_MemberVO AdminSelect(String admin_id);
+	
+
+
 
 }

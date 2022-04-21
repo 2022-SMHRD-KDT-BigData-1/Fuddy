@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
+import java.util.Random;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -17,12 +18,15 @@ import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.MultiValueMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 
 import kr.smhrd.pojo.CommentVO;
+import kr.smhrd.pojo.D_MemberMapper;
+import kr.smhrd.pojo.D_MemberVO;
 import kr.smhrd.pojo.DeepVO;
 import kr.smhrd.pojo.ImageVO;
 import kr.smhrd.pojo.MemberVO;
@@ -33,9 +37,10 @@ import kr.smhrd.pojo.PreventionVO;
 public class PreventionController {
 	@Inject
 	private PreventionMapper mapper;
+	private D_MemberMapper d_mapper;
 
 	@RequestMapping("/PreventionInsert.do")
-	public String PreventionInsert(PreventionVO vo) {
+	public String PreventionInsert(PreventionVO vo, Model model) {
 		System.out.println("방제 신청 기능 동작");
 		mapper.PreventionInsert(vo);
 		return "redirect:/Main.do"; // 나중에 수정
@@ -147,6 +152,42 @@ public class PreventionController {
 		session.setAttribute("ImageList", img_list);
 
 		return "redirect:/ImgCheck.do"; // 나중에 수정 }
+	}
+	@RequestMapping("/deepSelect.do")
+	public String deepSelect(DeepVO vo , HttpSession session,Model model) {
+		System.out.println("딥 분석 기능 동작");
+		List<ImageVO> list = (List<ImageVO>)session.getAttribute("ImageList");
+		System.out.println("세션에 저장된 이미지 리스트 : " + list);
+		for (int i = 0; i < list.size(); i++) {
+			String u_id = list.get(i).getU_id();
+			System.out.println(u_id);
+			String deep_folder = list.get(i).getP_folder();
+			System.out.println(deep_folder);
+			
+			DeepVO deepCheck = new DeepVO(u_id, deep_folder);
+			List<DeepVO> deeplist = mapper.deepSelect(deepCheck);
+			System.out.println("deeplist : "+deeplist);
+			session.setAttribute("deeplist", deeplist);
+			
+		}
+	
+		//관리자 총합
+				int amount = mapper.AdminAmount();
+				System.out.println(amount);
+				Random rd = new Random();
+				
+				int randomAdmin = rd.nextInt(8)+1;
+				System.out.println(randomAdmin);
+				
+				String admin_id = "admin_id 0"+randomAdmin;
+				System.out.println(admin_id);
+				D_MemberVO adminVO = mapper.AdminSelect(admin_id);
+				System.out.println("성공");
+				System.out.println(adminVO);
+				
+				model.addAttribute("adminVO", adminVO);
+				
+		return "redirect:/ImgCom.do"; // 나중에 수정
 	}
 
 }

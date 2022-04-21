@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -201,12 +202,10 @@ a.list {
 						</td>
 					</tr>
 					<tr>
-					<td class="table-active">방제 가격</td>
-					<td><input type="text" readonly class="form-control"
-						name="pv_price" id="pv_price" value="" style="width: 200px;" /></td>
+						<td class="table-active">방제 가격</td>
+						<td><input type="text" readonly class="form-control"
+							name="pv_price" id="pv_price" value="" style="width: 200px;" /></td>
 					</tr>
-
-
 					<tr>
 						<td class="table-active"><label for="exampleInputPassword1"
 							class="form-label">특이사항</label></td>
@@ -219,6 +218,7 @@ a.list {
 				</tbody>
 			</table>
 
+			<input type="hidden" name="admin_id" value="${adminVO.admin_id }">
 			<div style="text-align: center">
 				<button type="submit" class="btn btn-outline-success">방제신청
 				</button>

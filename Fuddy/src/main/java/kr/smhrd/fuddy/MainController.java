@@ -78,7 +78,7 @@ public class MainController {
 		// 전체 게시글 수
 		int amount = mapper.boardAmount();
 		System.out.println(amount);
-		// 마지막페이지w
+		// 마지막페이지
 		int endPageNum = (amount - 1) / 10 + 1;
 		int postStart1 = postStart;
 		System.out.println(postStart);

@@ -4,35 +4,43 @@
 
 	<insert id="PreventionInsert"
 		parameterType="kr.smhrd.pojo.PreventionVO">
-		insert into t_prevention (u_id, pv_addr, pv_area, pv_date, pv_st_dt, pv_ed_dt, pv_price, pv_note)
-		value(#{u_id},#{pv_addr}, #{pv_area}, now(), #{pv_st_dt}, #{pv_ed_dt},#{pv_price},#{pv_note})
+		insert into t_prevention (u_id,admin_id, pv_addr,
+		pv_area, pv_date, pv_st_dt, pv_ed_dt, pv_price, pv_note)
+		value(#{u_id},#{admin_id},#{pv_addr}, #{pv_area}, now(), #{pv_st_dt},
+		#{pv_ed_dt},#{pv_price},#{pv_note})
 	</insert>
 
 	<insert id="imageInsert" parameterType="kr.smhrd.pojo.ImageVO">
-		insert into t_image (u_id, p_name, p_path, p_folder, p_date)
-		value(#{u_id}, #{p_name},#{p_path},#{p_folder},now())
+		insert into t_image
+		(u_id, p_name, p_path, p_folder, p_date)
+		value(#{u_id},
+		#{p_name},#{p_path},#{p_folder},now())
 	</insert>
-	
-	<select id="p_num" resultType="int">
-		select p_num from t_image ORDER BY
-		p_date DESC LIMIT 1
-	</select>
 
 	<select id="imageSelect" resultType="kr.smhrd.pojo.ImageVO">
 		select * from t_image where u_id = #{u_id} and p_folder = #{p_folder}
-		<!-- select * from t_image where u_id = #{u_id} and p_folder = #{p_folder} ORDER BY p_date desc -->
-
+		<!-- select * from t_image where u_id = #{u_id} and p_folder = #{p_folder} 
+			ORDER BY p_date desc -->
 	</select>
-	
+
 	<select id="deepSelect" resultType="kr.smhrd.pojo.DeepVO">
-		select * from t_deep where u_id = #{u_id} and deep_folder = #{deep_folder}
-<!-- 		select * from t_deep where u_id = #{u_id} and deep_folder = #{deep_folder} ORDER BY p_date desc -->
+		select * from t_deep where u_id = #{u_id} and deep_folder =
+		#{deep_folder}
+		<!-- select * from t_deep where u_id = #{u_id} and deep_folder = #{deep_folder} 
+			ORDER BY p_date desc -->
 
 	</select>
 
-	<select id="LookupSelect" resultType="kr.smhrd.pojo.PreventionVO">
+	<select id="LookupSelect"
+		resultType="kr.smhrd.pojo.PreventionVO">
 		<!--select * from t_qna order by q_date desc -->
 		select * from t_prevention where pv_num = #{pv_num}
 	</select>
 
+	<select id="AdminAmount" resultType="int">
+		select count(*) from t_admin
+	</select>
+	<select id="AdminSelect" resultType="kr.smhrd.pojo.D_MemberVO">
+		select * from t_admin where admin_id= #{admin_id}
+	</select>
 </mapper>
