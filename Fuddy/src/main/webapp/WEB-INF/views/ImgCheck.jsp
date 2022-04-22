@@ -140,8 +140,6 @@ a.list {
 			<!--  	<c:set var="path" value="resources/files/" />-->
 
 				<c:forEach var="i" items="${ImageList }" varStatus="j">
-					<c:set var="date" value="${i.p_date }" />
-					<c:set var="folder" value="${i.p_folder }" />
 
 					<div class="col">
 
