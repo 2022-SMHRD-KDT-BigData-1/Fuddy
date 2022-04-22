@@ -59,7 +59,7 @@ public class PreventionController {
 		// 디렉토리에 폴더 생성
 		String u_id = info.getU_id(); // 사용자의 아이디 
 		System.out.println(u_id);
-		LocalDate now = LocalDate.now(); // 현재 날짜 구하기 = 신청 날짜 
+		LocalDate now = LocalDate.now(); // 현재 날짜 구하기 = 신청 날짜  
 
 		String path = session.getServletContext().getRealPath("resources/files/") + u_id + "_" + now + "_"; // 폴더 경로
 
