@@ -51,7 +51,7 @@ public class PreventionController {
 	public String saveFile(MultipartFile[] upload, Model model, HttpSession session) {
 
 		// MultipartRequest mreQuest = new MultipartRequest() {
-
+ 
 		MemberVO info = (MemberVO) session.getAttribute("info");    
 
 		System.out.println("파일 저장 시작");
