@@ -99,7 +99,7 @@ public class PreventionController {
 
 		System.out.println("path 이미지 저장 경로 : " + path);
 
-		// 파일 서버 컴퓨터에 저장 시작 ( resource/files/id_date 에 저장 )
+		// 파일 서버 컴퓨터에 저장 시작 ( resource/files/id_date 에 저장 ) 
 		String folder = path; // 생성된 폴더로 경로 설정
 		System.out.println(upload.length);
 		// ArrayList<String> folderlist = new ArrayList<String>();
