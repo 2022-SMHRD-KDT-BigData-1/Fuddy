@@ -146,7 +146,7 @@ a.list {
 						<button type="button" class="btn btn-link" data-bs-toggle="modal"
 							data-bs-target="#exampleModal">
 							<c:out value="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}"/>
-							<img class="rounded float-start d-block w-100"
+							<img id="img${j }" class="rounded float-start d-block w-100"
 								src="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}" />
 						</button>
 
@@ -161,7 +161,7 @@ a.list {
 											data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body container">
-										<img id="img" class="rounded float-start d-block w-100"
+										<img id="img${j }" class="rounded float-start d-block w-100"
 											src="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}">
 									</div>
 									<div class="modal-footer">
