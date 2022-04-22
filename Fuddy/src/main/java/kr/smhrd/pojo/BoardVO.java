@@ -16,5 +16,4 @@ public class BoardVO {
 	private String q_date;
 
 	
-	
 }
