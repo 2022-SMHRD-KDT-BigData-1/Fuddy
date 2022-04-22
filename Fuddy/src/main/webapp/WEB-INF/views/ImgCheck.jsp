@@ -149,7 +149,9 @@ a.list {
 							<img id="img${j }" class="rounded float-start d-block w-100"
 								src="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}" />
 						</button>
-
+					</div>
+				</c:forEach>	
+				<c:forEach var="i" items="${ImageList }" varStatus="j">
 						<div class="modal fade" id="exampleModal" tabindex="-1"
 							aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-fullscreen">
@@ -172,7 +174,7 @@ a.list {
 							</div>
 						</div>
 
-					</div>
+					
 				</c:forEach>
 
 			</div>
