@@ -52,7 +52,7 @@ public class PreventionController {
 
 		// MultipartRequest mreQuest = new MultipartRequest() {
 
-		MemberVO info = (MemberVO) session.getAttribute("info");
+		MemberVO info = (MemberVO) session.getAttribute("info"); 
 
 		System.out.println("파일 저장 시작");
 		// Logger log = LoggerFactory.getLogger(getClass());
