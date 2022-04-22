@@ -144,26 +144,24 @@ a.list {
 					<div class="col">
 
 						<button type="button" class="btn btn-link" data-bs-toggle="modal"
-							data-bs-target="#exampleModal">
+							data-bs-target="#exampleModal${j.count}">
 							<c:out value="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}"/>
 							<img id="img${j }" class="rounded float-start d-block w-100"
 								src="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}" />
 						</button>
 					</div>
-				</c:forEach>	
-				<c:forEach var="i" items="${ImageList }" varStatus="j">
-						<div class="modal fade" id="exampleModal" tabindex="-1"
+						<div class="modal fade" id="exampleModal${j.count}" tabindex="-1"
 							aria-labelledby="exampleModalLabel" aria-hidden="true">
 							<div class="modal-dialog modal-fullscreen">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">${i.p_name}
+										<h5 class="modal-title" id="exampleModalLabel${j.count} }">${i.p_name}
 										</h5>
 										<button type="button" class="btn-close"
 											data-bs-dismiss="modal" aria-label="Close"></button>
 									</div>
 									<div class="modal-body container">
-										<img id="img${j }" class="rounded float-start d-block w-100"
+										<img id="img${j.count }" class="rounded float-start d-block w-100"
 											src="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}">
 									</div>
 									<div class="modal-footer">
@@ -173,9 +171,7 @@ a.list {
 								</div>
 							</div>
 						</div>
-
-					
-				</c:forEach>
+				</c:forEach>	
 
 			</div>
 			<input type="hidden" value="${info.u_id }" name="u_id"> <input
