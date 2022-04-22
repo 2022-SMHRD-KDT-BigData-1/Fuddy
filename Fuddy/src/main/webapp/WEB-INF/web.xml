@@ -45,6 +45,7 @@
 		<load-on-startup>1</load-on-startup>
 		
 				<!-- fileupload multipart-config maxSize set -->
+				<!-- 파일용량 조절 -->
 		<multipart-config>
 			<max-file-size>104857600</max-file-size> <!-- 10MB limit -->
 			<max-request-size>104857600</max-request-size>

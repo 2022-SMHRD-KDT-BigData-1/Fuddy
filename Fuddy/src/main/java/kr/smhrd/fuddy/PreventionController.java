@@ -67,10 +67,11 @@ public class PreventionController {
 		System.out.println(u_id);
 		LocalDate now = LocalDate.now(); // 현재 날짜 구하기 = 신청 날짜
 
-		String path = session.getServletContext().getRealPath("resources/files/") + u_id + "_" + now + "_"; // 폴더 경로
+		// 자체 서버 저장 주소
+		// String path = session.getServletContext().getRealPath("resources/files/") + u_id + "_" + now + "_"; // 폴더 경로
 
 		// aws 파일 경로
-		// String path = "/home/ubuntu/web/file/" + u_id + "_" + now + "_"; // 폴더 경로
+		 String path = "/home/ubuntu/web/file/" + u_id + "_" + now + "_"; // 폴더 경로
 		// String path = "C:\\Users\\smhrd\\Desktop\\file\\" + u_id + "_" + now + "_";
 		// // 폴더 경로
 		File Folder = new File(path);

@@ -212,9 +212,9 @@ a.list {
 					좋습니다.</span> <br> -->
 					<!--		<span class="badge bg-success">안정</span><span>
 					: 농작물의 상태가 안정적입니다.</span> <br> -->
-					<span class="badge bg-danger">경고</span><span> : 농작물에게 예비방제를
+					<span class="badge bg-warning">경고</span><span> : 농작물에게 예비방제를
 						요합니다.</span> <br>
-					<!--		<span class="badge bg-warning">위험</span><span>
+					<!--		<span class="badge bg-danger">위험</span><span>
 					: 농작물에게 지금 당장 방제해야 합니다.</span>-->
 					<hr>
 

@@ -136,8 +136,8 @@ a.list {
 			<div class="row row-cols-3">
 
 				<!-- aws주소 -->
-				<!-- <c:set var="path" value="http://3.88.177.155:8080/file/"/> -->
-				<c:set var="path" value="resources/files/" />
+				<c:set var="path" value="http://3.84.149.191:8080/file/"/>
+			<!--  	<c:set var="path" value="resources/files/" />-->
 
 				<c:forEach var="i" items="${ImageList }" varStatus="j">
 					<c:set var="date" value="${i.p_date }" />
