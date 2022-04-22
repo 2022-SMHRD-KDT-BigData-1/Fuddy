@@ -108,7 +108,7 @@ public class PreventionController {
 
 		for (MultipartFile multipartFile : upload) {
 
-			// HashMap<String, String> img = new HashMap<String, String>();
+			// HashMap<String, String> img = new HashMap<String, String>(); 
 			System.out.println("for문 내부");
 			/*
 			 * log.info("---------"); log.info("Upload File Name : " +
