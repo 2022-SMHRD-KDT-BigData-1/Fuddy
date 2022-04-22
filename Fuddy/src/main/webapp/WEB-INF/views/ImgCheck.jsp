@@ -146,7 +146,7 @@ a.list {
 						<button type="button" class="btn btn-link" data-bs-toggle="modal"
 							data-bs-target="#exampleModal${j.count}">
 							<c:out value="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}"/>
-							<img id="img${j }" class="rounded float-start d-block w-100"
+							<img id="img${j.count }" class="rounded float-start d-block w-100"
 								src="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}" />
 						</button>
 					</div>
