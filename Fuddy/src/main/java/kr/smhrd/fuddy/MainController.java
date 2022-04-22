@@ -5,13 +5,10 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.sun.org.apache.regexp.internal.recompile;
 
 import kr.smhrd.pojo.BoardMapper;
 import kr.smhrd.pojo.BoardVO;
