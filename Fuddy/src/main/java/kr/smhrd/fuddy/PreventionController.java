@@ -57,7 +57,7 @@ public class PreventionController {
 		System.out.println("파일 저장 시작");
 		// Logger log = LoggerFactory.getLogger(getClass());
 		// 디렉토리에 폴더 생성
-		String u_id = info.getU_id(); // 사용자의 아이디
+		String u_id = info.getU_id(); // 사용자의 아이디 
 		System.out.println(u_id);
 		LocalDate now = LocalDate.now(); // 현재 날짜 구하기 = 신청 날짜
 
