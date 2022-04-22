@@ -136,7 +136,7 @@ a.list {
 			<div class="row row-cols-3">
 
 				<!-- aws주소 -->
-				<c:set var="path" value="http://3.84.149.191:8080/file/"/>
+				<c:set var="path" value="http://3.84.149.191:8080/resources/"/>
 			<!--  	<c:set var="path" value="resources/files/" />-->
 
 				<c:forEach var="i" items="${ImageList }" varStatus="j">
@@ -147,9 +147,9 @@ a.list {
 
 						<button type="button" class="btn btn-link" data-bs-toggle="modal"
 							data-bs-target="#exampleModal">
-							<c:out value="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}"/>
+							<c:out value="http://3.84.149.191:8080/resources/file/${i.p_folder}/${i.p_name}"/>
 							<img class="rounded float-start d-block w-100"
-								src="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}" />
+								src="http://3.84.149.191:8080/resources/file/${i.p_folder}/${i.p_name}" />
 						</button>
 
 						<div class="modal fade" id="exampleModal" tabindex="-1"
@@ -164,7 +164,7 @@ a.list {
 									</div>
 									<div class="modal-body container">
 										<img id="img" class="rounded float-start d-block w-100"
-											src="${path}${i.p_folder}/${i.p_name}">
+											src="http://3.84.149.191:8080/resources/file/${i.p_folder}/${i.p_name}">
 									</div>
 									<div class="modal-footer">
 										<button type="button" class="btn btn-secondary"
