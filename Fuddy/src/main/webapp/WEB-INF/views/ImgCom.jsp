@@ -160,11 +160,10 @@ a.list {
 			<c:forEach var="i" items="${deeplist }" varStatus="j">
 				<div class="col">
 
-
 					<button type="button" class="btn btn-link" data-bs-toggle="modal"
 						data-bs-target="#exampleModal${j.count }">
 						<img class="rounded float-start d-block w-100"
-							src="${path}${folder}/${i.deep_name}" />
+							src="${path}${i.deep_folder}/${i.deep_name}" />
 					</button>
 
 					<div class="modal fade" id="exampleModal${j.count }" tabindex="-1"
@@ -179,7 +178,7 @@ a.list {
 								</div>
 								<div class="modal-body">
 									<img id="img" class="rounded float-start d-block w-100"
-										src="${path}${folder}/${i.deep_name}">
+										src="${path}${i.deep_folder}/${i.deep_name}">
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"

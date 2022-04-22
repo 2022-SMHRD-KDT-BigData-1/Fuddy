@@ -5,21 +5,26 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.sun.org.apache.regexp.internal.recompile;
+
 import kr.smhrd.pojo.BoardMapper;
 import kr.smhrd.pojo.BoardVO;
+import kr.smhrd.pojo.ImageVO;
 import kr.smhrd.pojo.MemberVO;
 import kr.smhrd.pojo.PreventionMapper;
 import kr.smhrd.pojo.PreventionVO;
 
 @Controller
 public class MainController {
-	@Inject // autowired 보다 보안성이 좋다
+	@Inject
 	private BoardMapper mapper; // 의존성주입(DI)!
+	@Inject
 	private PreventionMapper p_mapper; // 의존성주입(DI)!
 
 	@RequestMapping("/ImgInput.do")
@@ -42,15 +47,19 @@ public class MainController {
 		System.out.println("스케줄 이동 동작");
 	}
 
-	@RequestMapping("/Lookup.do")
-	public void Lookup(HttpSession session,Model model) {
-		System.out.println("방제 현황 이동 동작");
-		
-	}
+	/*
+	 * @RequestMapping("/Lookup.do") public String Lookup(HttpSession session, Model
+	 * model) { System.out.println("방제 현황 이동 동작"); MemberVO info = (MemberVO)
+	 * session.getAttribute("info"); String u_id = info.getU_id();
+	 * System.out.println(u_id); List<PreventionVO> lookup =
+	 * p_mapper.LookupSelect(u_id); System.out.println("성공");
+	 * System.out.println(lookup); model.addAttribute("lookup", lookup); return
+	 * "Lookup"; }
+	 */
 
 	@RequestMapping("/Main.do")
 	public void Main() {
-		
+
 		System.out.println("메인 이동 동작");
 	}
 
@@ -63,6 +72,7 @@ public class MainController {
 	public void Join() {
 		System.out.println("회원가입 이동 동작");
 	}
+
 	@RequestMapping("/AdminJoin.do")
 	public void AdminJoin() {
 		System.out.println("관리자 회원가입 이동 동작");
@@ -128,13 +138,77 @@ public class MainController {
 	public void Prevention() {
 		System.out.println("방제신청 이동 동작");
 	}
+
 	@RequestMapping("/Spec_Drone.do")
 	public void Spec_Drone() {
 		System.out.println("드론 관리 이동 동작");
 	}
+
 	@RequestMapping("/Spec_Drug.do")
 	public void Spec_Drug() {
 		System.out.println("방제약 관리 이동 동작");
+	}
+
+	@RequestMapping("/AdminList.do")
+	public void AdminList() {
+		System.out.println("관리자 리스트 이동 동작");
+	}
+
+	@RequestMapping("/AdminCheck.do")
+	public void AdminCheck() {
+		System.out.println("관리자 체크 이동 동작");
+	}
+
+	@RequestMapping("/MembeCheck.do")
+	public void MembeCheck() {
+		System.out.println("회원 체크 이동 동작");
+	}
+
+	@RequestMapping("/MembeLookup.do")
+	public void MembeLookup() {
+		System.out.println("회원 방제 내역  이동 동작");
+	}
+	
+	@RequestMapping("/PreventionList.do")
+	public void PreventionList() {
+		System.out.println(" 방제 내역 이동 동작");
+	}
+
+
+	@RequestMapping("/MyPrevention.do") // 완료
+	public void MyPrevention(HttpSession session, Model model) {
+		System.out.println("나의 방제 내역 이동 동작");
+		MemberVO info = (MemberVO) session.getAttribute("info");
+		String u_id = info.getU_id();
+		List<PreventionVO> list = p_mapper.preventionList(u_id);
+		System.out.println("성공");
+		for (int i = 0; i < list.size(); i++) {
+			String pv_date = list.get(i).getPv_date();
+			int p_num = list.get(i).getP_num();
+			
+			session.setAttribute("p_num", p_num);
+			session.setAttribute("pv_date", pv_date);
+		}
+		model.addAttribute("list", list);
+
+	}
+
+	
+	@RequestMapping("/MyLookup.do")
+	public String MyLookup(String pv_date,int p_num, HttpSession session, Model model) {
+		System.out.println("방제 내역 이동 동작");
+	
+		// 방제 신청 내역 가져오기
+		pv_date = (String) session.getAttribute("pv_date");
+		p_num = (int) session.getAttribute("p_num");
+		List<PreventionVO> lookup = p_mapper.LookupSelect(pv_date);
+		List<ImageVO> img_list = p_mapper.imageSelect1(p_num);
+	
+		System.out.println("성공");
+		System.out.println(lookup);
+		model.addAttribute("img_list", img_list);
+		model.addAttribute("lookup", lookup);
+			return "redirect:/MyLookup.do";
 	}
 
 }

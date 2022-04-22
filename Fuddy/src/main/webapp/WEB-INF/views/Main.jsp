@@ -81,8 +81,8 @@ a.list {
 									role="button" data-bs-toggle="dropdown" aria-expanded="false">
 										마이페이지 </a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="#">회원 정보</a></li>
-										<li><a class="dropdown-item" href="Lookup.do">방제 신청 현황</a></li>
+										<li><a class="dropdown-item" href="MembeCheck.do">회원 정보</a></li>
+										<li><a class="dropdown-item" href="MyPrevention.do">방제 신청 현황</a></li>
 									</ul></li>
 
 								<li class="nav-item"><a class="nav-link"
@@ -102,8 +102,8 @@ a.list {
 									role="button" data-bs-toggle="dropdown" aria-expanded="false">
 										관리 페이지 </a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="schedule.do">드론기사</a></li>
-										<li><a class="dropdown-item" href="AdminJoin.do">제원 관리</a></li>
+										<li><a class="dropdown-item" href="AdminList.do">드론기사</a></li>
+										<li><a class="dropdown-item" href="">제원 관리</a></li>
 										<li><a class="dropdown-item" href="#">회원 관리</a></li>
 									</ul></li>
 								<!-- 회원관리화면으로 주소 바꾸세요 -->

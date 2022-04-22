@@ -13,15 +13,17 @@ public interface PreventionMapper {
 
 	List<ImageVO> imageSelect(ImageVO img);
 	
-	List<PreventionVO> LookupSelect(String u_id);
-
-	List<PreventionVO> pv_num();
-
 	List<DeepVO> deepSelect(DeepVO deepCheck);
 
 	int AdminAmount();
 
 	D_MemberVO AdminSelect(String admin_id);
+
+	List<PreventionVO> preventionList(String u_id);
+
+	List<PreventionVO> LookupSelect(String pv_date);
+
+	List<ImageVO> imageSelect1(int p_num);
 
 	
 
