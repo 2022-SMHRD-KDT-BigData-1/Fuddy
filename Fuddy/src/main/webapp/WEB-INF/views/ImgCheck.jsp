@@ -143,11 +143,11 @@ a.list {
 					<c:set var="date" value="${i.p_date }" />
 					<c:set var="folder" value="${i.p_folder }" />
 
-					<!--<c:out value="${path}${i.p_folder}/${i.p_name}"/>-->
 					<div class="col">
 
 						<button type="button" class="btn btn-link" data-bs-toggle="modal"
 							data-bs-target="#exampleModal">
+							<c:out value="${path}${i.p_folder}/${i.p_name}"/>
 							<img class="rounded float-start d-block w-100"
 								src="${path}${i.p_folder}/${i.p_name}" />
 						</button>
