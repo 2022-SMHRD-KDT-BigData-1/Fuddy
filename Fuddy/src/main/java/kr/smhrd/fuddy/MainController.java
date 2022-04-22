@@ -3,6 +3,7 @@ package kr.smhrd.fuddy;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.smhrd.pojo.BoardMapper;
 import kr.smhrd.pojo.BoardVO;
+import kr.smhrd.pojo.MemberVO;
 import kr.smhrd.pojo.PreventionMapper;
 import kr.smhrd.pojo.PreventionVO;
 
@@ -41,10 +43,9 @@ public class MainController {
 	}
 
 	@RequestMapping("/Lookup.do")
-	public void Lookup(@RequestParam("pv_num") int pv_num, Model model) {
-		PreventionVO lookup = p_mapper.LookupSelect(pv_num);
-		model.addAttribute("lookup", lookup);
+	public void Lookup(HttpSession session,Model model) {
 		System.out.println("방제 현황 이동 동작");
+		
 	}
 
 	@RequestMapping("/Main.do")

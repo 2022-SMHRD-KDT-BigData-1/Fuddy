@@ -28,13 +28,6 @@
 		#{deep_folder}
 		<!-- select * from t_deep where u_id = #{u_id} and deep_folder = #{deep_folder} 
 			ORDER BY p_date desc -->
-
-	</select>
-
-	<select id="LookupSelect"
-		resultType="kr.smhrd.pojo.PreventionVO">
-		<!--select * from t_qna order by q_date desc -->
-		select * from t_prevention where pv_num = #{pv_num}
 	</select>
 
 	<select id="AdminAmount" resultType="int">
@@ -43,5 +36,9 @@
 	<select id="AdminSelect" resultType="kr.smhrd.pojo.D_MemberVO">
 		select * from t_admin where
 		admin_id= #{admin_id}
+	</select>
+
+	<select id="LookupSelect" resultType="kr.smhrd.pojo.PreventionVO">
+		select * from t_prevention where u_id = #{u_id}
 	</select>
 </mapper>

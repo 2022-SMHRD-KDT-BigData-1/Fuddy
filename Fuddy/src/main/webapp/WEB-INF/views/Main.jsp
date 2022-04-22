@@ -11,7 +11,7 @@
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 
 
-<style>
+<style> 
 * {
 	font-family: 'NanumSquareRound';
 }
@@ -82,7 +82,7 @@ a.list {
 										마이페이지 </a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 										<li><a class="dropdown-item" href="#">회원 정보</a></li>
-										<li><a class="dropdown-item" href="Lookup.do?pv_num=2">방제 신청 현황</a></li>
+										<li><a class="dropdown-item" href="Lookup.do">방제 신청 현황</a></li>
 									</ul></li>
 
 								<li class="nav-item"><a class="nav-link"

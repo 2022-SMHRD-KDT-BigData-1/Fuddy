@@ -217,7 +217,6 @@ a.list {
 					</tr>
 				</tbody>
 			</table>
-
 			<input type="hidden" name="admin_id" value="${adminVO.admin_id }">
 			<div style="text-align: center">
 				<button type="submit" class="btn btn-outline-success">방제신청

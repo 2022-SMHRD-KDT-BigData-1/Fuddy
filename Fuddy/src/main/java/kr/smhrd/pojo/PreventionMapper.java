@@ -7,13 +7,13 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface PreventionMapper {
 
-	List<DeepVO> PreventionInsert(PreventionVO vo);
+	void PreventionInsert(PreventionVO vo);
 	
 	void imageInsert(ImageVO img);
 
 	List<ImageVO> imageSelect(ImageVO img);
 	
-	PreventionVO LookupSelect(int pv_num);
+	List<PreventionVO> LookupSelect(String u_id);
 
 	List<PreventionVO> pv_num();
 
@@ -22,6 +22,7 @@ public interface PreventionMapper {
 	int AdminAmount();
 
 	D_MemberVO AdminSelect(String admin_id);
+
 	
 
 
