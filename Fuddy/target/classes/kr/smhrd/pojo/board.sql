@@ -13,7 +13,7 @@ select * from t_deep
 
 select * from t_image where u_id = "qo1515" and p_name = "qo1515_2022-04-18_6" ORDER BY p_date desc
 
-
+select * from t_prevention where u_id = "" and pv_crop is null or pv_diseaseis is null or pv_disease is null or p_num is null or pv_drug is null
 
 drop table t_deep;
 

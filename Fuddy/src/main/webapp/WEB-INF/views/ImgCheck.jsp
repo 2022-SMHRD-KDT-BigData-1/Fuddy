@@ -136,7 +136,8 @@ a.list {
 			<div class="row row-cols-2">
 
 				<!-- aws주소 -->
-				<c:set var="path" value="http://3.84.149.191:8080/resources/" />
+				<!-- http://(aws주소):8080/files/		현재 : 3.84.149.191-->
+				<!--<c:set var="path" value="http://3.84.149.191:8080/resources/" />-->
 				<!--  	<c:set var="path" value="resources/files/" />-->
 
 				<c:forEach var="i" items="${ImageList }" varStatus="j">
@@ -149,7 +150,7 @@ a.list {
 								value="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}" />-->
 							<img id="img${j.count }"
 								class="rounded float-start d-block w-100"
-								src="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}" />
+								src="resources/files/${i.p_folder}/${i.p_name}" />
 						</button>
 					</div>
 					<div class="modal fade" id="exampleModal${j.count}" tabindex="-1"
@@ -165,7 +166,7 @@ a.list {
 								<div class="modal-body container">
 									<img id="img${j.count }"
 										class="rounded float-start d-block w-100"
-										src="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}">
+										src="resources/files/${i.p_folder}/${i.p_name}">
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"

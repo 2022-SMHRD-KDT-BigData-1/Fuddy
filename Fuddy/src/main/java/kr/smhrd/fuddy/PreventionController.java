@@ -43,14 +43,7 @@ public class PreventionController {
 	public String PreventionInsert(PreventionVO vo, HttpSession session, Model model) {
 		System.out.println("방제 신청 기능 동작");
 		mapper.PreventionInsert(vo);
-		MemberVO info = (MemberVO) session.getAttribute("info");
-		String u_id = info.getU_id();
-		System.out.println(u_id);
-		List<PreventionVO> lookup = mapper.LookupSelect(u_id);
-		
-		System.out.println(lookup);
-		model.addAttribute("lookup", lookup);
-		return "redirect:/Lookup.do"; // 나중에 수정
+		return "redirect:/Main.do"; 
 	}
 
 	@RequestMapping("/saveFile.do")
@@ -67,11 +60,10 @@ public class PreventionController {
 		System.out.println(u_id);
 		LocalDate now = LocalDate.now(); // 현재 날짜 구하기 = 신청 날짜
 
-		// 자체 서버 저장 주소
-		// String path = session.getServletContext().getRealPath("resources/files/") + u_id + "_" + now + "_"; // 폴더 경로
+		String path = session.getServletContext().getRealPath("resources/files/") + u_id + "_" + now + "_"; // 폴더 경로
 
 		// aws 파일 경로
-		 String path = "/home/ubuntu/web/resources/file/" + u_id + "_" + now + "_"; // 폴더 경로
+		// String path = "/home/ubuntu/web/files/" + u_id + "_" + now + "_"; // 폴더 경로
 		// String path = "C:\\Users\\smhrd\\Desktop\\file\\" + u_id + "_" + now + "_";
 		// // 폴더 경로
 		File Folder = new File(path);
@@ -153,9 +145,7 @@ public class PreventionController {
 		// select.put("deep_folder", p_folder);
 		ImageVO imgCheck = new ImageVO(u_id, p_folder);
 		List<ImageVO> img_list = mapper.imageSelect(imgCheck);
-
 		System.out.println("img_list : " + img_list);
-
 		session.setAttribute("ImageList", img_list);
 
 		return "redirect:/ImgCheck.do"; // 나중에 수정 }
@@ -168,6 +158,8 @@ public class PreventionController {
 		System.out.println("세션에 저장된 이미지 리스트 : " + list);
 		for (int i = 0; i < list.size(); i++) {
 			String u_id = list.get(i).getU_id();
+			int p_num = list.get(i).getP_num();
+			System.out.println(p_num);
 			System.out.println(u_id);
 			String deep_folder = list.get(i).getP_folder();
 			System.out.println(deep_folder);
@@ -176,7 +168,7 @@ public class PreventionController {
 			List<DeepVO> deeplist = mapper.deepSelect(deepCheck);
 			System.out.println("deeplist : " + deeplist);
 			session.setAttribute("deeplist", deeplist);
-
+			session.setAttribute("p_num", p_num);
 		}
 
 		// 관리자 총합

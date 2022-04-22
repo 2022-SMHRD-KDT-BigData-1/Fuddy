@@ -1,18 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FUDDY - PREVENTION</title>
+<title>FUDDY - lookup</title>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <style>
 * {
 	font-family: "NanumSquareRound";
 }
+
 /* Make the image fully responsive */
 .carousel-inner img {
 	width: 100%;
@@ -118,130 +119,48 @@ a.list {
 	</div>
 	<!-- 게시판 시작 -->
 	<div class="container p-3 my-3 border">
-		<div style="text-align: center">
-			<h3>방제 신청서</h3>
-		</div>
+		<h3 style="text-align: center">나의 방제 내역</h3>
 		<hr />
-		<form action="PreventionInsert.do">
-			<table class="table" style="text-align: center;">
-				<tbody>
-					<tr>
-
-						<td class="table-active"><label for="id_f"
-							class="form-label ">아이디</label></td>
-						<td>
-							<div>
-								<input type="text" readonly class="form-control" name="u_id"
-									id="u_id" value="${info.u_id }" style="width: 200px;" />
-							</div>
-						</td>
-					</tr>
-					<tr>
-
-						<td class="table-active"><label for="id_f"
-							class="form-label ">작성자</label></td>
-						<td>
-							<div>
-								<input type="text" readonly class="form-control" name="u_name"
-									id="u_name" value="${info.u_name }" style="width: 200px;" />
-							</div>
-						</td>
-					</tr>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<td>번호</td>
+					<td>신청 날짜</td>
+					<td>작물</td>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="i" items="${list}" varStatus="j">
+					<!-- 게시판 반복문 시작해야 할 곳 -->
 
 					<tr>
-						<td class="table-active">지번</td>
-						<td><input type="text" class="form-control" name="pv_addr"
-							id="pv_addr" style="width: 500px;" /></td>
+						<td>${j.count }</td>
+						<td><a href="MyLookup.do?pv_date=${i.pv_date}&p_num=${i.p_num}">${i.pv_date}</a></td>
+						<td>${i.pv_crop}</td>
 					</tr>
-					<tr>
-						<td class="table-active">방제 면적</td>
-						<td><input type="text" class="form-control" name="pv_area"
-							id="pv_area" style="width: 200px;" onkeyup="go(this.value)" /></td>
-					</tr>
+				</c:forEach>
+			</tbody>
+		</table>
+		<div class="container-fluid">
+			<nav class="navbar navbar-light">
+				<div class="container-fluid">
+					<a href="#" style="width: 100px"> </a>
+				</div>
+			</nav>
+		</div>
+		<!-- 페이징 구간 -->
+		<nav aria-label="Page navigation example">
+			<ul style="justify-content: center" class="pagination">
+				<li class="page-item"><a class="page-link" href="#"
+					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
+				</a></li>
+				<li class="page-item"><a class="page-link" href="#">1</a></li>
 
-					<tr>
-						<td class="table-active">작물명</td>
-						<td><input type="text" class="form-control" name="pv_crop"
-						value="토마토"
-							id="pv_crop" style="width: 200px;" readonly /></td>
-					</tr>
-
-					<tr>
-						<td class="table-active">작물 병명</td>
-						<td><input type="text" class="form-control" name="pv_disease"
-						value="잎마름병"
-							id="pv_disease" style="width: 200px;" readonly /></td>
-					</tr>
-
-					<tr>
-						<td class="table-active">방제약</td>
-						<td><input type="text" class="form-control" name="pv_drug"
-						value="가지란"
-							id="pv_drug" style="width: 200px;" readonly /></td>
-					</tr>
-
-					<tr>
-						<td class="table-active">신청날짜</td>
-						<td><input type="text" readonly class="form-control"
-							name="pv_date" id="pv_date" value="" style="width: 200px;" /></td>
-					</tr>
-					<tr>
-						<td class="table-active"><label for="title"
-							class="form-label">방제 예약일</label></td>
-						<td>
-							<table>
-								<tr>
-									<td class="table-active">시작 &nbsp;&nbsp;</td>
-									<td><input type="date" class="form-control"
-										name="pv_st_dt" id="pv_st_dt" style="width: 200px;" /></td>
-								</tr>
-								<tr>
-									<td class="table-active">종료&nbsp;&nbsp;&nbsp;&nbsp;</td>
-									<td><input type="date" class="form-control"
-										name="pv_ed_dt" id="pv_ed_dt" style="width: 200px;" /></td>
-								</tr>
-								<tr>
-							</table>
-						</td>
-					</tr>
-					<tr>
-						<td class="table-active">방제 가격</td>
-						<td><input type="text" readonly class="form-control"
-							name="pv_price" id="pv_price" value="" style="width: 200px;" /></td>
-					</tr>
-					<tr>
-						<td class="table-active"><label for="exampleInputPassword1"
-							class="form-label">특이사항</label></td>
-						<td><div>
-
-								<textarea class="form-control" id="exampleFormControlTextarea1"
-									rows="3" name="pv_note"></textarea>
-							</div></td>
-					</tr>
-				</tbody>
-			</table>
-			<input type="hidden" name="admin_id" value="${adminVO.admin_id }">
-			<input type="hidden" name="p_num" value="${p_num }">
-			<div style="text-align: center">
-				<button type="submit" class="btn btn-outline-success">방제신청
-				</button>
-			</div>
-		</form>
-
+				<li class="page-item"><a class="page-link" href="#"
+					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+				</a></li>
+			</ul>
+		</nav>
 	</div>
-	<script>
-		date = new Date();
-		year = date.getFullYear();
-		month = date.getMonth() + 1;
-		day = date.getDate();
-		document.getElementById("pv_date").setAttribute('value',
-				year + "-" + month + "-" + day);
-
-		function go(val) {
-			var area = document.getElementById("pv_area").value;
-			var price = (area * 10) + '원';
-			document.getElementById("pv_price").value = price;
-		}
-	</script>
 </body>
 </html>
