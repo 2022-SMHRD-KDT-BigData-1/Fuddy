@@ -147,9 +147,9 @@ a.list {
 
 						<button type="button" class="btn btn-link" data-bs-toggle="modal"
 							data-bs-target="#exampleModal">
-							<c:out value="${path}${i.p_folder}/${i.p_name}"/>
+							<c:out value="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}"/>
 							<img class="rounded float-start d-block w-100"
-								src="${path}${i.p_folder}/${i.p_name}" />
+								src="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}" />
 						</button>
 
 						<div class="modal fade" id="exampleModal" tabindex="-1"
