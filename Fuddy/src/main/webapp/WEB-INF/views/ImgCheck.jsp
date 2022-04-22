@@ -133,7 +133,7 @@ a.list {
 			</div>
 			<hr />
 
-			<div class="row row-cols-3">
+			<div class="row row-cols-2">
 
 				<!-- aws주소 -->
 				<c:set var="path" value="http://3.84.149.191:8080/resources/"/>
