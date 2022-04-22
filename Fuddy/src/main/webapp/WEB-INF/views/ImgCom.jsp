@@ -133,7 +133,7 @@ a.list {
 			</blockquote>
 
 		</figure>
-		<div class="row row-cols-3">
+		<div class="row row-cols-2">
 
 			<%-- <c:set var="path" value="resources/results/" />
 			<c:forEach var="i" items="${deepList }">
@@ -158,23 +158,21 @@ a.list {
 			<c:set var="path" value="resources/results/" />
 
 			<c:forEach var="i" items="${deeplist }" varStatus="j">
-				<c:set var="date" value="${i.deep_date }" />
-				<c:set var="folder" value="${i.deep_folder }" />
 				<div class="col">
 
 
 					<button type="button" class="btn btn-link" data-bs-toggle="modal"
-						data-bs-target="#exampleModal">
+						data-bs-target="#exampleModal${j.count }">
 						<img class="rounded float-start d-block w-100"
 							src="${path}${folder}/${i.deep_name}" />
 					</button>
 
-					<div class="modal fade" id="exampleModal" tabindex="-1"
-						aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal fade" id="exampleModal${j.count }" tabindex="-1"
+						aria-labelledby="exampleModalLabel${j.count }" aria-hidden="true">
 						<div class="modal-dialog modal-fullscreen">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h5 class="modal-title" id="exampleModalLabel">${i.deep_name}
+									<h5 class="modal-title" id="exampleModalLabel${j.count }">${i.deep_name}
 									</h5>
 									<button type="button" class="btn-close" data-bs-dismiss="modal"
 										aria-label="Close"></button>
