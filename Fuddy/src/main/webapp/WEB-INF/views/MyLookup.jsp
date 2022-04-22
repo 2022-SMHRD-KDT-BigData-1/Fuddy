@@ -224,7 +224,7 @@ a.list {
 
 							<tr>
 								<td class="table-active">위치</td>
-								<td><input type="text" name="jibun" value="${j.pv_addr }" /></td>
+								<td><input type="text" id="pv_addr" name="jibun" value="${j.pv_addr }" /></td>
 								<td class="table-active">방제면적</td>
 								<td><input type="text" name="area" value="${j.pv_area }" /></td>
 							</tr>
@@ -323,6 +323,8 @@ a.list {
 		// 기본정보 지도
 		// var mapContainer = document.getElementsByClassName("map");
 		var mapContainer = document.getElementById("map1"); // 지도를 표시할 div
+		var pv_addr = document.getElementById("pv_addr").value; // 지도를 표시할 div
+		
 		var mapOption = {
 			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
 			level : 1, // 지도의 확대 레벨
@@ -334,7 +336,9 @@ a.list {
 		// 주소-좌표 변환 객체를 생성합니다
 		var geocoder = new kakao.maps.services.Geocoder();
 
-		var address = "광주광역시 북구 문흥동 969-9";
+		//var address = "광주광역시 북구 문흥동 969-9";
+		var address = pv_addr;
+		console.log(pv_addr);
 		// 주소로 좌표를 검색합니다
 		geocoder
 				.addressSearch(

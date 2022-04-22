@@ -36,7 +36,7 @@ public class MemberController {
 	}
 
 	@RequestMapping("/logout.do")
-	public String logout(HttpSession session) {
+	public void logout(HttpSession session) {
 		Object info = session.getAttribute("info");
 		System.out.println("로그아웃 기능 동작");
 		if (info != null) {
@@ -47,7 +47,5 @@ public class MemberController {
 			session.removeAttribute("d_info");
 			// session.invalidate();
 		}
-		return "redirect:/Main.do";
 	}
-
 }

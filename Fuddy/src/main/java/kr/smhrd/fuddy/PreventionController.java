@@ -42,6 +42,7 @@ public class PreventionController {
 	@RequestMapping("/PreventionInsert.do")
 	public String PreventionInsert(PreventionVO vo, HttpSession session, Model model) {
 		System.out.println("방제 신청 기능 동작");
+		System.out.println(vo);
 		mapper.PreventionInsert(vo);
 		return "redirect:/Main.do"; 
 	}

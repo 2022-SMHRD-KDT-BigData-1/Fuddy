@@ -138,12 +138,12 @@ a.list {
 				<!-- aws주소 -->
 				<!-- http://(aws주소):8080/files/		현재 : 3.84.149.191-->
 				<!--<c:set var="path" value="http://3.84.149.191:8080/resources/" />-->
-				<!--  	<c:set var="path" value="resources/files/" />-->
+				  	<c:set var="path" value="resources/files/" />
 
 				<c:forEach var="i" items="${ImageList }" varStatus="j">
-
 					<div class="col">
-
+						<c:set var ="date" value="${i.p_date }"/>
+						<c:set var ="folder" value="${i.p_folder }"/>
 						<button type="button" class="btn btn-link" data-bs-toggle="modal"
 							data-bs-target="#exampleModal${j.count}">
 							<!--<c:out
@@ -176,7 +176,6 @@ a.list {
 						</div>
 					</div>
 				</c:forEach>
-
 			</div>
 			<input type="hidden" value="${info.u_id }" name="u_id"> <input
 				type="hidden" value="${date }" name="p_date"> <input
