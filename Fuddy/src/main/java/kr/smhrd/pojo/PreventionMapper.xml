@@ -49,7 +49,8 @@
 
 	<select id="preventionList"
 		resultType="kr.smhrd.pojo.PreventionVO">
-		select * from t_prevention where u_id = #{u_id} ORDER BY pv_date desc
+		select * from t_prevention where u_id = #{u_id} ORDER BY
+		pv_date desc
 	</select>
 
 	<select id="MylookupImage" resultType="kr.smhrd.pojo.ImageVO">
@@ -57,8 +58,11 @@
 		<!-- select * from t_image where u_id = #{u_id} and p_folder = #{p_folder} 
 			ORDER BY p_date desc -->
 	</select>
-	<update id="lookupUpdate" parameterType="kr.smhrd.pojo.PreventionVO">
-		update t_prevention set u_id=#{u_id},pv_addr=#{pv_addr},pv_area=#{pv_area}, pv_st_dt = #{pv_st_dt}, pv_ed_dt=#{pv_ed_dt},
+	<update id="lookupUpdate"
+		parameterType="kr.smhrd.pojo.PreventionVO">
+		update t_prevention set
+		u_id=#{u_id},pv_addr=#{pv_addr},pv_area=#{pv_area}, pv_st_dt =
+		#{pv_st_dt}, pv_ed_dt=#{pv_ed_dt},
 		pv_note=#{pv_note},pv_crop=#{pv_crop},pv_disease=#{pv_disease},pv_drug=#{pv_drug}
 		where pv_num = #{pv_num}
 	</update>

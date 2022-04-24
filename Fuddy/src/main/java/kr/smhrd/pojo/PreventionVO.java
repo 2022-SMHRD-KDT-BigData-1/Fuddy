@@ -25,7 +25,7 @@ public class PreventionVO {
 	private String pv_note; //특이사항
 
 	public PreventionVO(String u_id) {
-		super();
+
 		this.u_id = u_id;
 		}
 }

@@ -83,7 +83,9 @@ public class PreventionController {
 		System.out.println(upload.length);
 		// ArrayList<String> folderlist = new ArrayList<String>();
 		// 다중 파라미터 사용 하기 위해
-		String p_folder = Folder.getName();
+		
+		String p_folder = Folder.getName()+(cnt-1);
+		System.out.println(Folder);
 
 		for (MultipartFile multipartFile : upload) {
 
@@ -105,7 +107,7 @@ public class PreventionController {
 			// private String p_folder; //폴더 이름
 			// private String p_name; //사진 이름
 			// private String p_date; //등록 날짜
-			ImageVO img = new ImageVO(0, u_id, p_path, p_folder, p_name, null);
+			ImageVO img = new ImageVO(0, u_id, path, p_folder, p_name, null);
 			// img.put( 사용자이름, 패스, 폴더이름, 이미지 파일 이름 )
 			System.out.println("img : " + img);
 			mapper.imageInsert(img);
@@ -130,8 +132,10 @@ public class PreventionController {
 		// select.put("u_id", u_id);
 		// select.put("p_folder", p_folder);
 		// select.put("deep_folder", p_folder);
+		System.out.println(p_folder);
 		ImageVO imgCheck = new ImageVO(u_id, p_folder);
 		List<ImageVO> img_list = mapper.imageSelect(imgCheck);
+		System.out.println(img_list.size());
 		System.out.println("img_list : " + img_list);
 		session.setAttribute("ImageList", img_list);
 
