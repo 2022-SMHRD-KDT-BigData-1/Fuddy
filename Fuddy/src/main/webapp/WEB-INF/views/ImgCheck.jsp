@@ -175,7 +175,7 @@ a.list {
 							</div>
 						</div>
 					</div>
-					
+					<input type="hidden" value="${i.p_name}" name="name${j.count }">
 				</c:forEach>
 			</div>
 			<input type="hidden" value="${fn:length(ImageList)}" name="length">
