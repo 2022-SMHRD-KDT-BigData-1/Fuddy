@@ -126,7 +126,7 @@ a.list {
 		<!-- 플라스크 이동 폼 -->
 
 
-		<form action="http://f2.project-jupyter.ddns.net" method="POST">
+		<form action="http://f2.project-jupyter.ddns.net:8872/yolov5" method="POST">
 
 			<div style="text-align: center">
 				<h3>병해충 사진 확인</h3>
