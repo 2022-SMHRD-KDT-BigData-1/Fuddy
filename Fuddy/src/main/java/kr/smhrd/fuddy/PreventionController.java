@@ -39,7 +39,7 @@ public class PreventionController {
 		// MultipartRequest mreQuest = new MultipartRequest() {
 
 		MemberVO info = (MemberVO) session.getAttribute("info");
-		
+
 		System.out.println("파일 저장 시작");
 		// Logger log = LoggerFactory.getLogger(getClass());
 		// 디렉토리에 폴더 생성
@@ -54,9 +54,9 @@ public class PreventionController {
 		// String path = "C:\\Users\\smhrd\\Desktop\\file\\" + u_id + "_" + now + "_";
 		// // 폴더 경로
 		File Folder = new File(path);
-		File Folder2 = new File("/home/ubuntu/web/resources/files/abs");
-		Folder2.mkdir();
-		
+
+		String p_path = Folder.getPath();
+		System.out.println("p_path file내에 폴더 생성 : " + p_path);
 		int cnt = 0;
 		// 디렉토리 생성
 		for (cnt = 1; cnt < 100; cnt++) {
@@ -64,14 +64,13 @@ public class PreventionController {
 			if (!Folder.exists()) {
 				try {
 					Folder.mkdir(); // 폴더 생성
-					System.out.println("폴더 생성 : "+Folder);
+					System.out.println("폴더 생성");
 					break;
 				} catch (Exception e) {
 					e.getStackTrace();
 				}
 			} else {
 				Folder = new File(path + cnt);
-				System.out.println("else 폴더 : " + Folder);
 				System.out.println("이미 폴더가 존재합니다.");
 			}
 		}
@@ -84,10 +83,7 @@ public class PreventionController {
 		System.out.println(upload.length);
 		// ArrayList<String> folderlist = new ArrayList<String>();
 		// 다중 파라미터 사용 하기 위해
-		String p_path = Folder.getPath();
-		System.out.println("p_path file내에 폴더 생성 : " + p_path);
-		String p_folder = Folder.getName()+(cnt-1);
-		System.out.println(Folder);
+		String p_folder = Folder.getName();
 
 		for (MultipartFile multipartFile : upload) {
 
@@ -109,7 +105,7 @@ public class PreventionController {
 			// private String p_folder; //폴더 이름
 			// private String p_name; //사진 이름
 			// private String p_date; //등록 날짜
-			ImageVO img = new ImageVO(0, u_id, path, p_folder, p_name, null);
+			ImageVO img = new ImageVO(0, u_id, p_path, p_folder, p_name, null);
 			// img.put( 사용자이름, 패스, 폴더이름, 이미지 파일 이름 )
 			System.out.println("img : " + img);
 			mapper.imageInsert(img);
@@ -134,10 +130,8 @@ public class PreventionController {
 		// select.put("u_id", u_id);
 		// select.put("p_folder", p_folder);
 		// select.put("deep_folder", p_folder);
-		System.out.println(p_folder);
 		ImageVO imgCheck = new ImageVO(u_id, p_folder);
 		List<ImageVO> img_list = mapper.imageSelect(imgCheck);
-		System.out.println(img_list.size());
 		System.out.println("img_list : " + img_list);
 		session.setAttribute("ImageList", img_list);
 
