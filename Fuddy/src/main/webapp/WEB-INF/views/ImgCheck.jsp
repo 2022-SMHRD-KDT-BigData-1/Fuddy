@@ -126,7 +126,7 @@ a.list {
 		<!-- 플라스크 이동 폼 -->
 
 
-		<form action="http://localhost:5000/asd" method="POST">
+		<form action="http://f2.project-jupyter.ddns.net" method="POST">
 
 			<div style="text-align: center">
 				<h3>병해충 사진 확인</h3>
@@ -136,8 +136,8 @@ a.list {
 			<div class="row row-cols-2">
 
 				<!-- aws주소 -->
-				<!-- http://(aws주소):8080/files/		현재 : 3.84.149.191-->
-				<!--<c:set var="path" value="http://3.84.149.191:8080/resources/" />-->
+				<!-- http://(aws주소):8080/files/		현재 : 44.203.185.159-->
+				<!--<c:set var="path" value="http://44.203.185.159:8080/files/" />-->
 				  	<c:set var="path" value="resources/files/" />
 
 				<c:forEach var="i" items="${ImageList }" varStatus="j">
@@ -150,7 +150,7 @@ a.list {
 								value="http://3.84.149.191:8080/file/${i.p_folder}/${i.p_name}" />-->
 							<img id="img${j.count }"
 								class="rounded float-start d-block w-100"
-								src="resources/files/${i.p_folder}/${i.p_name}" />
+								src="http://44.203.185.159:8080/files/${i.p_folder}/${i.p_name}" />
 						</button>
 					</div>
 					<div class="modal fade" id="exampleModal${j.count}" tabindex="-1"
@@ -166,7 +166,7 @@ a.list {
 								<div class="modal-body container">
 									<img id="img${j.count }"
 										class="rounded float-start d-block w-100"
-										src="resources/files/${i.p_folder}/${i.p_name}">
+										src="http://44.203.185.159:8080/files/${i.p_folder}/${i.p_name}">
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"
