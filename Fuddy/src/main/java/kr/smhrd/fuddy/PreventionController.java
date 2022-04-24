@@ -184,4 +184,6 @@ public class PreventionController {
 		mapper.lookupUpdate(vo);
 		return "redirect:/Main.do";
 	}
+	
+
 }
