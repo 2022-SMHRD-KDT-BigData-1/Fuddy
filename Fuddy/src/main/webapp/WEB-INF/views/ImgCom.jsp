@@ -155,7 +155,7 @@ a.list {
 					</c:otherwise>
 				</c:choose>
  --%>
-			<c:set var="path" value="resources/results/" />
+			<c:set var="path" value="http://f2.project-jupyter.ddns.net:8872/getImage/" />
 
 			<c:forEach var="i" items="${deeplist }" varStatus="j">
 				<div class="col">

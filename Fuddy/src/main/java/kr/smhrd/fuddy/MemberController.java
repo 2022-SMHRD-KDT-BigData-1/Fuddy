@@ -42,7 +42,7 @@ public class MemberController {
 		} else {
 			System.out.println("관리자 로그아웃");
 			session.removeAttribute("d_info");
-			// session.invalidate();
+			// session.invalidate();   
 		}
 		return "redirect:/Main.do";
 	}

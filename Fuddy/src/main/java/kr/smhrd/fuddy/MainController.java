@@ -187,7 +187,6 @@ public class MainController {
 	@RequestMapping("/MyLookup1.do")
 	public String MyLookup(String pv_date, int pv_num, int p_num, HttpSession session, Model model) {
 		System.out.println("방제 내역 이동 동작");
-		System.out.println(pv_date);
 
 		List<PreventionVO> lookup = p_mapper.LookupSelect(pv_date);
 		List<ImageVO> img = p_mapper.P_name(p_num);// 이미지  select
