@@ -8,11 +8,11 @@ import org.apache.ibatis.annotations.Mapper;
 public interface PreventionMapper {
 
 	void PreventionInsert(PreventionVO vo);
-	
+
 	void imageInsert(ImageVO img);
 
 	List<ImageVO> imageSelect(ImageVO img);
-	
+
 	List<DeepVO> deepSelect(DeepVO deepCheck);
 
 	int AdminAmount();
@@ -23,10 +23,10 @@ public interface PreventionMapper {
 
 	List<PreventionVO> LookupSelect(String pv_date);
 
+	List<ImageVO> MylookupImage(String p_folder);
+
+	void lookupUpdate(PreventionVO vo);
+
 	List<ImageVO> imageSelect1(int p_num);
-
-	
-
-
 
 }

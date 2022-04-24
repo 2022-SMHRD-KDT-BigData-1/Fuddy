@@ -5,8 +5,10 @@
 	<insert id="PreventionInsert"
 		parameterType="kr.smhrd.pojo.PreventionVO">
 		insert into t_prevention (p_num,u_id,admin_id, pv_addr,
-		pv_area, pv_date, pv_st_dt, pv_ed_dt, pv_price, pv_note,pv_crop,pv_disease,pv_drug)
-		value(#{p_num},#{u_id},#{admin_id},#{pv_addr}, #{pv_area}, now(), #{pv_st_dt},
+		pv_area, pv_date, pv_st_dt, pv_ed_dt, pv_price,
+		pv_note,pv_crop,pv_disease,pv_drug)
+		value(#{p_num},#{u_id},#{admin_id},#{pv_addr}, #{pv_area}, now(),
+		#{pv_st_dt},
 		#{pv_ed_dt},#{pv_price},#{pv_note},#{pv_crop},#{pv_disease},#{pv_drug})
 	</insert>
 
@@ -24,7 +26,8 @@
 	</select>
 
 	<select id="deepSelect" resultType="kr.smhrd.pojo.DeepVO">
-		select * from t_deep where u_id = #{u_id} and deep_folder = #{deep_folder}
+		select * from t_deep where u_id = #{u_id} and deep_folder =
+		#{deep_folder}
 		<!-- select * from t_deep where u_id = #{u_id} and deep_folder = #{deep_folder} 
 			ORDER BY p_date desc -->
 	</select>
@@ -33,26 +36,32 @@
 		select count(*) from t_admin
 	</select>
 	<select id="AdminSelect" resultType="kr.smhrd.pojo.D_MemberVO">
-		select * from t_admin where admin_id= #{admin_id}
+		select * from t_admin where
+		admin_id= #{admin_id}
 	</select>
 
-	<!-- <select id="LookupSelect" resultType="kr.smhrd.pojo.PreventionVO">
-	select * from t_prevention where u_id = #{u_id}
-	</select> -->
-	<select id="LookupSelect" resultType="kr.smhrd.pojo.PreventionVO">
-	select * from t_prevention where pv_date = #{pv_date}
+	<!-- <select id="LookupSelect" resultType="kr.smhrd.pojo.PreventionVO"> 
+		select * from t_prevention where u_id = #{u_id} </select> -->
+	<select id="LookupSelect"
+		resultType="kr.smhrd.pojo.PreventionVO">
+		select * from t_prevention where pv_date = #{pv_date}
 	</select>
-	
-	<select id="preventionList" resultType="kr.smhrd.pojo.PreventionVO">
-	select * from t_prevention where u_id = #{u_id} ORDER BY pv_date desc
+
+	<select id="preventionList"
+		resultType="kr.smhrd.pojo.PreventionVO">
+		select * from t_prevention where u_id = #{u_id} ORDER BY pv_date desc
 	</select>
-	
-	<select id="imageSelect1" resultType="kr.smhrd.pojo.ImageVO">
-		select * from t_image where p_num = #{p_num}
+
+	<select id="MylookupImage" resultType="kr.smhrd.pojo.ImageVO">
+		select * from t_image where p_folder = #{p_folder}
 		<!-- select * from t_image where u_id = #{u_id} and p_folder = #{p_folder} 
 			ORDER BY p_date desc -->
 	</select>
-	
-	
-	
+	<update id="lookupUpdate" parameterType="kr.smhrd.pojo.PreventionVO">
+		update t_prevention set u_id=#{u_id},pv_addr=#{pv_addr},pv_area=#{pv_area}, pv_st_dt = #{pv_st_dt}, pv_ed_dt=#{pv_ed_dt},
+		pv_note=#{pv_note},pv_crop=#{pv_crop},pv_disease=#{pv_disease},pv_drug=#{pv_drug}
+		where pv_num = #{pv_num}
+	</update>
+
+
 </mapper>

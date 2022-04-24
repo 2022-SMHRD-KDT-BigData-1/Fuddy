@@ -204,53 +204,53 @@ a.list {
 			<div class="tab-pane fade" id="pills-profile" role="tabpanel"
 				aria-labelledby="pills-profile-tab">
 				<!-- 내역수정 -->
-				<form action="#" style="text-align: center">
+				<form action="lookupUpdate.do" style="text-align: center">
 					<table class="table" style="text-align: center">
 						<c:forEach var="j" items="${lookup}">
+						<input type = "hidden" name ="pv_num" value = "${j.pv_num}">
+						<input type = "hidden" name ="p_num" value = "${j.p_num}">
 							<tr>
 								<td class="table-active">담당자</td>
-								<td><input type="text" name="name_d"
+								<td><input type="text" name="admin_id"
 									value="${j.admin_id } " /></td>
 								<td class="table-active">신청자</td>
-								<td><input type="text" name="name_f" value="${j.u_id }" /></td>
+								<td><input type="text" name="u_id" value="${j.u_id }" /></td>
 							</tr>
 							<tr>
 								<td class="table-active">작물정보</td>
-								<td><input type="text" name="crop" value="${j.pv_crop }" /></td>
+								<td><input type="text" name="pv_crop" value="${j.pv_crop }" /></td>
 								<td class="table-active">병해충</td>
-								<td><input type="text" name="disease"
+								<td><input type="text" name="pv_disease"
 									value="${j.pv_disease }" /></td>
 							</tr>
 
 							<tr>
 								<td class="table-active">위치</td>
-								<td><input type="text" id="pv_addr" name="jibun" value="${j.pv_addr }" /></td>
+								<td><input type="text" id="pv_addr" name="pv_addr"
+									value="${j.pv_addr }" /></td>
 								<td class="table-active">방제면적</td>
-								<td><input type="text" name="area" value="${j.pv_area }" /></td>
+								<td><input type="text" name="pv_area" value="${j.pv_area }" /></td>
 							</tr>
 							<tr>
 								<td class="table-active">방제약</td>
-								<td><input type="text" name="medicine"
+								<td><input type="text" name="pv_drug"
 									value="${j.pv_drug }" /></td>
 								<td class="table-active">신청일</td>
-								<td><input type="date" name="apply" class="date"
+								<td><input type="date" name="pv_date" class="date"
 									value="${j.pv_date }" /></td>
 							</tr>
 							<tr>
 								<td class="table-active">방제날짜</td>
-								<td colspan="3"><span> <input type="date"
-										name="start_d" class="date" value="${j.pv_st_dt }" /></span> ~ <span>
-										<input type="date" name="end_d" class="date"
-										value="${j.pv_ed_dt }" />
+								<td colspan="3"><span> <input type="date" name="pv_st_dt" class="date" value="${j.pv_st_dt }" /></span> ~ <span><input type="date" name="pv_ed_dt" class="date"value="${j.pv_ed_dt }" />
 								</span></td>
 							</tr>
 							<tr>
 								<td class="table-active">특이사항</td>
-								<td colspan="3"><textarea style="width: 100%">${i.pv_note }</textarea></td>
+								<td colspan="3"><textarea name="pv_note" style="width: 100%">${i.pv_note }</textarea></td>
 							</tr>
 						</c:forEach>
 					</table>
-					<button class="btn btn-outline-success">수정</button>
+					<button type="submit" class="btn btn-outline-success">수정</button>
 				</form>
 			</div>
 			<div class="tab-pane fade" id="pills-contact" role="tabpanel"
@@ -284,15 +284,15 @@ a.list {
 								</div>
 							</div>
 						</div>
-					
+
 						<c:set var="path" value="resources/files/" />
-						<c:forEach var="img" items="${img_list }" varStatus="j">
+						<c:forEach var="img" items="${MylookupImage }" varStatus="j">
 							<c:set var="date" value="${img.p_date }" />
 							<c:set var="folder" value="${img.p_folder }" />
 
 							<td><a href="#"><img
 									class="rounded mx-auto  d-block w-100"
-									src="${path}${img.p_folder}/${img.p_name}"></a></td>
+									src="${path}${folder}/${img.p_name}"></a></td>
 							<!-- <td><a href="#"><img
 									class="rounded float-end d-block w-100"
 									src="resources/image/pest03.jpg"></a></td> -->
@@ -317,14 +317,14 @@ a.list {
 	</div>
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7f35f963d64bccbe492dd16e66e06ec&libraries=services"></script>
-
+	<!--  <script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec635f5912f221b0179ac8521e7d1882&libraries=services,clusterer,drawing"></script>-->
 
 	<script>
 		// 기본정보 지도
 		// var mapContainer = document.getElementsByClassName("map");
 		var mapContainer = document.getElementById("map1"); // 지도를 표시할 div
-		var pv_addr = document.getElementById("pv_addr").value; // 지도를 표시할 div
-		
+
 		var mapOption = {
 			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
 			level : 1, // 지도의 확대 레벨
@@ -337,13 +337,10 @@ a.list {
 		var geocoder = new kakao.maps.services.Geocoder();
 
 		//var address = "광주광역시 북구 문흥동 969-9";
-		var address = pv_addr;
+		var address = document.getElementById("pv_addr").value;
 		console.log(pv_addr);
 		// 주소로 좌표를 검색합니다
-		geocoder
-				.addressSearch(
-						address,
-						function(result, status) {
+		geocoder.addressSearch(address,function(result, status) {
 							// 정상적으로 검색이 완료됐으면
 							if (status === kakao.maps.services.Status.OK) {
 								var coords = new kakao.maps.LatLng(result[0].y,
