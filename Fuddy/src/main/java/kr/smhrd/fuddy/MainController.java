@@ -188,6 +188,8 @@ public class MainController {
 	public String MyLookup(String pv_date, int pv_num, int p_num, HttpSession session, Model model) {
 		System.out.println("방제 내역 이동 동작");
 
+		pv_date = (String) session.getAttribute("pv_date");
+		p_num = (int) session.getAttribute("p_num");
 		List<PreventionVO> lookup = p_mapper.LookupSelect(pv_date);
 		List<ImageVO> img = p_mapper.P_name(p_num);// 이미지  select
 		for (int i = 0; i < img.size(); i++) {

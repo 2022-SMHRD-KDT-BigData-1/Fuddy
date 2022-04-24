@@ -175,6 +175,8 @@ a.list {
 							</div>
 						</div>
 					</div>
+					<input type="hidden" value="${i.p_folder }" name="folder${j.count }">
+					<input type="hidden" value="${i.p_name}" name="name${j.count }">
 				</c:forEach>
 			</div>
 			<input type="hidden" value="${info.u_id }" name="u_id"> <input
