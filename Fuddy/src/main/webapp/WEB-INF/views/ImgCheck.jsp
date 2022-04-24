@@ -175,10 +175,10 @@ a.list {
 							</div>
 						</div>
 					</div>
-					<input type="hidden" value="${i.p_folder }" name="folder${j.count }">
 					<input type="hidden" value="${i.p_name}" name="name${j.count }">
 				</c:forEach>
 			</div>
+			<input type="hidden" value="http://44.203.185.159:8080/files/" name="path">
 			<input type="hidden" value="${info.u_id }" name="u_id"> <input
 				type="hidden" value="${date }" name="p_date"> <input
 				type="hidden" value="${folder }" name="p_folder">
