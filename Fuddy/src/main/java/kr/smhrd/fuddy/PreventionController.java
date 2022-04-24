@@ -50,7 +50,7 @@ public class PreventionController {
 		// String path = session.getServletContext().getRealPath("resources/files/") + u_id + "_" + now + "_"; // 폴더 경로
 
 		// aws 파일 경로
-		String path = "/home/ubuntu/web/files/" + u_id + "_" + now + "_"; // 폴더 경로
+		String path = "/home/ubuntu/web/resources/files/" + u_id + "_" + now + "_"; // 폴더 경로
 		// String path = "C:\\Users\\smhrd\\Desktop\\file\\" + u_id + "_" + now + "_";
 		// // 폴더 경로
 		File Folder = new File(path);
