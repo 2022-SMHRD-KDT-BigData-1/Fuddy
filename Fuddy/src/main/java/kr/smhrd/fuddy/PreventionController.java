@@ -39,7 +39,7 @@ public class PreventionController {
 		// MultipartRequest mreQuest = new MultipartRequest() {
 
 		MemberVO info = (MemberVO) session.getAttribute("info");
-
+		
 		System.out.println("파일 저장 시작");
 		// Logger log = LoggerFactory.getLogger(getClass());
 		// 디렉토리에 폴더 생성
@@ -54,9 +54,9 @@ public class PreventionController {
 		// String path = "C:\\Users\\smhrd\\Desktop\\file\\" + u_id + "_" + now + "_";
 		// // 폴더 경로
 		File Folder = new File(path);
-
-		String p_path = Folder.getPath();
-		System.out.println("p_path file내에 폴더 생성 : " + p_path);
+		File Folder2 = new File("/home/ubuntu/web/resources/files/abs");
+		Folder2.mkdir();
+		
 		int cnt = 0;
 		// 디렉토리 생성
 		for (cnt = 1; cnt < 100; cnt++) {
@@ -64,13 +64,14 @@ public class PreventionController {
 			if (!Folder.exists()) {
 				try {
 					Folder.mkdir(); // 폴더 생성
-					System.out.println("폴더 생성");
+					System.out.println("폴더 생성 : "+Folder);
 					break;
 				} catch (Exception e) {
 					e.getStackTrace();
 				}
 			} else {
 				Folder = new File(path + cnt);
+				System.out.println("else 폴더 : " + Folder);
 				System.out.println("이미 폴더가 존재합니다.");
 			}
 		}
@@ -83,7 +84,8 @@ public class PreventionController {
 		System.out.println(upload.length);
 		// ArrayList<String> folderlist = new ArrayList<String>();
 		// 다중 파라미터 사용 하기 위해
-		
+		String p_path = Folder.getPath();
+		System.out.println("p_path file내에 폴더 생성 : " + p_path);
 		String p_folder = Folder.getName()+(cnt-1);
 		System.out.println(Folder);
 
