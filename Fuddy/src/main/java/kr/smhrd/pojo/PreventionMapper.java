@@ -1,5 +1,6 @@
 package kr.smhrd.pojo;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -27,6 +28,8 @@ public interface PreventionMapper {
 
 	void lookupUpdate(PreventionVO vo);
 
-	List<ImageVO> imageSelect1(int p_num);
+	List<ImageVO> P_name(int p_num);
+
+	List<ImageVO> p_name(String p_folder);
 
 }

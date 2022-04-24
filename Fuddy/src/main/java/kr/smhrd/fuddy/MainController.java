@@ -1,17 +1,15 @@
 package kr.smhrd.fuddy;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
-import com.sun.org.apache.regexp.internal.recompile;
 
 import kr.smhrd.pojo.BoardMapper;
 import kr.smhrd.pojo.BoardVO;
@@ -168,12 +166,11 @@ public class MainController {
 	public void MembeLookup() {
 		System.out.println("회원 방제 내역  이동 동작");
 	}
-	
+
 	@RequestMapping("/PreventionList.do")
 	public void PreventionList() {
 		System.out.println(" 방제 내역 이동 동작");
 	}
-
 
 	@RequestMapping("/MyPrevention.do") // 완료
 	public void MyPrevention(HttpSession session, Model model) {
@@ -181,34 +178,28 @@ public class MainController {
 		MemberVO info = (MemberVO) session.getAttribute("info");
 		String u_id = info.getU_id();
 		List<PreventionVO> list = p_mapper.preventionList(u_id);
+		System.out.println("list 확인용 : " + list);
 		System.out.println("성공");
-		for (int i = 0; i < list.size(); i++) {
-			String pv_date = list.get(i).getPv_date();
-			int p_num = list.get(i).getP_num();
-			
-			session.setAttribute("p_num", p_num);
-			session.setAttribute("pv_date", pv_date);
-		}
 		model.addAttribute("list", list);
 
 	}
 
-	
-	@RequestMapping("/MyLookup.do")
-	public String MyLookup(String pv_date,int p_num, HttpSession session, Model model) {
+	@RequestMapping("/MyLookup1.do")
+	public String MyLookup(String pv_date, int pv_num, int p_num, HttpSession session, Model model) {
 		System.out.println("방제 내역 이동 동작");
-	
-		// 방제 신청 내역 가져오기
-		pv_date = (String) session.getAttribute("pv_date");
-		p_num = (int) session.getAttribute("p_num");
+		System.out.println(pv_date);
+
 		List<PreventionVO> lookup = p_mapper.LookupSelect(pv_date);
-		List<ImageVO> img_list = p_mapper.imageSelect1(p_num);
-	
+		List<ImageVO> img = p_mapper.P_name(p_num);// 이미지  select
+		for (int i = 0; i < img.size(); i++) {
+			String p_folder = img.get(i).getP_folder(); // 폴더 이름 가져오기
+			List<ImageVO> p_folderSelect = p_mapper.p_name(p_folder); // 파일 이름 가져오기
+			model.addAttribute("p_folderSelect", p_folderSelect);
+		}
 		System.out.println("성공");
-		System.out.println(lookup);
-		model.addAttribute("img_list", img_list);
 		model.addAttribute("lookup", lookup);
-			return "redirect:/MyLookup.do";
+	
+		return "MyLookup";
 	}
 
 }

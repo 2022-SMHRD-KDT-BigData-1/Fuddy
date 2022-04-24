@@ -2,31 +2,17 @@ package kr.smhrd.fuddy;
 
 import java.io.File;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
-import java.util.Map;
 import java.util.Random;
 
 import javax.inject.Inject;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.MultiValueMap;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartRequest;
 
-import kr.smhrd.pojo.CommentVO;
-import kr.smhrd.pojo.D_MemberMapper;
 import kr.smhrd.pojo.D_MemberVO;
 import kr.smhrd.pojo.DeepVO;
 import kr.smhrd.pojo.ImageVO;
@@ -44,7 +30,7 @@ public class PreventionController {
 		System.out.println("방제 신청 기능 동작");
 		System.out.println(vo);
 		mapper.PreventionInsert(vo);
-		return "redirect:/Main.do"; 
+		return "redirect:/Main.do";
 	}
 
 	@RequestMapping("/saveFile.do")
@@ -52,14 +38,14 @@ public class PreventionController {
 
 		// MultipartRequest mreQuest = new MultipartRequest() {
 
-		MemberVO info = (MemberVO) session.getAttribute("info");    
+		MemberVO info = (MemberVO) session.getAttribute("info");
 
 		System.out.println("파일 저장 시작");
 		// Logger log = LoggerFactory.getLogger(getClass());
 		// 디렉토리에 폴더 생성
-		String u_id = info.getU_id(); // 사용자의 아이디 
+		String u_id = info.getU_id(); // 사용자의 아이디
 		System.out.println(u_id);
-		LocalDate now = LocalDate.now(); // 현재 날짜 구하기 = 신청 날짜      
+		LocalDate now = LocalDate.now(); // 현재 날짜 구하기 = 신청 날짜
 
 		String path = session.getServletContext().getRealPath("resources/files/") + u_id + "_" + now + "_"; // 폴더 경로
 
@@ -92,7 +78,7 @@ public class PreventionController {
 
 		System.out.println("path 이미지 저장 경로 : " + path);
 
-		// 파일 서버 컴퓨터에 저장 시작 ( resource/files/id_date 에 저장 ) 
+		// 파일 서버 컴퓨터에 저장 시작 ( resource/files/id_date 에 저장 )
 		String folder = path; // 생성된 폴더로 경로 설정
 		System.out.println(upload.length);
 		// ArrayList<String> folderlist = new ArrayList<String>();
@@ -101,7 +87,7 @@ public class PreventionController {
 
 		for (MultipartFile multipartFile : upload) {
 
-			// HashMap<String, String> img = new HashMap<String, String>(); 
+			// HashMap<String, String> img = new HashMap<String, String>();
 			System.out.println("for문 내부");
 			/*
 			 * log.info("---------"); log.info("Upload File Name : " +
@@ -191,4 +177,11 @@ public class PreventionController {
 		return "redirect:/ImgCom.do"; // 나중에 수정
 	}
 
+	@RequestMapping("/lookupUpdate.do")
+	public String lookupUpdate(PreventionVO vo) {
+		System.out.println("방제 내역 수정 기능 동작");
+		System.out.println(vo);
+		mapper.lookupUpdate(vo);
+		return "redirect:/Main.do";
+	}
 }

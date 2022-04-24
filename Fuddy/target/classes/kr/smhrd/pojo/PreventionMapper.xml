@@ -62,6 +62,15 @@
 		pv_note=#{pv_note},pv_crop=#{pv_crop},pv_disease=#{pv_disease},pv_drug=#{pv_drug}
 		where pv_num = #{pv_num}
 	</update>
-
+	<select id="P_name" resultType="kr.smhrd.pojo.ImageVO">
+		select * from t_image where p_num = #{p_num}
+		<!-- select * from t_image where u_id = #{u_id} and p_folder = #{p_folder} 
+			ORDER BY p_date desc -->
+	</select>
+	<select id="p_name" resultType="kr.smhrd.pojo.ImageVO">
+		select * from t_image where p_folder = #{p_folder}
+		<!-- select * from t_image where u_id = #{u_id} and p_folder = #{p_folder} 
+			ORDER BY p_date desc -->
+	</select>
 
 </mapper>

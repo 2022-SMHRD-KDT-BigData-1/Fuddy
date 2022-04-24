@@ -6,8 +6,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.mysql.cj.Session;
-
 import kr.smhrd.pojo.MemberMapper;
 import kr.smhrd.pojo.MemberVO;
 
@@ -34,9 +32,8 @@ public class MemberController {
 		}
 		return "redirect:/Main.do";
 	}
-
 	@RequestMapping("/logout.do")
-	public void logout(HttpSession session) {
+	public String logout(HttpSession session) {
 		Object info = session.getAttribute("info");
 		System.out.println("로그아웃 기능 동작");
 		if (info != null) {
@@ -45,7 +42,8 @@ public class MemberController {
 		} else {
 			System.out.println("관리자 로그아웃");
 			session.removeAttribute("d_info");
-			// session.invalidate();   
+			// session.invalidate();
 		}
+		return "redirect:/Main.do";
 	}
 }

@@ -207,8 +207,8 @@ a.list {
 				<form action="lookupUpdate.do" style="text-align: center">
 					<table class="table" style="text-align: center">
 						<c:forEach var="j" items="${lookup}">
-						<input type = "hidden" name ="pv_num" value = "${j.pv_num}">
-						<input type = "hidden" name ="p_num" value = "${j.p_num}">
+							<input type="hidden" name="pv_num" value="${j.pv_num}">
+							<input type="hidden" name="p_num" value="${j.p_num}">
 							<tr>
 								<td class="table-active">담당자</td>
 								<td><input type="text" name="admin_id"
@@ -233,20 +233,22 @@ a.list {
 							</tr>
 							<tr>
 								<td class="table-active">방제약</td>
-								<td><input type="text" name="pv_drug"
-									value="${j.pv_drug }" /></td>
+								<td><input type="text" name="pv_drug" value="${j.pv_drug }" /></td>
 								<td class="table-active">신청일</td>
 								<td><input type="date" name="pv_date" class="date"
 									value="${j.pv_date }" /></td>
 							</tr>
 							<tr>
 								<td class="table-active">방제날짜</td>
-								<td colspan="3"><span> <input type="date" name="pv_st_dt" class="date" value="${j.pv_st_dt }" /></span> ~ <span><input type="date" name="pv_ed_dt" class="date"value="${j.pv_ed_dt }" />
-								</span></td>
+								<td colspan="3"><span> <input type="date"
+										name="pv_st_dt" class="date" value="${j.pv_st_dt }" /></span> ~ <span><input
+										type="date" name="pv_ed_dt" class="date"
+										value="${j.pv_ed_dt }" /> </span></td>
 							</tr>
 							<tr>
 								<td class="table-active">특이사항</td>
-								<td colspan="3"><textarea name="pv_note" style="width: 100%">${i.pv_note }</textarea></td>
+								<td colspan="3"><textarea name="pv_note"
+										style="width: 100%">${i.pv_note }</textarea></td>
 							</tr>
 						</c:forEach>
 					</table>
@@ -263,32 +265,35 @@ a.list {
 								<img class="rounded float-start d-block w-100" src="pest01.jpg">
 							</button>
 						</td>
-						<div class="modal fade" id="exampleModal" tabindex="-1"
-							aria-labelledby="exampleModalLabel" aria-hidden="true">
-							<div class="modal-dialog modal-fullscreen">
-								<div class="modal-content">
-									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">leaf02.jpg</h5>
-										<button type="button" class="btn-close"
-											data-bs-dismiss="modal" aria-label="Close"></button>
-									</div>
-									<div class="modal-body">
-										<img id="img" class="rounded float-start d-block w-100"
-											src="pest01.jpg">
-									</div>
-									<div class="modal-footer">
-										<button type="button" class="btn btn-secondary"
-											data-bs-dismiss="modal">닫기</button>
+						<c:set var="path" value="resources/files/" />
+						<c:forEach var="img" items="${p_folderSelect }" varStatus="j">
+							<c:set var="date" value="${img.p_date }" />
+							<c:set var="folder" value="${img.p_folder }" />
+						
+							<div class="modal fade" id="exampleModal" tabindex="-1"
+								aria-labelledby="exampleModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-fullscreen">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel"></h5>
+											<button type="button" class="btn-close"
+												data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<img id="img" class="rounded float-start d-block w-100"
+												src="${path}${folder}/${img.p_name}">
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+												data-bs-dismiss="modal">닫기</button>
 
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
 
-						<c:set var="path" value="resources/files/" />
-						<c:forEach var="img" items="${MylookupImage }" varStatus="j">
-							<c:set var="date" value="${img.p_date }" />
-							<c:set var="folder" value="${img.p_folder }" />
+
+						
 
 							<td><a href="#"><img
 									class="rounded mx-auto  d-block w-100"
@@ -340,7 +345,10 @@ a.list {
 		var address = document.getElementById("pv_addr").value;
 		console.log(pv_addr);
 		// 주소로 좌표를 검색합니다
-		geocoder.addressSearch(address,function(result, status) {
+		geocoder
+				.addressSearch(
+						address,
+						function(result, status) {
 							// 정상적으로 검색이 완료됐으면
 							if (status === kakao.maps.services.Status.OK) {
 								var coords = new kakao.maps.LatLng(result[0].y,
