@@ -383,9 +383,9 @@ a.list {
 			</div>
 		</div>
 	</div>
-	 <!--   <script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7f35f963d64bccbe492dd16e66e06ec&libraries=services"></script>-->
-	<script type="text/javascript"
+<!--  	  <script
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7f35f963d64bccbe492dd16e66e06ec&libraries=services,clusterer,drawing"></script>-->
+	  <script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec635f5912f221b0179ac8521e7d1882&libraries=services,clusterer,drawing"></script>
 
 	<script>
@@ -402,14 +402,11 @@ a.list {
 
 		// 주소-좌표 변환 객체를 생성합니다
 		var geocoder = new kakao.maps.services.Geocoder();
-		var pv_addr = document.getElementById("pv_addr").value;
+		var address = document.getElementById("pv_addr").value;
 		// var pv_addr = "광주광역시 북구 문흥동 969-9";
-		console.log(pv_addr);
+		console.log(address);
 		// 주소로 좌표를 검색합니다
-		geocoder
-				.addressSearch(
-						pv_addr,
-						function(result, status) {
+		geocoder.addressSearch(address, function(result, status) {
 							// 정상적으로 검색이 완료됐으면
 							if (status === kakao.maps.services.Status.OK) {
 								var coords = new kakao.maps.LatLng(result[0].y,
@@ -425,7 +422,7 @@ a.list {
 								var infowindow = new kakao.maps.InfoWindow(
 										{
 											content : '<div style="width:150px;text-align:center;padding:6px 0;">'
-													+ pv_addr + "</div>",
+													+ address + "</div>",
 										});
 								infowindow.open(map, marker);
 
