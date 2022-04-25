@@ -171,7 +171,7 @@ a.list {
 					<tr>
 						<td class="table-active">지번</td>
 						<td><input type="text" class="form-control" name="pv_addr"
-							id="pv_addr" style="width: 500px;" /></td>
+							id="pv_addr" style="width: 300px;" /></td>
 					</tr>
 					<tr>
 						<td class="table-active">방제 면적</td>
@@ -256,7 +256,7 @@ a.list {
 
 		function go(val) {
 			var area = document.getElementById("pv_area").value;
-			var price = (area * 10) + '원';
+			var price = (area * 40) + '원';
 			document.getElementById("pv_price").value = price;
 		}
 	</script>
