@@ -322,7 +322,7 @@ a.list {
 
 
 
-				<!--  <table class="table table-bordered">
+				<!--  <table class="table table-bordered"> 
 					<tr>
 						<td>
 							<button type="button" class="btn btn-link" data-bs-toggle="modal"
