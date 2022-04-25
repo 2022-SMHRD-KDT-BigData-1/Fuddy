@@ -122,17 +122,41 @@ a.list {
 	<div class="container p-3 my-3 border">
 
 
-		<div style="text-align: center">
-			<h3>병해충 판독 완료</h3>
-		</div>
-		<hr />
-		<figure class="text-start">
-			<blockquote class="blockquote">
-				<p>※ N(빨간색테두리) : 정상</p>
-				<p>※ LB(분홍색테두리) : 잎마름병</p>
-			</blockquote>
+		
+          <div style="text-align: center">
+            <h3>병해충 판독 완료</h3>
+          </div>
+          <hr />
+          <figure class="text-start">
+          <blockquote class="blockquote">
+            <p>※ N(빨간색테두리) : 정상   </p>
+            <p>※ LB(분홍색테두리) : 
+              잎마름병</p>
+            
+            <p><button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="주로 잎과 잎자루에 발생하며, 간혹 줄기와 과실에도 발생한다.
+              잎에서는 처음 수침상의 둥근 점무늬로 나타나고, 진전되면 갈색의 원형 내지 부정형 병반으로 확대된다.
+              심하게 감염된 잎은 누렇게 변하여 말라 죽는다.
+              잎자루와 줄기에서는 처음에 작은 점무늬로 나타나고, 진전되면 병반이 감염 부위를 둘러싸게 되고, 그 위쪽은 말라 죽게 된다.
+              과실에서는 처음에 갈색의 원형반점이 약간 움푹 들어간 형태로 나타나며, 진전되면 분화구처럼 확대되고, 후에 감염부위가 쪼개지기도 한다." >
+              발생환경
+            </button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title=" 병원균은 병든 부위에서 균사나 분생포자의 형태로 겨울을 지낸 후, 분생포자를 형성하여 공기전염 한다.
+            감염은 16～32℃ 에서 일어나며, 병 발생 적온은 20～28℃이다.
+            이 병은 참깨, 콩 등의 다른 작물에서도 발생한다." >
+            증상설명
+          </button>
+          <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title=" 건전한 종자를 선별하고, 소독하여 파종한다. 퇴비를 시용하여 작물의 초세를 좋게 한다.
+         재배 시 균형시비를 한다." >
+            
 
-		</figure>
+            방제방법
+          </button>
+        </p>
+
+
+          </blockquote>
+          
+        </figure>
 		<div class="row row-cols-2">
 
 			<%-- <c:set var="path" value="resources/results/" />
