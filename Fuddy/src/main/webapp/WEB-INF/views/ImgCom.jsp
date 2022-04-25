@@ -132,7 +132,7 @@ a.list {
 				<p>※ N(빨간색테두리) : 정상</p>
 				<p>※ LB(분홍색테두리) : 잎마름병</p>
 
-				<p>
+				
 					<button type="button" class="btn btn-secondary"
 						data-bs-toggle="tooltip" data-bs-placement="bottom"
 						title="주로 잎과 잎자루에 발생하며, 간혹 줄기와 과실에도 발생한다.
@@ -154,7 +154,7 @@ a.list {
 
 
 						방제방법</button>
-				</p>
+				
 
 
 			</blockquote>
