@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -189,21 +190,28 @@ public class MainController {
 	}
 
 	@RequestMapping("/MyLookup.do")
-	public String MyLookup(String pv_date, int pv_num, int p_num, HttpSession session, Model model) {
+	public String MyLookup(String pv_date, int pv_num, int p_num, HttpSession session, Model model, HttpServletRequest request) {
+		
 		System.out.println("방제 내역 이동 동작");
 
-		pv_date = (String) session.getAttribute("pv_date");
-		p_num = (int) session.getAttribute("p_num");
-		String u_id = (String) session.getAttribute("u_id");
-		// List<PreventionVO> lookup = p_mapper.LookupSelect(pv_date);
-		PreventionVO pv_vo = p_mapper.LookupSelect(pv_date);
-		ImageVO imgvo =(ImageVO) p_mapper.P_name(p_num);
-		List<ImageVO> img_list = p_mapper.getImgList(imgvo.getP_folder());// 이미지 select
-				
-		model.addAttribute("lookup",pv_vo);
-		model.addAttribute("img_list",img_list);
+		pv_date = request.getParameter("pv_date");
+		System.out.println("pv_date : "+pv_date);
+		p_num = Integer.parseInt(request.getParameter("p_num"));
+		System.out.println("p_num : "+p_num);
 
-		return "redirect:/MyLookup.do";
+		// List<PreventionVO> lookup = p_mapper.LookupSelect(pv_date);
+		
+		PreventionVO pv_vo = p_mapper.LookupSelect(pv_date);
+		System.out.println("pv_vo : "+pv_vo);
+		ImageVO imgvo =(ImageVO) p_mapper.P_name(p_num);
+		System.out.println("imgvo : "+imgvo);
+		List<ImageVO> img_list = p_mapper.getImgList(imgvo.getP_folder());// 이미지 select
+		System.out.println("img_list : "+img_list);
+		
+		session.setAttribute("lookup",pv_vo);
+		session.setAttribute("img_list",img_list);
+		System.out.println("페이지 이동");
+		return "redirect:/MyLookup";
 	}
 
 }
