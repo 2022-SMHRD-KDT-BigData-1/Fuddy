@@ -90,7 +90,7 @@ a.list {
 									<!-- 로그아웃 화면으로 주소 바꾸세요 -->
 									<li class="nav-item"><a class="nav-link"
 										aria-current="page" href="ImgInput.do">방제 신청</a></li>
-									<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+									<!-- 로그아웃 화면으로 주소 바꾸세요  -->
 								</c:when>
 								<c:otherwise>
 									<!-- 로그인 했을 때 -->
