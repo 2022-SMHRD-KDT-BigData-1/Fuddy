@@ -5,7 +5,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FUDDY - imgcheck</title>
+<title>FUDDY - IMGCOM</title>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 
 
@@ -55,83 +55,63 @@ a.list {
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<!-- 로그인 안했을 때-->
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<c:choose>
-					<c:when test="${empty info and empty d_info}">
-						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="Login.do">로그인</a></li>
-						<!-- 로그인 화면으로 주소 바꾸세요 -->
+				<li class="nav-item"><a class="nav-link" aria-current="page"
+					href="#">로그인</a></li>
+				<!-- 로그인 화면으로 주소 바꾸세요 -->
 
-						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="Join.do">회원가입</a></li>
-						<!-- 회원가입 화면으로 주소 바꾸세요 -->
-					</c:when>
+				<li class="nav-item"><a class="nav-link" aria-current="page"
+					href="#">회원가입</a></li>
+				<!-- 회원가입 화면으로 주소 바꾸세요 -->
 
-					<c:otherwise>
-						<c:choose>
-							<c:when test="${!empty info }">
+				<!-- 로그인 했을 때 -->
+				<li class="nav-item"><a class="nav-link" aria-current="page"
+					href="#">로그아웃</a></li>
+				<!-- 로그아웃 화면으로 주소 바꾸세요 -->
 
-								<!-- 로그인 했을 때 -->
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="logout.do">로그아웃</a></li>
+				<li class="nav-item"><a class="nav-link" aria-current="page"
+					href="#">회원관리</a></li>
+				<!-- 회원관리화면으로 주소 바꾸세요 -->
 
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										마이페이지 </a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="MembeCheck.do">회원
-												정보</a></li>
-										<li><a class="dropdown-item" href="MyPrevention.do">방제
-												신청 현황</a></li>
-									</ul></li>
+				<li class="nav-item"><a class="nav-link" aria-current="page"
+					href="#">문의게시판</a></li>
+				<!-- 문의게시판으로 주소 바꾸세요 -->
 
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="Table2.do?pageNum=1">문의 게시판</a></li>
-								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="ImgInput.do">방제 신청</a></li>
-								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
-							</c:when>
-							<c:otherwise>
-								<!-- 로그인 했을 때 -->
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="logout.do">로그아웃</a></li>
-								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										관리 페이지 </a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="AdminList.do">드론기사</a></li>
-										<li><a class="dropdown-item" href="">제원 관리</a></li>
-										<li><a class="dropdown-item" href="#">회원 관리</a></li>
-									</ul></li>
-								<!-- 회원관리화면으로 주소 바꾸세요 -->
+				<!-- 드롭다운 복붙해서 쓰면 됨 -->
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						제원관리 </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="#">Action</a></li>
+						<li><a class="dropdown-item" href="#">Another action</a></li>
+					</ul></li>
+				<!-- 드롭다운 여기까지 -->
 
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="d_Table2.do?pageNum=1">문의게시판</a></li>
-								<!-- 문의게시판으로 주소 바꾸세요 -->
+				<!-- 드롭다운 복붙해서 쓰면 됨 -->
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						방제내역관리 </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="#">Action</a></li>
+						<li><a class="dropdown-item" href="#">Another action</a></li>
+					</ul></li>
+				<!-- 드롭다운 여기까지 -->
 
 
-								<!-- 드롭다운 복붙해서 쓰면 됨 -->
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										방제신청내역 </a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="Spec_Drone.do">기본
-												정보</a></li>
-										<li><a class="dropdown-item" href="Spec_Drug.do">내역
-												수정</a></li>
-										<li><a class="dropdown-item" href="Spec_Drug.do">사진</a></li>
-									</ul></li>
-
-							</c:otherwise>
-						</c:choose>
-					</c:otherwise>
-				</c:choose>
+				<!-- 드롭다운 복붙해서 쓰면 됨 -->
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Dropdown </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a class="dropdown-item" href="#">Action</a></li>
+						<li><a class="dropdown-item" href="#">Another action</a></li>
+					</ul></li>
+				<!-- 드롭다운 여기까지 -->
 			</ul>
 		</div>
+
 	</nav>
 	<!-- 네비바 끝 -->
 
@@ -175,9 +155,8 @@ a.list {
 					</c:otherwise>
 				</c:choose>
  --%>
-			<!-- http://f2.project-jupyter.ddns.net  -->
-			<c:set var="path"
-				value="http://f2.project-jupyter.ddns.net:8872/getImage/" />
+ 			<!-- http://f2.project-jupyter.ddns.net  -->
+			<c:set var="path" value="http://f2.project-jupyter.ddns.net:8872/getImage/" />
 
 			<c:forEach var="i" items="${deeplist }" varStatus="j">
 				<div class="col">
@@ -185,7 +164,7 @@ a.list {
 					<button type="button" class="btn btn-link" data-bs-toggle="modal"
 						data-bs-target="#exampleModal${j.count }">
 						<img class="rounded float-start d-block w-100"
-							src="${path}${i.deep_folder}/${i.deep_name}" />
+							src="http://f2.project-jupyter.ddns.net:8872/getImage/${i.deep_folder}/${i.deep_name}" />
 					</button>
 
 					<div class="modal fade" id="exampleModal${j.count }" tabindex="-1"
@@ -200,7 +179,7 @@ a.list {
 								</div>
 								<div class="modal-body">
 									<img id="img" class="rounded float-start d-block w-100"
-										src="${path}${i.deep_folder}/${i.deep_name}">
+										src="http://f2.project-jupyter.ddns.net:8872/getImage/${i.deep_folder}/${i.deep_name}">
 								</div>
 								<div class="modal-footer">
 									<button type="button" class="btn btn-secondary"
@@ -235,10 +214,12 @@ a.list {
 						요합니다.</span> <br>
 					<!--		<span class="badge bg-danger">위험</span><span>
 					: 농작물에게 지금 당장 방제해야 합니다.</span>-->
-					<hr>
+					
 
 				</blockquote>
+				
 			</figure>
+			<hr>
 			<figure class="text-center">
 				<blockquote class="blockquote">
 					<span>방제를 신청하시겠습니까? &ensp;</span> <a href="Prevention.do"><button
