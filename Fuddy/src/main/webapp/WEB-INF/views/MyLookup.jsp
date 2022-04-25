@@ -379,11 +379,11 @@ a.list {
 								src="resources/image/pest03.jpg"></a></td>
 					</tr>-->
 
-				</table>
+	
 			</div>
 		</div>
 	</div>
-	 <!--  <script type="text/javascript"
+	 <!--   <script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7f35f963d64bccbe492dd16e66e06ec&libraries=services"></script>-->
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec635f5912f221b0179ac8521e7d1882&libraries=services,clusterer,drawing"></script>
