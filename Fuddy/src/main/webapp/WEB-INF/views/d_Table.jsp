@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +11,7 @@
 <title>FUDDY - lookup</title>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <style>
-* { 
+* {
 	font-family: "NanumSquareRound";
 }
 
@@ -57,59 +57,81 @@ a.list {
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<!-- 로그인 안했을 때-->
 				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="#">로그인</a></li>
-					<!-- 로그인 화면으로 주소 바꾸세요 -->
+					<c:choose>
+						<c:when test="${empty info and empty d_info}">
+							<li class="nav-item"><a class="nav-link" aria-current="page"
+								href="Login.do">로그인</a></li>
+							<!-- 로그인 화면으로 주소 바꾸세요 -->
 
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="#">회원가입</a></li>
-					<!-- 회원가입 화면으로 주소 바꾸세요 -->
+							<li class="nav-item"><a class="nav-link" aria-current="page"
+								href="Join.do">회원가입</a></li>
+							<!-- 회원가입 화면으로 주소 바꾸세요 -->
+						</c:when>
 
-					<!-- 로그인 했을 때 -->
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="#">로그아웃</a></li>
-					<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+						<c:otherwise>
+							<c:choose>
+								<c:when test="${!empty info }">
 
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="#">회원관리</a></li>
-					<!-- 회원관리화면으로 주소 바꾸세요 -->
+									<!-- 로그인 했을 때 -->
+									<li class="nav-item"><a class="nav-link"
+										aria-current="page" href="logout.do">로그아웃</a></li>
 
-					<li class="nav-item"><a class="nav-link" aria-current="page"
-						href="#">문의게시판</a></li>
-					<!-- 문의게시판으로 주소 바꾸세요 -->
+									<li class="nav-item dropdown"><a
+										class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+										role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											마이페이지 </a>
+										<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<li><a class="dropdown-item" href="MembeCheck.do">회원
+													정보</a></li>
+											<li><a class="dropdown-item" href="MyPrevention.do">방제
+													신청 현황</a></li>
+										</ul></li>
 
-					<!-- 드롭다운 복붙해서 쓰면 됨 -->
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							제원관리 </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-						</ul></li>
-					<!-- 드롭다운 여기까지 -->
+									<li class="nav-item"><a class="nav-link"
+										aria-current="page" href="Table2.do?pageNum=1">문의 게시판</a></li>
+									<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+									<li class="nav-item"><a class="nav-link"
+										aria-current="page" href="ImgInput.do">방제 신청</a></li>
+									<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+								</c:when>
+								<c:otherwise>
+									<!-- 로그인 했을 때 -->
+									<li class="nav-item"><a class="nav-link"
+										aria-current="page" href="logout.do">로그아웃</a></li>
+									<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+									<li class="nav-item dropdown"><a
+										class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+										role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											관리 페이지 </a>
+										<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<li><a class="dropdown-item" href="AdminList.do">드론기사</a></li>
+											<li><a class="dropdown-item" href="">제원 관리</a></li>
+											<li><a class="dropdown-item" href="#">회원 관리</a></li>
+										</ul></li>
+									<!-- 회원관리화면으로 주소 바꾸세요 -->
 
-					<!-- 드롭다운 복붙해서 쓰면 됨 -->
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							방제내역관리 </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-						</ul></li>
-					<!-- 드롭다운 여기까지 -->
+									<li class="nav-item"><a class="nav-link"
+										aria-current="page" href="d_Table2.do?pageNum=1">문의게시판</a></li>
+									<!-- 문의게시판으로 주소 바꾸세요 -->
 
-					<!-- 드롭다운 복붙해서 쓰면 됨 -->
-					<li class="nav-item dropdown"><a
-						class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-						role="button" data-bs-toggle="dropdown" aria-expanded="false">
-							Dropdown </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="#">Action</a></li>
-							<li><a class="dropdown-item" href="#">Another action</a></li>
-						</ul></li>
-					<!-- 드롭다운 여기까지 -->
+
+									<!-- 드롭다운 복붙해서 쓰면 됨 -->
+									<li class="nav-item dropdown"><a
+										class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+										role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											방제신청내역 </a>
+										<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<li><a class="dropdown-item" href="Spec_Drone.do">기본
+													정보</a></li>
+											<li><a class="dropdown-item" href="Spec_Drug.do">내역
+													수정</a></li>
+											<li><a class="dropdown-item" href="Spec_Drug.do">사진</a></li>
+										</ul></li>
+
+								</c:otherwise>
+							</c:choose>
+						</c:otherwise>
+					</c:choose>
 				</ul>
 			</div>
 		</div>
@@ -148,8 +170,8 @@ a.list {
 		<div class="container-fluid">
 			<nav class="navbar navbar-light">
 				<div class="container-fluid">
-						<button type="button" class="btn btn-outline-success" style="visibility:hidden ">
-							글작성</button>
+					<button type="button" class="btn btn-outline-success"
+						style="visibility: hidden">글작성</button>
 					<form class="d-flex">
 						<select class="form-select" style="height: 40px; width: 100px"
 							aria-label="Default select example">
@@ -165,16 +187,16 @@ a.list {
 				</div>
 			</nav>
 		</div>
-	<!-- 페이징 구간 -->
+		<!-- 페이징 구간 -->
 		<nav aria-label="Page navigation example">
 
 			<ul style="justify-content: center" class="pagination">
 				<c:set var="back" value="${postStart/10}" />
 				<li class="page-item"><a class="page-link"
-					href="d_Table2.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back }" />"aria-label="Previous"> 
-					<span aria-hidden="true">&laquo;</span>
+					href="d_Table2.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back }" />"
+					aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
 				</a></li>
-				
+
 				<c:forEach begin="1" end="${endPageNum}" var="i">
 					<c:choose>
 						<c:when test="${postEnd eq 10 }">
@@ -188,17 +210,16 @@ a.list {
 					</c:choose>
 				</c:forEach>
 
-				
-				<li class="page-item">
-				<a class="page-link" href="d_Table2.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />"aria-label="Next">
-					 <span aria-hidden="true">&raquo;</span>
+
+				<li class="page-item"><a class="page-link"
+					href="d_Table2.do?pageNum=<fmt:formatNumber type="number" maxFractionDigits="0"  value="${back+2 }" />"
+					aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 				</a></li>
 			</ul>
 		</nav>
-	
-	<script type="text/javascript">
-	
-	
-	</script>
+
+		<script type="text/javascript">
+			
+		</script>
 </body>
 </html>

@@ -45,6 +45,10 @@ public class MainController {
 		System.out.println("스케줄 이동 동작");
 	}
 
+	@RequestMapping("/Spec.do")
+	public void Spec() {
+		System.out.println("제원 이동 동작");
+	}
 	/*
 	 * @RequestMapping("/Lookup.do") public String Lookup(HttpSession session, Model
 	 * model) { System.out.println("방제 현황 이동 동작"); MemberVO info = (MemberVO)
@@ -191,7 +195,7 @@ public class MainController {
 		pv_date = (String) session.getAttribute("pv_date");
 		p_num = (int) session.getAttribute("p_num");
 		List<PreventionVO> lookup = p_mapper.LookupSelect(pv_date);
-		List<ImageVO> img = p_mapper.P_name(p_num);// 이미지  select
+		List<ImageVO> img = p_mapper.P_name(p_num);// 이미지 select
 		for (int i = 0; i < img.size(); i++) {
 			String p_folder = img.get(i).getP_folder(); // 폴더 이름 가져오기
 			List<ImageVO> p_folderSelect = p_mapper.p_name(p_folder); // 파일 이름 가져오기
@@ -199,7 +203,7 @@ public class MainController {
 		}
 		System.out.println("성공");
 		model.addAttribute("lookup", lookup);
-	
+
 		return "MyLookup";
 	}
 
