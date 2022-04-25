@@ -189,7 +189,7 @@ public class MainController {
 
 	}
 
-	@RequestMapping("/MyLookup.do")
+	@RequestMapping("/MyLookup1.do")
 	public String MyLookup(String pv_date, int pv_num, int p_num, HttpSession session, Model model, HttpServletRequest request) {
 		
 		System.out.println("방제 내역 이동 동작");
@@ -211,7 +211,7 @@ public class MainController {
 		session.setAttribute("lookup",pv_vo);
 		session.setAttribute("img_list",img_list);
 		System.out.println("페이지 이동");
-		return "redirect:/MyLookup";
+		return "MyLookup";
 	}
 
 }

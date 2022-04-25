@@ -62,81 +62,83 @@ a.list {
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<!-- 로그인 안했을 때-->
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<c:choose>
-					<c:when test="${empty info and empty d_info}">
-						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="Login.do">로그인</a></li>
-						<!-- 로그인 화면으로 주소 바꾸세요 -->
+				<!-- 로그인 안했을 때-->
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<c:choose>
+						<c:when test="${empty info and empty d_info}">
+							<li class="nav-item"><a class="nav-link" aria-current="page"
+								href="Login.do">로그인</a></li>
+							<!-- 로그인 화면으로 주소 바꾸세요 -->
 
-						<li class="nav-item"><a class="nav-link" aria-current="page"
-							href="Join.do">회원가입</a></li>
-						<!-- 회원가입 화면으로 주소 바꾸세요 -->
-					</c:when>
+							<li class="nav-item"><a class="nav-link" aria-current="page"
+								href="Join.do">회원가입</a></li>
+							<!-- 회원가입 화면으로 주소 바꾸세요 -->
+						</c:when>
 
-					<c:otherwise>
-						<c:choose>
-							<c:when test="${!empty info }">
+						<c:otherwise>
+							<c:choose>
+								<c:when test="${!empty info }">
 
-								<!-- 로그인 했을 때 -->
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="logout.do">로그아웃</a></li>
+									<!-- 로그인 했을 때 -->
+									<li class="nav-item"><a class="nav-link"
+										aria-current="page" href="logout.do">로그아웃</a></li>
 
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										마이페이지 </a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="MembeCheck.do">회원 정보</a></li>
-										<li><a class="dropdown-item" href="MyPrevention.do">방제 신청 현황</a></li>
-									</ul></li>
+									<li class="nav-item dropdown"><a
+										class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+										role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											마이페이지 </a>
+										<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<li><a class="dropdown-item" href="MembeCheck.do">회원
+													정보</a></li>
+											<li><a class="dropdown-item" href="MyPrevention.do">방제
+													신청 현황</a></li>
+										</ul></li>
 
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="Table2.do?pageNum=1">문의 게시판</a></li>
-								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="ImgInput.do">방제 신청</a></li>
-								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
-							</c:when>
-							<c:otherwise>
-								<!-- 로그인 했을 때 -->
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="logout.do">로그아웃</a></li>
-								<!-- 로그아웃 화면으로 주소 바꾸세요 -->
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										관리 페이지 </a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="AdminList.do">드론기사</a></li>
-										<li><a class="dropdown-item" href="Spec.do">제원 관리</a></li>
-										<li><a class="dropdown-item" href="#">회원 관리</a></li>
-									</ul></li>
-								<!-- 회원관리화면으로 주소 바꾸세요 -->
+									<li class="nav-item"><a class="nav-link"
+										aria-current="page" href="Table2.do?pageNum=1">문의 게시판</a></li>
+									<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+									<li class="nav-item"><a class="nav-link"
+										aria-current="page" href="ImgInput.do">방제 신청</a></li>
+									<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+								</c:when>
+								<c:otherwise>
+									<!-- 로그인 했을 때 -->
+									<li class="nav-item"><a class="nav-link"
+										aria-current="page" href="logout.do">로그아웃</a></li>
+									<!-- 로그아웃 화면으로 주소 바꾸세요 -->
+									<li class="nav-item dropdown"><a
+										class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+										role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											관리 페이지 </a>
+										<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<li><a class="dropdown-item" href="AdminList.do">드론기사</a></li>
+											<li><a class="dropdown-item" href="Spec.do">제원 관리</a></li>
+											<li><a class="dropdown-item" href="#">회원 관리</a></li>
+										</ul></li>
+									<!-- 회원관리화면으로 주소 바꾸세요 -->
 
-								<li class="nav-item"><a class="nav-link"
-									aria-current="page" href="d_Table2.do?pageNum=1">문의게시판</a></li>
-								<!-- 문의게시판으로 주소 바꾸세요 -->
-								
+									<li class="nav-item"><a class="nav-link"
+										aria-current="page" href="d_Table2.do?pageNum=1">문의게시판</a></li>
+									<!-- 문의게시판으로 주소 바꾸세요 -->
 
-								<!-- 드롭다운 복붙해서 쓰면 됨 -->
-								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" href="3" id="navbarDropdown"
-									role="button" data-bs-toggle="dropdown" aria-expanded="false">
-										방제신청내역 </a>
-									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="#">기본 정보</a></li>
-										<li><a class="dropdown-item" href="#">내역 수정</a></li>
-										<li><a class="dropdown-item" href="#">사진</a></li>
-									</ul></li>
-							
-							</c:otherwise>
-						</c:choose>
-					</c:otherwise>
-				</c:choose>
-			</ul>
-		</div>
+
+									<!-- 드롭다운 복붙해서 쓰면 됨 -->
+									<li class="nav-item dropdown"><a
+										class="nav-link dropdown-toggle" href="3" id="navbarDropdown"
+										role="button" data-bs-toggle="dropdown" aria-expanded="false">
+											방제신청내역 </a>
+										<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+											<li><a class="dropdown-item" href="#">기본 정보</a></li>
+											<li><a class="dropdown-item" href="#">내역 수정</a></li>
+											<li><a class="dropdown-item" href="#">사진</a></li>
+										</ul></li>
+
+								</c:otherwise>
+							</c:choose>
+						</c:otherwise>
+					</c:choose>
+				</ul>
+			</div>
 		</div>
 	</nav>
 	<!-- 네비바 끝 -->
@@ -173,49 +175,50 @@ a.list {
 				role="tabpanel" aria-labelledby="pills-home-tab">
 				<!-- 기본정보 -->
 				<table class="table" style="text-align: center">
-				<c:set var="lookup" value="${lookup}"/>
-						<tr>
-							<td class="table-active">담당자</td>
-							<td>${lookup.admin_id }</td>
-							<td class="table-active">신청자</td>
-							<td>${lookup.u_id }</td>
-						</tr>
-						<tr>
-							<td class="table-active">작물정보</td>
-							<td>${lookup.pv_crop }</td>
-							<td class="table-active">병해충</td>
-							<td>${lookup.pv_disease }</td>
-						</tr>
-						<tr>
-							<!-- map API -->
-							<td colspan="4">
-								<div id="map1" class="map" style="width: 100%; height: 350px"></div>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-active">위치</td>
-							<td>${lookup.pv_addr }</td>
-							<td class="table-active">방제면적</td>
-							<td>${lookup.pv_area }</td>
-						</tr>
-						<tr>
-							<td class="table-active">방제약</td>
-							<td>${lookup.pv_drug }</td>
-							<td class="table-active">신청일</td>
-							<td>${lookup.pv_date }</td>
-						</tr>
-						<tr></tr>
-						<tr>
-							<td class="table-active">방제날짜</td>
-							<td colspan="3"><span>${lookup.pv_st_dt } ~</span> <span>${i.pv_ed_dt }</span>
-							</td>
-						</tr>
-						<tr>
-							<td class="table-active">특이사항</td>
-							<td colspan="3">
-								<!--특이사항 넣는 곳--> ${lookup.pv_note }
-							</td>
-						</tr>
+					<c:set var="lookup" value="${lookup}" />
+					<tr>
+						<td class="table-active">담당자</td>
+						<td>${lookup.admin_id }</td>
+						<td class="table-active">신청자</td>
+						<td>${lookup.u_id }</td>
+					</tr>
+					<tr>
+						<td class="table-active">작물정보</td>
+						<td>${lookup.pv_crop }</td>
+						<td class="table-active">병해충</td>
+						<td>${lookup.pv_disease }</td>
+					</tr>
+					<tr>
+						<!-- map API -->
+						<td colspan="4">
+							<div id="map" style="width: 100%; height: 350px"></div>
+							<input type="hidden" id="pv_addr" name="pv_addr" value="${lookup.pv_addr }">
+						</td>
+					</tr>
+					<tr>
+						<td class="table-active">위치</td>
+						<td>${lookup.pv_addr }</td>
+						<td class="table-active">방제면적</td>
+						<td>${lookup.pv_area }</td>
+					</tr>
+					<tr>
+						<td class="table-active">방제약</td>
+						<td>${lookup.pv_drug }</td>
+						<td class="table-active">신청일</td>
+						<td>${lookup.pv_date }</td>
+					</tr>
+					<tr></tr>
+					<tr>
+						<td class="table-active">방제날짜</td>
+						<td colspan="3"><span>${lookup.pv_st_dt } ~</span> <span>${lookup.pv_ed_dt }</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="table-active">특이사항</td>
+						<td colspan="3">
+							<!--특이사항 넣는 곳--> ${lookup.pv_note }
+						</td>
+					</tr>
 				</table>
 			</div>
 			<div class="tab-pane fade" id="pills-profile" role="tabpanel"
@@ -224,49 +227,51 @@ a.list {
 				<form action="lookupUpdate.do" style="text-align: center">
 					<table class="table" style="text-align: center">
 
-							<input type="hidden" name="pv_num" value="${lookup.pv_num}">
-							<input type="hidden" name="p_num" value="${lookup.p_num}">
-							<tr>
-								<td class="table-active">담당자</td>
-								<td><input type="text" name="admin_id"
-									value="${lookup.admin_id } " /></td>
-								<td class="table-active">신청자</td>
-								<td><input type="text" name="u_id" value="${lookup.u_id }" /></td>
-							</tr>
-							<tr>
-								<td class="table-active">작물정보</td>
-								<td><input type="text" name="pv_crop" value="${lookup.pv_crop }" /></td>
-								<td class="table-active">병해충</td>
-								<td><input type="text" name="pv_disease"
-									value="${lookup.pv_disease }" /></td>
-							</tr>
+						<input type="hidden" name="pv_num" value="${lookup.pv_num}">
+						<input type="hidden" name="p_num" value="${lookup.p_num}">
+						<tr>
+							<td class="table-active">담당자</td>
+							<td><input type="text" name="admin_id"
+								value="${lookup.admin_id } " /></td>
+							<td class="table-active">신청자</td>
+							<td><input type="text" name="u_id" value="${lookup.u_id }" /></td>
+						</tr>
+						<tr>
+							<td class="table-active">작물정보</td>
+							<td><input type="text" name="pv_crop"
+								value="${lookup.pv_crop }" /></td>
+							<td class="table-active">병해충</td>
+							<td><input type="text" name="pv_disease"
+								value="${lookup.pv_disease }" /></td>
+						</tr>
 
-							<tr>
-								<td class="table-active">위치</td>
-								<td><input type="text" id="pv_addr" name="pv_addr"
-									value="${lookup.pv_addr }" /></td>
-								<td class="table-active">방제면적</td>
-								<td><input type="text" name="pv_area" value="${lookup.pv_area }" /></td>
-							</tr>
-							<tr>
-								<td class="table-active">방제약</td>
-								<td><input type="text" name="pv_drug" value="${lookup.pv_drug }" /></td>
-								<td class="table-active">신청일</td>
-								<td><input type="date" name="pv_date" class="date"
-									value="${lookup.pv_date }" /></td>
-							</tr>
-							<tr>
-								<td class="table-active">방제날짜</td>
-								<td colspan="3"><span> <input type="date"
-										name="pv_st_dt" class="date" value="${lookup.pv_st_dt }" /></span> ~ <span><input
-										type="date" name="pv_ed_dt" class="date"
-										value="${lookup.pv_ed_dt }" /> </span></td>
-							</tr>
-							<tr>
-								<td class="table-active">특이사항</td>
-								<td colspan="3"><textarea name="pv_note"
-										style="width: 100%">${lookup.pv_note }</textarea></td>
-							</tr>
+						<tr>
+							<td class="table-active">위치</td>
+							<td><input type="text" id="pv_addr" name="pv_addr"
+								value="${lookup.pv_addr }" /></td>
+							<td class="table-active">방제면적</td>
+							<td><input type="text" name="pv_area"
+								value="${lookup.pv_area }" /></td>
+						</tr>
+						<tr>
+							<td class="table-active">방제약</td>
+							<td><input type="text" name="pv_drug"
+								value="${lookup.pv_drug }" /></td>
+							<td class="table-active">신청일</td>
+							<td><input type="date" name="pv_date" class="date"
+								value="${lookup.pv_date }" /></td>
+						</tr>
+						<tr>
+							<td class="table-active">방제날짜</td>
+							<td colspan="3"><span> <input type="date"
+									name="pv_st_dt" class="date" value="${lookup.pv_st_dt }" /></span> ~
+								<span><input type="date" name="pv_ed_dt" class="date"
+									value="${lookup.pv_ed_dt }" /> </span></td>
+						</tr>
+						<tr>
+							<td class="table-active">특이사항</td>
+							<td colspan="3"><textarea name="pv_note" style="width: 100%">${lookup.pv_note }</textarea></td>
+						</tr>
 
 					</table>
 					<button type="submit" class="btn btn-outline-success">수정</button>
@@ -274,7 +279,50 @@ a.list {
 			</div>
 			<div class="tab-pane fade" id="pills-contact" role="tabpanel"
 				aria-labelledby="pills-contact-tab">
-				<table class="table table-bordered">
+
+
+				<div class="row row-cols-2">
+					<c:forEach var="i" items="${img_list }" varStatus="j">
+						<c:set var="date" value="${img.p_date }" />
+						<c:set var="folder" value="${i.p_folder }" />
+
+						<div class="col">
+
+							<button type="button" class="btn btn-link" data-bs-toggle="modal"
+								data-bs-target="#exampleModal${j.count }">
+								<img class="rounded float-start d-block w-100"
+									src="http://f2.project-jupyter.ddns.net:8872/getImage/${folder}/${i.p_name}" />
+							</button>
+
+							<div class="modal fade" id="exampleModal${j.count }"
+								tabindex="-1" aria-labelledby="exampleModalLabel${j.count }"
+								aria-hidden="true">
+								<div class="modal-dialog modal-fullscreen">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel${j.count }">${i.p_name}
+											</h5>
+											<button type="button" class="btn-close"
+												data-bs-dismiss="modal" aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<img id="img" class="rounded float-start d-block w-100"
+												src="http://f2.project-jupyter.ddns.net:8872/getImage/${folder}/${i.p_name}">
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-secondary"
+												data-bs-dismiss="modal">닫기</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</c:forEach>
+				</div>
+
+
+
+				<!--  <table class="table table-bordered">
 					<tr>
 						<td>
 							<button type="button" class="btn btn-link" data-bs-toggle="modal"
@@ -284,9 +332,7 @@ a.list {
 						</td>
 						<c:set var="path" value="resources/files/" />
 						<c:forEach var="img" items="${img_list }" varStatus="j">
-							<c:set var="date" value="${img.p_date }" />
-							<c:set var="folder" value="${img.p_folder }" />
-						
+
 							<div class="modal fade" id="exampleModal" tabindex="-1"
 								aria-labelledby="exampleModalLabel" aria-hidden="true">
 								<div class="modal-dialog modal-fullscreen">
@@ -310,16 +356,16 @@ a.list {
 							</div>
 
 
-						
+
 
 							<td><a href="#"><img
 									class="rounded mx-auto  d-block w-100"
 									src="http://f2.project-jupyter.ddns.net:8872/getImage/${folder}/${img.p_name}"></a></td>
-							<!-- <td><a href="#"><img
+							 <td><a href="#"><img
 									class="rounded float-end d-block w-100"
-									src="resources/image/pest03.jpg"></a></td> -->
+									src="resources/image/pest03.jpg"></a></td> 
 						</c:forEach>
-					</tr>
+					</tr>-->
 
 					<!--<tr>
 						<td><a href="#"><img
@@ -337,15 +383,14 @@ a.list {
 			</div>
 		</div>
 	</div>
+	 <!--  <script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7f35f963d64bccbe492dd16e66e06ec&libraries=services"></script>-->
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7f35f963d64bccbe492dd16e66e06ec&libraries=services"></script>
-	<!--  <script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec635f5912f221b0179ac8521e7d1882&libraries=services,clusterer,drawing"></script>-->
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=ec635f5912f221b0179ac8521e7d1882&libraries=services,clusterer,drawing"></script>
 
 	<script>
 		// 기본정보 지도
-		// var mapContainer = document.getElementsByClassName("map");
-		var mapContainer = document.getElementById("map1"); // 지도를 표시할 div
+		var mapContainer = document.getElementById("map"); // 지도를 표시할 div
 
 		var mapOption = {
 			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -357,14 +402,13 @@ a.list {
 
 		// 주소-좌표 변환 객체를 생성합니다
 		var geocoder = new kakao.maps.services.Geocoder();
-
-		//var address = "광주광역시 북구 문흥동 969-9";
-		var address = document.getElementById("pv_addr").value;
+		var pv_addr = document.getElementById("pv_addr").value;
+		// var pv_addr = "광주광역시 북구 문흥동 969-9";
 		console.log(pv_addr);
 		// 주소로 좌표를 검색합니다
 		geocoder
 				.addressSearch(
-						address,
+						pv_addr,
 						function(result, status) {
 							// 정상적으로 검색이 완료됐으면
 							if (status === kakao.maps.services.Status.OK) {
@@ -381,7 +425,7 @@ a.list {
 								var infowindow = new kakao.maps.InfoWindow(
 										{
 											content : '<div style="width:150px;text-align:center;padding:6px 0;">'
-													+ address + "</div>",
+													+ pv_addr + "</div>",
 										});
 								infowindow.open(map, marker);
 
@@ -390,44 +434,7 @@ a.list {
 							}
 						});
 
-		var address = "광주광역시 북구 문흥동 969-9";
-		var mapContainer2 = document.getElementById("map2"); // 지도를 표시할 div
-		var mapOption2 = {
-			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-			level : 3, // 지도의 확대 레벨
-		};
-		var map2 = new kakao.maps.Map(mapContainer2, mapOption2);
-		var geocoder2 = new kakao.maps.services.Geocoder();
-
-		geocoder2
-				.addressSearch(
-						address,
-						function(result2, status) {
-							// 정상적으로 검색이 완료됐으면
-							if (status === kakao.maps.services.Status.OK) {
-								var coords2 = new kakao.maps.LatLng(
-										result2[0].y, result2[0].x);
-
-								// 결과값으로 받은 위치를 마커로 표시합니다
-
-								var marker2 = new kakao.maps.Marker({
-									map : map2,
-									position : coords2,
-								});
-
-								// 인포윈도우로 장소에 대한 설명을 표시합니다
-								var infowindow2 = new kakao.maps.InfoWindow(
-										{
-											content : '<div style="width:150px;text-align:center;padding:6px 0;">'
-													+ address + "</div>",
-										});
-
-								infowindow2.open(map2, marker2);
-
-								// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-								map2.setCenter(coords2);
-							}
-						});
+		
 	</script>
 </body>
 </html>
