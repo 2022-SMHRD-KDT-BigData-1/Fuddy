@@ -202,7 +202,9 @@ a.list {
 						class="rounded float-end d-block w-100" src="pest03.jpg"></a></td>
 			</tr> -->
 
-<hr>
+
+		</div>
+		<hr>
 
 			<figure class="text-start">
 				<blockquote class="blockquote">
@@ -227,6 +229,5 @@ a.list {
 							class="btn btn-outline-success">아니오</button></a>
 				</blockquote>
 			</figure>
-		</div>
 	</div>
 </body>
