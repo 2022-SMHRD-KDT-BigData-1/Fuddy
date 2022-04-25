@@ -153,7 +153,7 @@ a.list {
 
 					<tr>
 						<td>${j.count }</td>
-						<td><a href="MyLookup1.do?pv_date=${i.pv_date}&pv_num=${i.pv_num}&p_num=${i.p_num}">${i.pv_date}</a></td>
+						<td><a href="MyLookup.do?pv_date=${i.pv_date}&pv_num=${i.pv_num}&p_num=${i.p_num}">${i.pv_date}</a></td>
 						<td>${i.pv_crop}</td>
 					</tr>
 				</c:forEach>

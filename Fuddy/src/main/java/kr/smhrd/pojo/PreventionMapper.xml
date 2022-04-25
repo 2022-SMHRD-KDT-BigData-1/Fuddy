@@ -76,5 +76,9 @@
 		<!-- select * from t_image where u_id = #{u_id} and p_folder = #{p_folder} 
 			ORDER BY p_date desc -->
 	</select>
+	
+	<select id="getImgList" resultType="kr.smhrd.pojo.ImageVO">
+	    select * from t_image where p_folder = #{p_folder}
+	</select>
 
 </mapper>

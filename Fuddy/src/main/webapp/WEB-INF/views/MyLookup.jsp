@@ -7,7 +7,7 @@
 <meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>FUDDY - LOOKUP</title>
+<title>FUDDY - MYLOOKUP</title>
 <link href="resources/css/bootstrap.min.css" rel="stylesheet" />
 <style>
 * {
@@ -173,18 +173,18 @@ a.list {
 				role="tabpanel" aria-labelledby="pills-home-tab">
 				<!-- 기본정보 -->
 				<table class="table" style="text-align: center">
-					<c:forEach var="i" items="${lookup}">
+				<c:set var="lookup" value="${lookup}"/>
 						<tr>
 							<td class="table-active">담당자</td>
-							<td>${i.admin_id }</td>
+							<td>${lookup.admin_id }</td>
 							<td class="table-active">신청자</td>
-							<td>${i.u_id }</td>
+							<td>${lookup.u_id }</td>
 						</tr>
 						<tr>
 							<td class="table-active">작물정보</td>
-							<td>${i.pv_crop }</td>
+							<td>${lookup.pv_crop }</td>
 							<td class="table-active">병해충</td>
-							<td>${i.pv_disease }</td>
+							<td>${lookup.pv_disease }</td>
 						</tr>
 						<tr>
 							<!-- map API -->
@@ -194,29 +194,28 @@ a.list {
 						</tr>
 						<tr>
 							<td class="table-active">위치</td>
-							<td>${i.pv_addr }</td>
+							<td>${lookup.pv_addr }</td>
 							<td class="table-active">방제면적</td>
-							<td>${i.pv_area }</td>
+							<td>${lookup.pv_area }</td>
 						</tr>
 						<tr>
 							<td class="table-active">방제약</td>
-							<td>${i.pv_drug }</td>
+							<td>${lookup.pv_drug }</td>
 							<td class="table-active">신청일</td>
-							<td>${i.pv_date }</td>
+							<td>${lookup.pv_date }</td>
 						</tr>
 						<tr></tr>
 						<tr>
 							<td class="table-active">방제날짜</td>
-							<td colspan="3"><span>${i.pv_st_dt } ~</span> <span>${i.pv_ed_dt }</span>
+							<td colspan="3"><span>${lookup.pv_st_dt } ~</span> <span>${i.pv_ed_dt }</span>
 							</td>
 						</tr>
 						<tr>
 							<td class="table-active">특이사항</td>
 							<td colspan="3">
-								<!--특이사항 넣는 곳--> ${i.pv_note }
+								<!--특이사항 넣는 곳--> ${lookup.pv_note }
 							</td>
 						</tr>
-					</c:forEach>
 				</table>
 			</div>
 			<div class="tab-pane fade" id="pills-profile" role="tabpanel"
@@ -224,51 +223,51 @@ a.list {
 				<!-- 내역수정 -->
 				<form action="lookupUpdate.do" style="text-align: center">
 					<table class="table" style="text-align: center">
-						<c:forEach var="j" items="${lookup}">
-							<input type="hidden" name="pv_num" value="${j.pv_num}">
-							<input type="hidden" name="p_num" value="${j.p_num}">
+
+							<input type="hidden" name="pv_num" value="${lookup.pv_num}">
+							<input type="hidden" name="p_num" value="${lookup.p_num}">
 							<tr>
 								<td class="table-active">담당자</td>
 								<td><input type="text" name="admin_id"
-									value="${j.admin_id } " /></td>
+									value="${lookup.admin_id } " /></td>
 								<td class="table-active">신청자</td>
-								<td><input type="text" name="u_id" value="${j.u_id }" /></td>
+								<td><input type="text" name="u_id" value="${lookup.u_id }" /></td>
 							</tr>
 							<tr>
 								<td class="table-active">작물정보</td>
-								<td><input type="text" name="pv_crop" value="${j.pv_crop }" /></td>
+								<td><input type="text" name="pv_crop" value="${lookup.pv_crop }" /></td>
 								<td class="table-active">병해충</td>
 								<td><input type="text" name="pv_disease"
-									value="${j.pv_disease }" /></td>
+									value="${lookup.pv_disease }" /></td>
 							</tr>
 
 							<tr>
 								<td class="table-active">위치</td>
 								<td><input type="text" id="pv_addr" name="pv_addr"
-									value="${j.pv_addr }" /></td>
+									value="${lookup.pv_addr }" /></td>
 								<td class="table-active">방제면적</td>
-								<td><input type="text" name="pv_area" value="${j.pv_area }" /></td>
+								<td><input type="text" name="pv_area" value="${lookup.pv_area }" /></td>
 							</tr>
 							<tr>
 								<td class="table-active">방제약</td>
-								<td><input type="text" name="pv_drug" value="${j.pv_drug }" /></td>
+								<td><input type="text" name="pv_drug" value="${lookup.pv_drug }" /></td>
 								<td class="table-active">신청일</td>
 								<td><input type="date" name="pv_date" class="date"
-									value="${j.pv_date }" /></td>
+									value="${lookup.pv_date }" /></td>
 							</tr>
 							<tr>
 								<td class="table-active">방제날짜</td>
 								<td colspan="3"><span> <input type="date"
-										name="pv_st_dt" class="date" value="${j.pv_st_dt }" /></span> ~ <span><input
+										name="pv_st_dt" class="date" value="${lookup.pv_st_dt }" /></span> ~ <span><input
 										type="date" name="pv_ed_dt" class="date"
-										value="${j.pv_ed_dt }" /> </span></td>
+										value="${lookup.pv_ed_dt }" /> </span></td>
 							</tr>
 							<tr>
 								<td class="table-active">특이사항</td>
 								<td colspan="3"><textarea name="pv_note"
-										style="width: 100%">${i.pv_note }</textarea></td>
+										style="width: 100%">${lookup.pv_note }</textarea></td>
 							</tr>
-						</c:forEach>
+
 					</table>
 					<button type="submit" class="btn btn-outline-success">수정</button>
 				</form>
@@ -284,7 +283,7 @@ a.list {
 							</button>
 						</td>
 						<c:set var="path" value="resources/files/" />
-						<c:forEach var="img" items="${p_folderSelect }" varStatus="j">
+						<c:forEach var="img" items="${img_list }" varStatus="j">
 							<c:set var="date" value="${img.p_date }" />
 							<c:set var="folder" value="${img.p_folder }" />
 						
@@ -299,7 +298,7 @@ a.list {
 										</div>
 										<div class="modal-body">
 											<img id="img" class="rounded float-start d-block w-100"
-												src="${path}${folder}/${img.p_name}">
+												src="http://f2.project-jupyter.ddns.net:8872/getImage/${folder}/${img.p_name}">
 										</div>
 										<div class="modal-footer">
 											<button type="button" class="btn btn-secondary"
@@ -315,7 +314,7 @@ a.list {
 
 							<td><a href="#"><img
 									class="rounded mx-auto  d-block w-100"
-									src="${path}${folder}/${img.p_name}"></a></td>
+									src="http://f2.project-jupyter.ddns.net:8872/getImage/${folder}/${img.p_name}"></a></td>
 							<!-- <td><a href="#"><img
 									class="rounded float-end d-block w-100"
 									src="resources/image/pest03.jpg"></a></td> -->

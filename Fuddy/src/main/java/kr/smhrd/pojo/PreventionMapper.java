@@ -22,14 +22,16 @@ public interface PreventionMapper {
 
 	List<PreventionVO> preventionList(String u_id);
 
-	List<PreventionVO> LookupSelect(String pv_date);
+	PreventionVO LookupSelect(String pv_date);
 
 	List<ImageVO> MylookupImage(String p_folder);
 
 	void lookupUpdate(PreventionVO vo);
 
-	List<ImageVO> P_name(int p_num);
+	ImageVO P_name(int p_num);
 
 	List<ImageVO> p_name(String p_folder);
+
+	List<ImageVO> getImgList(String p_folder);
 
 }

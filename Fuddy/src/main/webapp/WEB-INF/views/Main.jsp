@@ -186,7 +186,7 @@ a.list {
             <hr>
             <div class="col-sm-12">
             
-                <h1>Farm Useful Drone Direct</h1>
+                <h1>푸띠 : Farm Useful Drone Direct</h1>
             </div>
            <hr>
         </div>

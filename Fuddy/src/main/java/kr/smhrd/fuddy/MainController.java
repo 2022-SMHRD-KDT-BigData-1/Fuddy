@@ -188,23 +188,22 @@ public class MainController {
 
 	}
 
-	@RequestMapping("/MyLookup1.do")
+	@RequestMapping("/MyLookup.do")
 	public String MyLookup(String pv_date, int pv_num, int p_num, HttpSession session, Model model) {
 		System.out.println("방제 내역 이동 동작");
 
 		pv_date = (String) session.getAttribute("pv_date");
 		p_num = (int) session.getAttribute("p_num");
-		List<PreventionVO> lookup = p_mapper.LookupSelect(pv_date);
-		List<ImageVO> img = p_mapper.P_name(p_num);// 이미지 select
-		for (int i = 0; i < img.size(); i++) {
-			String p_folder = img.get(i).getP_folder(); // 폴더 이름 가져오기
-			List<ImageVO> p_folderSelect = p_mapper.p_name(p_folder); // 파일 이름 가져오기
-			model.addAttribute("p_folderSelect", p_folderSelect);
-		}
-		System.out.println("성공");
-		model.addAttribute("lookup", lookup);
+		String u_id = (String) session.getAttribute("u_id");
+		// List<PreventionVO> lookup = p_mapper.LookupSelect(pv_date);
+		PreventionVO pv_vo = p_mapper.LookupSelect(pv_date);
+		ImageVO imgvo =(ImageVO) p_mapper.P_name(p_num);
+		List<ImageVO> img_list = p_mapper.getImgList(imgvo.getP_folder());// 이미지 select
+				
+		model.addAttribute("lookup",pv_vo);
+		model.addAttribute("img_list",img_list);
 
-		return "MyLookup";
+		return "redirect:/MyLookup.do";
 	}
 
 }

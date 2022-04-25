@@ -9,6 +9,8 @@ select * from t_image where u_id = "qo1515";
 
 select * from t_image
 
+select * from t_prevention
+
 delete from t_image where u_id = "test"
 
 select * from t_deep
