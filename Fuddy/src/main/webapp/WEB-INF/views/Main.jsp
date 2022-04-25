@@ -115,13 +115,13 @@ a.list {
 
 								<!-- 드롭다운 복붙해서 쓰면 됨 -->
 								<li class="nav-item dropdown"><a
-									class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+									class="nav-link dropdown-toggle" href="3" id="navbarDropdown"
 									role="button" data-bs-toggle="dropdown" aria-expanded="false">
 										방제신청내역 </a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="Spec_Drone.do">기본 정보</a></li>
-										<li><a class="dropdown-item" href="Spec_Drug.do">내역 수정</a></li>
-										<li><a class="dropdown-item" href="Spec_Drug.do">사진</a></li>
+										<li><a class="dropdown-item" href="#">기본 정보</a></li>
+										<li><a class="dropdown-item" href="#">내역 수정</a></li>
+										<li><a class="dropdown-item" href="#">사진</a></li>
 									</ul></li>
 							
 							</c:otherwise>
