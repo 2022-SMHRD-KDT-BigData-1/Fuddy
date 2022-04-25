@@ -157,10 +157,10 @@ a.list {
  --%>
  			<!-- http://f2.project-jupyter.ddns.net  -->
 			<c:set var="path" value="http://f2.project-jupyter.ddns.net:8872/getImage/" />
-
+			
 			<c:forEach var="i" items="${deeplist }" varStatus="j">
 				<div class="col">
-
+					http://f2.project-jupyter.ddns.net:8872/getImage/${i.deep_folder}/${i.deep_name}
 					<button type="button" class="btn btn-link" data-bs-toggle="modal"
 						data-bs-target="#exampleModal${j.count }">
 						<img class="rounded float-start d-block w-100"
@@ -202,7 +202,7 @@ a.list {
 						class="rounded float-end d-block w-100" src="pest03.jpg"></a></td>
 			</tr> -->
 
-
+<hr>
 
 			<figure class="text-start">
 				<blockquote class="blockquote">
@@ -219,7 +219,7 @@ a.list {
 				</blockquote>
 				
 			</figure>
-			<hr>
+			
 			<figure class="text-center">
 				<blockquote class="blockquote">
 					<span>방제를 신청하시겠습니까? &ensp;</span> <a href="Prevention.do"><button
