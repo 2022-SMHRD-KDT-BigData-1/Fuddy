@@ -152,7 +152,7 @@ a.list {
 						<td>
 							<div>
 								<input type="text" readonly class="form-control" name="u_id"
-									id="u_id" value="${info.u_id }" style="width: 200px;" />
+									id="u_id" value="${info.u_id }" />
 							</div>
 						</td>
 					</tr>
@@ -163,7 +163,7 @@ a.list {
 						<td>
 							<div>
 								<input type="text" readonly class="form-control" name="u_name"
-									id="u_name" value="${info.u_name }" style="width: 200px;" />
+									id="u_name" value="${info.u_name }" />
 							</div>
 						</td>
 					</tr>
@@ -171,12 +171,12 @@ a.list {
 					<tr>
 						<td class="table-active">지번</td>
 						<td><input type="text" class="form-control" name="pv_addr"
-							id="pv_addr" style="width: 300px;" /></td>
+							id="pv_addr" /></td>
 					</tr>
 					<tr>
 						<td class="table-active">방제 면적</td>
 						<td><input type="text" class="form-control" name="pv_area"
-							id="pv_area" style="width: 200px;" onkeyup="go(this.value)" /></td>
+							id="pv_area"  onkeyup="go(this.value)" /></td>
 					</tr>
 
 					<tr>
